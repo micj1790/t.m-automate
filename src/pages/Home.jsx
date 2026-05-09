@@ -6,12 +6,14 @@ import IndustriesSection from '@/components/home/IndustriesSection';
 import FeaturedProjects from '@/components/home/FeaturedProjects';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
+import BrandsBanner from '@/components/home/BrandsBanner';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <StatsSection />
+      <BrandsBanner />
       <ServicesPreview />
       <IndustriesSection />
       <FeaturedProjects />
