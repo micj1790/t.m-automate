@@ -11,8 +11,8 @@ import BrandsBanner from '@/components/home/BrandsBanner';
 export default function Home() {
   return (
     <>
-      <HeroSection />
       <BrandsBanner />
+      <HeroSection />
       <StatsSection />
       <ServicesPreview />
       <IndustriesSection />
