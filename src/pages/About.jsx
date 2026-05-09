@@ -26,7 +26,7 @@ export default function About() {
       {/* Hero */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80" alt="About T.M Engineering" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80" alt="About T.M Engineering" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
