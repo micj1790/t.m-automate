@@ -116,52 +116,43 @@ export default function Products() {
 
       {/* Products */}
       <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          {products.map((prod, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="rounded-2xl bg-card border border-border overflow-hidden gradient-border">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 !== 0 ? '' : ''}`}>
-                {/* Image */}
-                <div className={`relative ${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
-                  <div className="aspect-[16/10] lg:aspect-auto lg:h-full relative overflow-hidden">
-                    <img src={prod.img} alt={prod.category} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-card/60 to-transparent" />
-                    {prod.ytId && (
-                      <a href={`https://www.youtube.com/watch?v=${prod.ytId}`} target="_blank" rel="noopener noreferrer"
-                        className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/20 transition-colors">
-                        <Play className="w-3.5 h-3.5" /> Watch Video
-                      </a>
-                    )}
-                    <div className="absolute top-4 right-4">
-                      <span className="px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold">{prod.tag}</span>
-                    </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {products.map((prod, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="rounded-xl bg-card border border-border p-5 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0">
+                    <prod.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="text-sm font-black text-foreground">{prod.category}</h2>
+                    <span className="text-[10px] font-semibold text-accent">{prod.tag}</span>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className={`p-6 md:p-8 ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center">
-                      <prod.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h2 className="text-xl font-black text-foreground">{prod.category}</h2>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{prod.desc}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
-                    {prod.items.map(item => (
-                      <div key={item.name} className="p-3 rounded-lg bg-secondary/50 border border-border hover:border-primary/20 transition-colors">
-                        <div className="text-xs font-bold text-foreground mb-0.5">{item.name}</div>
-                        <div className="text-[10px] text-muted-foreground">{item.desc}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <Link to="/quote" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/8 border border-primary/20 text-primary text-sm font-bold hover:bg-primary/15 transition-all">
-                    Get a Quote <ArrowRight className="w-4 h-4" />
+                <p className="text-xs text-muted-foreground leading-relaxed">{prod.desc}</p>
+                <ul className="space-y-1.5">
+                  {prod.items.map(item => (
+                    <li key={item.name} className="flex items-start gap-2 text-xs text-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1" />
+                      <span><span className="font-semibold">{item.name}</span> — <span className="text-muted-foreground">{item.desc}</span></span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center gap-2 mt-auto pt-2 border-t border-border">
+                  <Link to="/quote" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary/80 transition-colors">
+                    Get a Quote <ArrowRight className="w-3 h-3" />
                   </Link>
+                  {prod.ytId && (
+                    <a href={`https://www.youtube.com/watch?v=${prod.ytId}`} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-400 hover:text-red-300 transition-colors ml-3">
+                      <Play className="w-3 h-3" /> Watch Video
+                    </a>
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
