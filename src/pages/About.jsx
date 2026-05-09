@@ -8,7 +8,7 @@ const values = [
   { icon: Target, title: 'Highest Quality', desc: 'Providing the highest quality electrical products at the best possible price.' },
   { icon: Award, title: 'Stay Current', desc: 'Constantly keeping up with the latest technological advancements in the industry.' },
   { icon: Users, title: 'Expert Advice', desc: 'Providing expert advice and giving honest opinions to our clients at all times.' },
-  { icon: Clock, title: 'Service Excellence', desc: 'Exceptional 24-hour service as our primary goal — every single day.' },
+  { icon: Clock, title: 'Service Excellence', desc: 'Exceptional 24-hour service as our primary goal - every single day.' },
 ];
 
 const milestones = [
@@ -56,7 +56,7 @@ export default function About() {
                 Our Story
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-5 tracking-tight leading-tight">
-                Leading By Example — <span className="text-primary">39 Years Strong</span>
+                Leading By Example - <span className="text-primary">39 Years Strong</span>
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 T.M. Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and FMCG industries for over 39 years. As a leading industrial electrical engineering company, we specialize in industrial electronic products and services that support a range of sectors.
@@ -65,7 +65,7 @@ export default function About() {
                 Throughout these 39 years, we have trained and developed a team of highly skilled professionals dedicated to exceeding expectations and building strong, long-lasting relationships with each client. The owner and management are hands-on at all times to ensure this commitment filters from the very top of the organization.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                <span className="text-foreground font-semibold">"A satisfied customer is the best business strategy of all."</span> — This quote drives everything we do at T.M Engineering. We pride ourselves on consistently exceeding expectations.
+                <span className="text-foreground font-semibold">"A satisfied customer is the best business strategy of all."</span> - This quote drives everything we do at T.M Engineering. We pride ourselves on consistently exceeding expectations.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
