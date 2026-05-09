@@ -1,0 +1,67 @@
+{
+  "name": "SocialPost",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "Post content/caption"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "linkedin",
+        "facebook",
+        "instagram"
+      ],
+      "default": "linkedin"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Post image"
+    },
+    "hashtags": {
+      "type": "string",
+      "description": "Hashtags"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Scheduled publish date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "scheduled",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "engagement_likes": {
+      "type": "number",
+      "default": 0
+    },
+    "engagement_comments": {
+      "type": "number",
+      "default": 0
+    },
+    "engagement_shares": {
+      "type": "number",
+      "default": 0
+    },
+    "post_type": {
+      "type": "string",
+      "enum": [
+        "project_showcase",
+        "industry_insight",
+        "company_update",
+        "promotional",
+        "educational"
+      ],
+      "default": "company_update"
+    }
+  },
+  "required": [
+    "content"
+  ]
+}

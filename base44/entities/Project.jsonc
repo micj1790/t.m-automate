@@ -1,0 +1,78 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Project title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Project description"
+    },
+    "client": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "food_beverage",
+        "mining",
+        "pharmaceutical",
+        "manufacturing",
+        "data_centres",
+        "industrial_processing"
+      ],
+      "description": "Industry category"
+    },
+    "service_type": {
+      "type": "string",
+      "description": "Service category"
+    },
+    "image_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Project images"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "Project video URL"
+    },
+    "location": {
+      "type": "string",
+      "description": "Project location"
+    },
+    "year": {
+      "type": "number",
+      "description": "Year completed"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show on homepage"
+    },
+    "case_study": {
+      "type": "string",
+      "description": "Detailed case study content"
+    },
+    "results": {
+      "type": "string",
+      "description": "Project results/outcomes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "in_progress",
+        "upcoming"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

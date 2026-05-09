@@ -1,0 +1,68 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Blog post title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Short excerpt"
+    },
+    "content": {
+      "type": "string",
+      "description": "Full blog content in markdown"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "Cover image URL"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "automation",
+        "plc",
+        "industry_news",
+        "case_study",
+        "tips",
+        "company_news"
+      ],
+      "default": "automation"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "seo_title": {
+      "type": "string",
+      "description": "SEO title"
+    },
+    "seo_description": {
+      "type": "string",
+      "description": "SEO meta description"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

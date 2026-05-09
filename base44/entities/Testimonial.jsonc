@@ -1,0 +1,37 @@
+{
+  "name": "Testimonial",
+  "type": "object",
+  "properties": {
+    "client_name": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "role": {
+      "type": "string",
+      "description": "Client role/title"
+    },
+    "content": {
+      "type": "string",
+      "description": "Testimonial text"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating 1-5"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "industry": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_name",
+    "content"
+  ]
+}

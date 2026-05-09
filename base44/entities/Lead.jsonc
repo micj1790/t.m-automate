@@ -1,0 +1,90 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Contact name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "service_interest": {
+      "type": "string",
+      "description": "Service they are interested in"
+    },
+    "industry": {
+      "type": "string",
+      "description": "Their industry"
+    },
+    "message": {
+      "type": "string",
+      "description": "Their message or requirements"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "website",
+        "google_ads",
+        "linkedin",
+        "referral",
+        "phone",
+        "email",
+        "other"
+      ],
+      "default": "website"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "qualified",
+        "quoted",
+        "won",
+        "lost"
+      ],
+      "default": "new"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Staff member assigned"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes"
+    },
+    "quote_value": {
+      "type": "number",
+      "description": "Estimated quote value in ZAR"
+    },
+    "follow_up_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Next follow-up date"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "quote_request",
+        "site_visit",
+        "general_enquiry",
+        "breakdown"
+      ],
+      "default": "general_enquiry"
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}
