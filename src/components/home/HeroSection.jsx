@@ -36,8 +36,8 @@ export default function HeroSection() {
       {/* Video / image background */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=90"
-          alt="Industrial automation facility"
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90"
+          alt="Electrical engineering control panel"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/50" />
