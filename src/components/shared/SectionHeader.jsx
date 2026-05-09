@@ -2,25 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function SectionHeader({ label, title, description, align = 'center' }) {
+  const isCenter = align === 'center';
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6 }}
-      className={`mb-12 md:mb-16 ${align === 'center' ? 'text-center' : 'text-left'}`}
+      className={`mb-12 md:mb-14 ${isCenter ? 'text-center' : 'text-left'}`}
     >
       {label && (
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           {label}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-tight">
         {title}
       </h2>
       {description && (
-        <p className={`mt-4 text-muted-foreground text-base md:text-lg leading-relaxed ${align === 'center' ? 'max-w-2xl mx-auto' : 'max-w-2xl'}`}>
+        <p className={`mt-4 text-muted-foreground text-base md:text-lg leading-relaxed ${isCenter ? 'max-w-2xl mx-auto' : 'max-w-2xl'}`}>
           {description}
         </p>
       )}

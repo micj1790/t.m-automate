@@ -6,7 +6,7 @@ import WhatsAppButton from './WhatsAppButton';
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main>
         <Outlet />

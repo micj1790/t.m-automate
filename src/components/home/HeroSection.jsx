@@ -1,102 +1,124 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Shield, Clock, Award } from 'lucide-react';
+import { ArrowRight, Play, Shield, Clock, Award, ChevronDown } from 'lucide-react';
+
+const words = ['Industrial Automation', 'Electrical Engineering', 'PLC Programming', 'SCADA Systems', 'Factory Solutions'];
 
 export default function HeroSection() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    const word = words[wordIndex];
+    let timeout;
+    if (typing) {
+      if (displayed.length < word.length) {
+        timeout = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 60);
+      } else {
+        timeout = setTimeout(() => setTyping(false), 2200);
+      }
+    } else {
+      if (displayed.length > 0) {
+        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
+      } else {
+        setWordIndex((i) => (i + 1) % words.length);
+        setTyping(true);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, typing, wordIndex]);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
+      {/* Video / image background */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
-          alt="Industrial automation"
+          src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=90"
+          alt="Industrial automation facility"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'linear-gradient(rgba(14,165,233,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.3) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }} />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      {/* Animated scan line */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-scan" />
+      </div>
+
+      {/* Corner decorations */}
+      <div className="absolute top-24 right-8 hidden xl:block">
+        <div className="relative w-64 h-64">
+          <div className="absolute inset-0 rounded-full border border-primary/5" />
+          <div className="absolute inset-6 rounded-full border border-primary/8 animate-spin" style={{ animationDuration: '20s' }} />
+          <div className="absolute inset-12 rounded-full border border-primary/10 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+          <div className="absolute inset-[48px] rounded-full bg-primary/5 flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-3xl font-display text-primary">39</div>
+              <div className="text-[9px] text-muted-foreground uppercase tracking-widest">Years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Trusted Since 1986
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Trusted Industrial Specialists Since 1986
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.05]"
-          >
-            39 Years of Proven{' '}
-            <span className="text-primary text-glow-blue">Industrial Automation</span>{' '}
-            Excellence
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.04] mb-4">
+            39 Years of Proven<br />
+            <span className="text-primary text-glow-blue">{displayed}<span className="animate-pulse">|</span></span>
+            <br />Excellence
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl"
-          >
-            Control Systems, Electrical Engineering & Industrial Automation Solutions.
-            From PLC programming to complete factory automation — we deliver excellence across South Africa.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
+            Industrial Automation, Electrical Engineering & Control System Specialists.
+            From PLC programming to complete factory automation — we deliver world-class solutions across South Africa.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-4"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-wrap gap-3 mb-10">
             <Link to="/quote">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base px-8 h-12 glow-blue group">
-                Request a Quote
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm px-7 h-12 glow-blue group uppercase tracking-wide">
+                Request a Quote <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/projects">
-              <Button size="lg" variant="outline" className="border-border hover:border-primary/50 hover:bg-primary/5 text-foreground font-semibold text-base px-8 h-12">
+              <Button size="lg" variant="outline" className="border-border hover:border-primary/40 hover:bg-primary/5 font-semibold text-sm px-7 h-12 uppercase tracking-wide">
                 View Projects
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="ghost" className="text-muted-foreground hover:text-foreground font-semibold text-base px-8 h-12">
-                Contact Us
+            <a href="tel:+27117911562">
+              <Button size="lg" variant="ghost" className="text-muted-foreground hover:text-foreground font-semibold text-sm px-7 h-12">
+                📞 Call Now
               </Button>
-            </Link>
+            </a>
           </motion.div>
 
-          {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-12 flex flex-wrap items-center gap-6 md:gap-8"
-          >
+          {/* Trust badges */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+            className="flex flex-wrap gap-5 md:gap-8">
             {[
-              { icon: Award, label: '39 Years Experience' },
-              { icon: Clock, label: '24/7 Support' },
+              { icon: Award, label: '39+ Years Experience' },
+              { icon: Clock, label: '24/7 Emergency Support' },
               { icon: Shield, label: 'Certified Engineers' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <item.icon className="w-4 h-4 text-accent" />
-                <span>{item.label}</span>
+            ].map((b, i) => (
+              <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                <b.icon className="w-4 h-4 text-accent" />
+                <span>{b.label}</span>
               </div>
             ))}
           </motion.div>
@@ -104,18 +126,11 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2"
-        >
-          <div className="w-1 h-2 bg-primary rounded-full" />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+        <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Scroll</span>
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+          <ChevronDown className="w-4 h-4 text-primary/60" />
         </motion.div>
       </motion.div>
     </section>

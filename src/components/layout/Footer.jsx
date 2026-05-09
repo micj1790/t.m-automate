@@ -1,106 +1,149 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Zap, MapPin, Phone, Mail, Linkedin, Facebook, Instagram, ArrowRight } from 'lucide-react';
+import { Zap, Phone, Mail, MapPin, Facebook, Youtube, Linkedin, ArrowRight } from 'lucide-react';
 
-const footerLinks = {
-  Services: [
-    { label: 'PLC & HMI Programming', path: '/services' },
-    { label: 'Industrial Automation', path: '/services' },
-    { label: 'MCC Panels', path: '/services' },
-    { label: 'SCADA Systems', path: '/services' },
-    { label: 'Generator Synchronisation', path: '/services' },
-  ],
-  Company: [
-    { label: 'About Us', path: '/about' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'Blog & Insights', path: '/blog' },
-    { label: 'Careers', path: '/careers' },
-    { label: 'Contact', path: '/contact' },
-  ],
-  Industries: [
-    { label: 'Food & Beverage', path: '/industries' },
-    { label: 'Mining', path: '/industries' },
-    { label: 'Pharmaceutical', path: '/industries' },
-    { label: 'Manufacturing', path: '/industries' },
-    { label: 'Data Centres', path: '/industries' },
-  ],
-};
+const services = [
+  'PLC & HMI Programming', 'Industrial Automation', 'MCC Panels', 'SCADA Systems',
+  'Power Monitoring', 'Machine Refurbishments', 'PCB Repairs', '24/7 Support',
+];
+const industries = ['FMCG', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Food & Beverage', 'Data Centres', 'Industrial Processing'];
+const company = [
+  { label: 'About Us', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Products', path: '/products' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Careers', path: '/careers' },
+  { label: 'Contact', path: '/contact' },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <span className="text-lg font-bold text-foreground">T.M Engineering</span>
-              </div>
-            </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
-              39 years of proven industrial automation excellence. Control systems, electrical engineering & industrial automation solutions across South Africa.
-            </p>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>Johannesburg, South Africa</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>24/7 Breakdown Support Available</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>info@tmengineering.co.za</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 mt-6">
-              <a href="#" className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary/20 border border-border hover:border-primary/30 flex items-center justify-center transition-all">
-                <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary/20 border border-border hover:border-primary/30 flex items-center justify-center transition-all">
-                <Facebook className="w-4 h-4 text-muted-foreground hover:text-primary" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary/20 border border-border hover:border-primary/30 flex items-center justify-center transition-all">
-                <Instagram className="w-4 h-4 text-muted-foreground hover:text-primary" />
-              </a>
-            </div>
-          </div>
+    <footer className="relative bg-card/50 border-t border-border overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
 
-          {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">{title}</h4>
-              <ul className="space-y-3">
-                {links.map(link => (
-                  <li key={link.label}>
-                    <Link to={link.path} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group">
-                      <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      {/* CTA Banner */}
+      <div className="relative border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-xl md:text-2xl font-black text-foreground">Ready to automate your operations?</h3>
+            <p className="text-sm text-muted-foreground mt-1">Contact our expert team for a free consultation.</p>
+          </div>
+          <div className="flex gap-3">
+            <Link to="/quote">
+              <button className="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-bold transition-all glow-blue flex items-center gap-2">
+                Get a Quote <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </Link>
+            <a href="tel:+27117911562">
+              <button className="px-6 py-2.5 rounded-lg border border-border hover:border-primary/40 text-foreground text-sm font-semibold transition-all flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5" /> Call Now
+              </button>
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} T.M Engineering. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span>Industrial Automation South Africa</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">PLC Programming Johannesburg</span>
+      {/* Main footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Brand */}
+        <div className="lg:col-span-1">
+          <div className="flex items-center gap-2.5 mb-5">
+            <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center">
+              <Zap className="w-4 h-4 text-primary" />
+            </div>
+            <div>
+              <div className="text-sm font-black text-foreground tracking-wider">T.M Engineering</div>
+              <div className="text-[9px] text-primary/60 tracking-widest uppercase">Since 1986</div>
+            </div>
           </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mb-5">
+            South Africa's leading industrial automation specialists. 39 years of proven excellence in electrical engineering, PLC systems, and factory automation.
+          </p>
+          <div className="space-y-2 text-xs text-muted-foreground">
+            <a href="https://maps.google.com/?q=10+Susan+Street+Strijdom+Park+Randburg" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-foreground transition-colors">
+              <MapPin className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+              10 Susan Street, Strijdom Park, Randburg, JHB
+            </a>
+            <a href="tel:+27117911562" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <Phone className="w-3.5 h-3.5 text-primary" /> 011 791 1562
+            </a>
+            <a href="mailto:sales@tmeng.co.za" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <Mail className="w-3.5 h-3.5 text-primary" /> sales@tmeng.co.za
+            </a>
+          </div>
+          <div className="flex gap-2.5 mt-5">
+            {[
+              { icon: Facebook, url: 'https://www.facebook.com/tmengineeringptyltd/', label: 'Facebook' },
+              { icon: Youtube, url: 'https://www.youtube.com/channel/UC4-3DeJMQVVApm9GhNI4TBg', label: 'YouTube' },
+              { icon: Linkedin, url: '#', label: 'LinkedIn' },
+            ].map(s => (
+              <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
+                <s.icon className="w-3.5 h-3.5" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Services */}
+        <div>
+          <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-4">Services</h4>
+          <ul className="space-y-2">
+            {services.map(s => (
+              <li key={s}>
+                <Link to="/services" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors" />{s}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Industries */}
+        <div>
+          <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-4">Industries</h4>
+          <ul className="space-y-2">
+            {industries.map(i => (
+              <li key={i}>
+                <Link to="/industries" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors" />{i}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-4">Company</h4>
+          <ul className="space-y-2 mb-6">
+            {company.map(c => (
+              <li key={c.path}>
+                <Link to={c.path} className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors" />{c.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="p-3 rounded-lg bg-green-500/5 border border-green-500/20">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs font-semibold text-green-400">24/7 Emergency</span>
+            </div>
+            <a href="tel:+27833757670" className="text-xs text-green-300 font-mono hover:underline">083 375 7670</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} T.M Engineering (Pty) Ltd. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">
+            Industrial Automation · PLC Programming · MCC Panels · Johannesburg, South Africa
+          </p>
         </div>
       </div>
     </footer>

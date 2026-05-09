@@ -11,6 +11,7 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Services from '@/pages/Services';
+import Products from '@/pages/Products';
 import Industries from '@/pages/Industries';
 import Projects from '@/pages/Projects';
 import Blog from '@/pages/Blog';
@@ -61,6 +62,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/blog" element={<Blog />} />
