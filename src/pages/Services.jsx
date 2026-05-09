@@ -163,8 +163,8 @@ export default function Services() {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> What We Do
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Our Services</h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-5">Our Services</h1>
+            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
               19 specialist engineering services covering industrial automation, electrical engineering, custom machines and 24/7 technical support.
             </p>
           </motion.div>
