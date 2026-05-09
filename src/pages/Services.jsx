@@ -158,7 +158,7 @@ export default function Services() {
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-5">Our Services</h1>
             <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-              19 specialist engineering services covering industrial automation, electrical engineering, custom machines and 24/7 technical support.
+              Specialist engineering services covering industrial automation, electrical engineering, custom machines and 24/7 technical support.
             </p>
           </motion.div>
         </div>
