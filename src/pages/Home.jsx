@@ -19,6 +19,7 @@ export default function Home() {
       <IndustriesSection />
       <ClientsBanner />
       <FeaturedProjects />
+
       <TestimonialsSection />
       <CTASection />
     </>
