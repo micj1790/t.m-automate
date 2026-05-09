@@ -46,12 +46,12 @@ export default function Quote() {
                 Request a<br /><span className="text-primary text-glow-blue">Free Quote</span>
               </h1>
               <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                Tell us about your project and our engineering team will prepare a detailed, competitive quotation. We typically respond within 4 business hours.
+                Tell us about your project and our engineering team will prepare a detailed, competitive quotation.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Award, label: '39 Years Experience', color: 'text-primary' },
-                  { icon: Clock, label: '4hr Response Time', color: 'text-accent' },
+                  { icon: Clock, label: 'Fast Response Time', color: 'text-accent' },
                   { icon: Shield, label: 'Quality Guaranteed', color: 'text-green-400' },
                   { icon: Zap, label: '24/7 Support', color: 'text-yellow-400' },
                 ].map((b, i) => (
@@ -73,7 +73,7 @@ export default function Quote() {
                     </div>
                     <h3 className="text-xl font-black text-foreground mb-2">Quote Request Received!</h3>
                     <p className="text-sm text-muted-foreground max-w-sm mb-2">
-                      Thank you! Our team will prepare your quotation and be in touch within 4 business hours.
+                      Thank you! Our team will prepare your quotation and be in touch shortly.
                     </p>
                     <p className="text-xs text-muted-foreground">
                       Urgent? Call <a href="tel:+27117911562" className="text-primary">011 791 1562</a>
