@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, ArrowRight, Zap } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', path: '/about' },
@@ -68,8 +68,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-all overflow-hidden">
-                <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/ba27baad4_generated_image.png" alt="T.M Engineering Eagle" className="w-7 h-7 object-contain" />
+              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-all glow-blue">
+                <Zap className="w-4.5 h-4.5 text-primary" />
               </div>
               <div>
                 <div className="text-sm font-black text-foreground tracking-wider uppercase">T.M Engineering</div>
