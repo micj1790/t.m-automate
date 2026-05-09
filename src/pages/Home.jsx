@@ -7,6 +7,7 @@ import FeaturedProjects from '@/components/home/FeaturedProjects';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
 import BrandsBanner from '@/components/home/BrandsBanner';
+import ClientsBanner from '@/components/home/ClientsBanner';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <StatsSection />
       <ServicesPreview />
       <IndustriesSection />
+      <ClientsBanner />
       <FeaturedProjects />
       <TestimonialsSection />
       <CTASection />
