@@ -147,7 +147,7 @@ export default function Services() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/09d83b643_jjjj.jpg" alt="Services" className="w-full h-full object-cover" />
+          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/b41997f13_ubbb.webp" alt="Services" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
