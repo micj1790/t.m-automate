@@ -50,7 +50,7 @@ export default function Projects() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=80" alt="Projects" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80" alt="Projects" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
