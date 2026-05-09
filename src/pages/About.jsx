@@ -83,7 +83,7 @@ export default function About() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-              <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/e3768e799_generated_image.png" alt="T.M Engineering facility" className="rounded-2xl border border-border" />
+              <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/788b29c79_generated_image.png" alt="T.M Engineering facility" className="rounded-2xl border border-border" />
               <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-xl">
                 <div className="text-3xl font-display text-primary">39+</div>
                 <div className="text-xs text-muted-foreground font-semibold">Years of Excellence</div>
