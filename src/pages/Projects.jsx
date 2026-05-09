@@ -75,10 +75,11 @@ export default function Projects() {
             {ytVideos.map(v => (
               <motion.div key={v.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
                 className="group relative cursor-pointer rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all"
-                onClick={() => setActiveVideo(activeVideo === v.id ? null : v.id)}>
+                onClick={() => setActiveVideo(activeVideo === v.id ? null : v.id)}
+                >
                 <div className="aspect-video relative">
                   {activeVideo === v.id ? (
-                    <iframe src={`https://www.youtube.com/embed/${v.id}?autoplay=1`} title={v.title} className="w-full h-full" allow="autoplay; encrypted-media" allowFullScreen />
+                    <iframe src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} className="w-full h-full" allow="autoplay; encrypted-media; fullscreen" allowFullScreen />
                   ) : (
                     <>
                       <img src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`} alt={v.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
