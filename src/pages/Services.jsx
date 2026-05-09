@@ -183,48 +183,42 @@ export default function Services() {
       {/* Services grid */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence mode="popLayout">
               {filtered.map((s, i) => (
-                <motion.div key={s.title} layout initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ delay: i * 0.04 }}>
+                <motion.div key={s.title} layout initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ delay: i * 0.04 }}>
                   <div onClick={() => setSelected(selected?.title === s.title ? null : s)}
-                    className="group cursor-pointer rounded-2xl bg-card border border-border hover:border-primary/25 transition-all duration-400 overflow-hidden gradient-border">
-                    <div className="h-44 relative overflow-hidden">
-                      <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-semibold">{s.category}</span>
+                    className="group cursor-pointer rounded-xl bg-card border border-border hover:border-primary/30 transition-all p-5">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0">
+                        <s.icon className="w-5 h-5 text-primary" />
                       </div>
-                    </div>
-                    <div className="p-5">
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                          <s.icon className="w-4.5 h-4.5 text-primary" />
-                        </div>
-                        <div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-0.5">
                           <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
-                          <p className="text-xs text-muted-foreground mt-0.5">{s.short}</p>
                         </div>
+                        <span className="text-[10px] font-semibold text-primary/70 uppercase tracking-wider">{s.category}</span>
                       </div>
-                      <AnimatePresence>
-                        {selected?.title === s.title && (
-                          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden">
-                            <p className="text-xs text-muted-foreground leading-relaxed mb-3 border-t border-border pt-3">{s.desc}</p>
-                            <ul className="space-y-1 mb-3">
-                              {s.features.map(f => (
-                                <li key={f} className="flex items-center gap-2 text-xs text-foreground">
-                                  <span className="w-1 h-1 rounded-full bg-primary" />{f}
-                                </li>
-                              ))}
-                            </ul>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                      <button className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors">
-                        {selected?.title === s.title ? 'Show less' : 'Learn more'} <ChevronRight className="w-3 h-3" />
-                      </button>
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">{s.short}</p>
+                    <AnimatePresence>
+                      {selected?.title === s.title && (
+                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden">
+                          <p className="text-xs text-muted-foreground leading-relaxed mb-3 border-t border-border pt-3">{s.desc}</p>
+                          <ul className="space-y-1.5 mb-3">
+                            {s.features.map(f => (
+                              <li key={f} className="flex items-center gap-2 text-xs text-foreground">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />{f}
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    <button className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors">
+                      {selected?.title === s.title ? 'Show less' : 'Learn more'} <ChevronRight className="w-3 h-3" />
+                    </button>
                   </div>
                 </motion.div>
               ))}
