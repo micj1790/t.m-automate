@@ -9,7 +9,7 @@ import ClientsBanner from '@/components/home/ClientsBanner';
 const industries = [
   {
     name: 'FMCG', sub: 'Fast-Moving Consumer Goods',
-    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/2d35d3334_fmcg1.jpg',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/954c789f3_fmcg2.webp',
     desc: 'T.M Engineering has been the preferred automation partner for FMCG manufacturers for 39 years. We understand the demanding 24/7 production environments and the critical importance of minimal downtime.',
     services: ['Labelling Machines', 'Liquid Fillers', 'Conveyor Systems', 'Packaging Line Automation', 'PLC Programming', 'VSD & Drive Systems'],
     stat: '150+ Projects'
@@ -23,28 +23,28 @@ const industries = [
   },
   {
     name: 'Pharmaceutical', sub: 'GMP Compliant Solutions',
-    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/383045d03_pharma.jpg',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/329377a66_pharma2.png',
     desc: 'We provide GMP-compliant automation solutions for pharmaceutical manufacturers, with full IQ/OQ/PQ documentation, 21 CFR Part 11 compliance and FDA-acceptable designs.',
     services: ['Tube Fillers & Sealers', 'Tablet Counters', 'Vial Filling Systems', 'Serialisation Integration', 'GMP Documentation', 'Validated Systems'],
     stat: '40+ Projects'
   },
   {
     name: 'Mining', sub: 'Heavy Industrial Solutions',
-    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e1cd23984_mining.jpg',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/883dde3fb_mining2.jpg',
     desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion-proof controls, conveyor automation and comprehensive SCADA monitoring.',
     services: ['Conveyor Belt Control', 'Explosion-Proof Panels', 'MCC for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
     stat: '50+ Projects'
   },
   {
     name: 'Manufacturing', sub: 'Production Line Automation',
-    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/4bae998bd_manufacturing.jpg',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/eee7278bf_manufctauring2.png',
     desc: 'From automotive assembly to discrete manufacturing, we provide complete production line automation solutions that increase throughput, improve quality and reduce costs.',
     services: ['Assembly Line Automation', 'Robot Integration', 'Quality Control Systems', 'OEE Monitoring', 'MES Integration', 'Machine Refurbishments'],
     stat: '120+ Projects'
   },
   {
     name: 'Cosmetics', sub: 'Filling, Labelling & Packaging',
-    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ae92cec03_cosmetics.jpg',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e273fb242_cosmteics2.jpg',
     desc: 'Cosmetics and personal care manufacturers trust T.M Engineering for precision filling, labelling and packaging automation. Our machines handle creams, lotions, gels and liquids with accuracy.',
     services: ['Precision Liquid Fillers', 'Tube Fillers', 'Labelling Systems', 'Capping Machines', 'Tamper Evidence', 'Serialisation'],
     stat: '30+ Projects'
