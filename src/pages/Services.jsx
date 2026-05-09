@@ -18,21 +18,21 @@ const services = [
     short: 'Complete end-to-end factory automation solutions for all industries.',
     desc: 'We design, build and commission complete industrial automation systems. From concept design through to final commissioning, our team handles every aspect of your automation project including hardware selection, panel building, software development, installation and handover training.',
     features: ['Full turnkey automation', 'Process control systems', 'Motion control', 'Robotics integration', 'Safety systems (SIL rated)', 'Factory acceptance testing'],
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80'
   },
   {
     icon: Settings, title: 'Electrical Control Panels', category: 'Electrical',
     short: 'Custom control panel design, manufacture and installation to SANS standards.',
     desc: 'We build, write the software, install and commission on site. Our facility has the infrastructure to manufacture heavy control panels and we have transport capacity for delivery. All panels are built to SANS and IEC standards with full documentation.',
     features: ['Custom design & manufacture', 'SANS/IEC compliant', 'Full electrical drawings', 'FAT/SAT testing', 'Heavy industrial panels', 'IP65/IP66 rated enclosures'],
-    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&q=80'
   },
   {
     icon: Layers, title: 'MCC Panels', category: 'Electrical',
     short: 'Motor Control Centre design, manufacture and installation.',
     desc: 'Complete motor control centre solutions from design through commissioning. We supply and install MCCs with soft starters, VSDs, direct-on-line starters, star-delta starters with full protection coordination. Suitable for all industrial environments.',
     features: ['Up to 6,600V systems', 'Soft starters & VSDs', 'Full protection coordination', 'Draw-out sections available', 'Busbar systems', 'ATEX rated for hazardous areas'],
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=800&q=80'
   },
   {
     icon: Box, title: 'PCB Repairs', category: 'Electronics',
@@ -46,28 +46,21 @@ const services = [
     short: 'Best quality electrical products from reputable world brands for 39 years.',
     desc: 'We have been supplying the best quality electrical products from the most reputable brand names around the world for over 39 years. With immediate delivery, the best prices and after-sale technical support — T.M Engineering is your one-stop electrical supplier.',
     features: ['Circuit breakers & MCBs', 'Contactors & relays', 'Cable & conduit', 'Sensors & transducers', 'Immediate delivery', 'Technical support included'],
-    img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'
   },
   {
     icon: Bolt, title: 'Switchgear', category: 'Electrical',
     short: 'Medium and low voltage switchgear supply and installation.',
     desc: 'Complete switchgear solutions from LV distribution to MV ring main units. We supply and commission protection relays, circuit breakers, isolators and busbars for industrial and commercial applications.',
     features: ['LV & MV switchgear', 'Protection relays', 'Busbar systems', 'Load break switches', 'Ring main units', 'Commissioning & testing'],
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1509390874189-2d7a5e75b6c8?w=800&q=80'
   },
   {
     icon: Activity, title: 'VSD & Drive Systems', category: 'Automation',
     short: 'Variable speed drive supply, programming and commissioning.',
     desc: 'Complete VSD and servo drive solutions from all major manufacturers. We supply, program, install and commission variable speed drives for pumps, fans, conveyors and process applications. Includes energy savings analysis and motor protection.',
     features: ['ABB, Danfoss, Siemens VSDs', 'Servo & stepper drives', 'Energy savings analysis', 'Motor protection', 'Remote monitoring', 'Preventive maintenance'],
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
-  },
-  {
-    icon: Zap, title: 'Generator Control & Synchronisation', category: 'Power',
-    short: 'Generator synchronisation, AMF panels and load sharing systems.',
-    desc: 'Complete generator control and synchronisation solutions. We supply and install automatic mains failure panels, synchronisation systems for multiple generators, load sharing controllers and remote monitoring systems for data centres, hospitals and industrial facilities.',
-    features: ['AMF panels', 'Multi-generator sync', 'Load sharing control', 'Remote monitoring', 'Deepsea & ComAp controllers', 'Load bank testing'],
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80'
   },
   {
     icon: Monitor, title: 'SCADA Systems', category: 'Automation',
@@ -137,7 +130,7 @@ const services = [
     short: 'Round-the-clock emergency callout service across Gauteng.',
     desc: 'Our primary goal is to constantly provide our clients with exceptional service 24-hours a day. With a team of highly trained employees who are 100% committed to service excellence, we work around the clock to ensure all electrical faults are taken care of quickly and efficiently.',
     features: ['24/7/365 availability', '90-minute response target', 'Gauteng coverage', 'After-hours: 083 375 7670', 'Remote diagnostics', 'Emergency spare parts'],
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
+    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'
   },
 ];
 
