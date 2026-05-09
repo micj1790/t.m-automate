@@ -9,56 +9,42 @@ import ClientsBanner from '@/components/home/ClientsBanner';
 const industries = [
   {
     name: 'FMCG', sub: 'Fast-Moving Consumer Goods',
-    img: 'https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/2d35d3334_fmcg1.jpg',
     desc: 'T.M Engineering has been the preferred automation partner for FMCG manufacturers for 39 years. We understand the demanding 24/7 production environments and the critical importance of minimal downtime.',
     services: ['Labelling Machines', 'Liquid Fillers', 'Conveyor Systems', 'Packaging Line Automation', 'PLC Programming', 'VSD & Drive Systems'],
     stat: '150+ Projects'
   },
   {
     name: 'Food & Beverage', sub: 'Production & Packaging',
-    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/3d3506004_fandb.jpg',
     desc: 'From bottling plants to food processing facilities, we deliver hygienic automation solutions that meet food safety standards while maximising throughput and efficiency.',
     services: ['Filling & Capping Machines', 'Shrink Tunnel Systems', 'Checkweighers', 'SCADA Monitoring', 'CIP-compatible equipment', 'Stainless steel construction'],
     stat: '80+ Projects'
   },
   {
     name: 'Pharmaceutical', sub: 'GMP Compliant Solutions',
-    img: 'https://images.unsplash.com/photo-1559757175-7cb056fba93c?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/383045d03_pharma.jpg',
     desc: 'We provide GMP-compliant automation solutions for pharmaceutical manufacturers, with full IQ/OQ/PQ documentation, 21 CFR Part 11 compliance and FDA-acceptable designs.',
     services: ['Tube Fillers & Sealers', 'Tablet Counters', 'Vial Filling Systems', 'Serialisation Integration', 'GMP Documentation', 'Validated Systems'],
     stat: '40+ Projects'
   },
   {
     name: 'Mining', sub: 'Heavy Industrial Solutions',
-    img: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e1cd23984_mining.jpg',
     desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion-proof controls, conveyor automation and comprehensive SCADA monitoring.',
     services: ['Conveyor Belt Control', 'Explosion-Proof Panels', 'MCC for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
     stat: '50+ Projects'
   },
   {
     name: 'Manufacturing', sub: 'Production Line Automation',
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/4bae998bd_manufacturing.jpg',
     desc: 'From automotive assembly to discrete manufacturing, we provide complete production line automation solutions that increase throughput, improve quality and reduce costs.',
     services: ['Assembly Line Automation', 'Robot Integration', 'Quality Control Systems', 'OEE Monitoring', 'MES Integration', 'Machine Refurbishments'],
     stat: '120+ Projects'
   },
   {
-    name: 'Data Centres', sub: 'Power & Monitoring',
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80',
-    desc: 'Critical infrastructure demands reliable power and intelligent monitoring. We specialise in generator synchronisation, UPS systems, power monitoring and complete electrical infrastructure for data centres.',
-    services: ['Generator Synchronisation', 'UPS Integration', 'Power Monitoring', 'Electrical Infrastructure', 'AMF Panels', 'Remote Monitoring'],
-    stat: '25+ Projects'
-  },
-  {
-    name: 'Industrial Processing', sub: 'Plant Automation',
-    img: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=900&q=80',
-    desc: 'Chemical plants, water treatment facilities and industrial processing plants benefit from our expertise in process control, PLC integration and comprehensive SCADA solutions.',
-    services: ['Process Control Systems', 'P&ID Implementation', 'Loop Tuning & Optimisation', 'Batch Control Systems', 'Safety Instrumented Systems', 'SCADA & Historian'],
-    stat: '90+ Projects'
-  },
-  {
     name: 'Cosmetics', sub: 'Filling, Labelling & Packaging',
-    img: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=900&q=80',
+    img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ae92cec03_cosmetics.jpg',
     desc: 'Cosmetics and personal care manufacturers trust T.M Engineering for precision filling, labelling and packaging automation. Our machines handle creams, lotions, gels and liquids with accuracy.',
     services: ['Precision Liquid Fillers', 'Tube Fillers', 'Labelling Systems', 'Capping Machines', 'Tamper Evidence', 'Serialisation'],
     stat: '30+ Projects'
@@ -82,7 +68,7 @@ export default function Industries() {
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-5">Industries We Serve</h1>
             <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-              Deep expertise across 8 major industries. 39 years of delivering reliable automation solutions to South Africa's most demanding sectors.
+              Deep expertise across 6 major industries. 39 years of delivering reliable automation solutions to South Africa's most demanding sectors.
             </p>
           </motion.div>
         </div>
