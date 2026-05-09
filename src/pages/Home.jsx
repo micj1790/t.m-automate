@@ -4,7 +4,6 @@ import StatsSection from '@/components/home/StatsSection';
 import ServicesPreview from '@/components/home/ServicesPreview';
 import IndustriesSection from '@/components/home/IndustriesSection';
 import FeaturedProjects from '@/components/home/FeaturedProjects';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection from '@/components/home/CTASection';
 import BrandsBanner from '@/components/home/BrandsBanner';
 import ClientsBanner from '@/components/home/ClientsBanner';
@@ -20,7 +19,6 @@ export default function Home() {
       <ClientsBanner />
       <FeaturedProjects />
 
-      <TestimonialsSection />
       <CTASection />
     </>
   );
