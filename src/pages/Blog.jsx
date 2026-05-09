@@ -59,7 +59,7 @@ T.M Engineering has been at the forefront of South African industrial automation
     category: 'automation',
     author: 'T.M Engineering',
     created_date: '2025-02-15',
-    cover_image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80',
+    cover_image: 'https://media.base44.com/images/public/69fefc1890408637f331f461/1978c612b_plc.jpg',
     status: 'published',
     content: `## PLC vs DCS: Making the Right Choice for Your Facility
 
