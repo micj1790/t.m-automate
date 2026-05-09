@@ -16,15 +16,28 @@ const brands = [
   { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/96a7e6fdf_siemens.png' },
 ];
 
-// Duplicate for seamless loop
-const allBrands = [...brands, ...brands];
+const ITEM_WIDTH = 172; // 160px card + 12px gap
+const TOTAL_WIDTH = brands.length * ITEM_WIDTH;
 
 export default function BrandsBanner() {
   return (
     <section className="py-12 border-y border-border bg-card/40 overflow-hidden">
+      <style>{`
+        @keyframes scroll-brands {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-${TOTAL_WIDTH}px); }
+        }
+        .brands-track {
+          animation: scroll-brands 30s linear infinite;
+        }
+        .brands-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          Trusted Partners & Brands We Work With
+          Trusted Partners &amp; Brands We Work With
         </p>
       </div>
 
@@ -35,23 +48,17 @@ export default function BrandsBanner() {
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
           style={{ background: 'linear-gradient(to left, hsl(220 20% 7%), transparent)' }} />
 
-        <div
-          className="flex items-center gap-12"
-          style={{
-            width: 'max-content',
-            animation: 'ticker 35s linear infinite',
-          }}
-        >
-          {allBrands.map((brand, i) => (
+        {/* Track: tripled so there's always content visible */}
+        <div className="brands-track flex items-center" style={{ width: 'max-content', gap: '12px' }}>
+          {[...brands, ...brands, ...brands].map((brand, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex items-center justify-center bg-white rounded-xl px-6 py-3"
+              className="flex-shrink-0 flex items-center justify-center bg-white rounded-xl px-5 py-3"
               style={{ width: 160, height: 72 }}
             >
               <img
                 src={brand.url}
                 alt={brand.name}
-                className="max-w-full max-h-full object-contain"
                 style={{ width: 120, height: 48, objectFit: 'contain' }}
               />
             </div>
