@@ -13,11 +13,11 @@ const values = [
 
 const milestones = [
   { year: '1986', title: 'T.M Engineering Founded', desc: 'Established in Johannesburg, focusing on industrial electrical engineering.' },
-  { year: '1994', title: 'Labelling Machine Division', desc: 'Began designing and manufacturing automatic labelling equipment for the FMCG industry.' },
-  { year: '2000', title: 'SCADA & Automation Growth', desc: 'Expanded into SCADA systems, PLC programming and full factory automation.' },
-  { year: '2010', title: 'Pharmaceutical Division', desc: 'Added pharmaceutical-grade equipment including tube fillers, tablet counters and filling machines.' },
-  { year: '2018', title: 'Digital Transformation', desc: 'Invested in Industry 4.0 solutions, IIoT connectivity and advanced SCADA platforms.' },
-  { year: '2025', title: '39 Years of Excellence', desc: 'One of South Africa\'s most trusted industrial automation companies with 500+ completed projects.' },
+  { year: '1994', title: 'Service Department Established', desc: 'Formed a dedicated service department to provide on-site support, maintenance and rapid response to clients across industries.' },
+  { year: '2000', title: 'Progression into PLCs', desc: 'Expanded capabilities into PLC programming and commissioning, enabling more advanced machine control and process automation for clients.' },
+  { year: '2010', title: 'PLC Integration', desc: 'Deepened expertise in full PLC integration projects, connecting multiple systems and drives into unified automated solutions across factory floors.' },
+  { year: '2018', title: 'Projects Division Established', desc: 'Launched a dedicated projects division to manage large-scale turnkey automation and electrical engineering projects from design through to commissioning.' },
+  { year: '2023', title: 'Headquarters Expansion & Upgrades', desc: 'Expanded and upgraded the Strijdom Park headquarters with modern facilities, workshop improvements and enhanced capabilities to support growing client demand.' },
 ];
 
 export default function About() {
