@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
+import ClientsBanner from '@/components/home/ClientsBanner';
 
 const industries = [
   {
@@ -86,6 +87,8 @@ export default function Industries() {
           </motion.div>
         </div>
       </section>
+
+      <ClientsBanner />
 
       {/* Industries */}
       <section className="py-16 md:py-20">
