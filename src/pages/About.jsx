@@ -26,7 +26,7 @@ export default function About() {
       {/* Hero */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80" alt="About T.M Engineering" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80" alt="About T.M Engineering" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
@@ -83,7 +83,7 @@ export default function About() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-              <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=80" alt="T.M Engineering facility" className="rounded-2xl border border-border" />
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="T.M Engineering facility" className="rounded-2xl border border-border" />
               <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-xl">
                 <div className="text-3xl font-display text-primary">39+</div>
                 <div className="text-xs text-muted-foreground font-semibold">Years of Excellence</div>
