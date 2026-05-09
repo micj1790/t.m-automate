@@ -7,7 +7,7 @@ import SectionHeader from '@/components/shared/SectionHeader';
 const services = [
   { icon: Cpu, title: 'PLC & HMI Programming', desc: 'Expert Siemens, Allen-Bradley, Schneider & Mitsubishi PLC/HMI integration, programming and commissioning.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15' },
   { icon: Zap, title: 'Industrial Automation', desc: 'Complete end-to-end factory automation solutions for FMCG, mining and manufacturing sectors.', color: 'text-accent', bg: 'bg-accent/8 border-accent/15' },
-  { icon: Settings, title: 'MCC Panels', desc: 'Custom motor control centre design, manufacture, installation and commissioning to SANS standards.', color: 'text-purple-400', bg: 'bg-purple-400/8 border-purple-400/15' },
+  { icon: Settings, title: 'Control Panels', desc: 'Custom control panel design, manufacture, installation and commissioning to SANS standards.', color: 'text-purple-400', bg: 'bg-purple-400/8 border-purple-400/15' },
   { icon: Monitor, title: 'SCADA Systems', desc: 'Wonderware, Ignition, and custom SCADA/HMI solutions for real-time process monitoring and control.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15' },
   { icon: Activity, title: 'Power Monitoring', desc: 'Energy management, power quality analysis and load management systems for cost reduction.', color: 'text-green-400', bg: 'bg-green-400/8 border-green-400/15' },
   { icon: Wrench, title: 'Machine Refurbishments', desc: 'Complete mechanical and electrical refurbishments to extend equipment life and boost performance.', color: 'text-accent', bg: 'bg-accent/8 border-accent/15' },
