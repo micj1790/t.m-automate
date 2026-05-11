@@ -44,34 +44,16 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 grid-pattern opacity-50" />
-
-      {/* Animated scan line */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-scan" />
-      </div>
-
-      {/* Corner decorations */}
-      <div className="absolute top-24 right-8 hidden xl:block">
-        <div className="relative w-64 h-64">
-          <div className="absolute inset-0 rounded-full border border-primary/5" />
-          <div className="absolute inset-6 rounded-full border border-primary/8 animate-spin" style={{ animationDuration: '20s' }} />
-          <div className="absolute inset-12 rounded-full border border-primary/10 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
-          <div className="absolute inset-[48px] rounded-full bg-primary/5 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-3xl font-display text-primary">39</div>
-              <div className="text-[9px] text-muted-foreground uppercase tracking-widest">Years</div>
-            </div>
-          </div>
-        </div>
+      {/* Corner decoration */}
+      <div className="absolute top-24 right-10 hidden xl:flex flex-col items-center gap-1">
+        <div className="text-7xl font-black text-primary/10 leading-none select-none">39</div>
+        <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Years Est. 1986</div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-primary/10 border-l-2 border-primary text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-6">
               Trusted Industrial Specialists Since 1986
             </span>
           </motion.div>
@@ -79,7 +61,7 @@ export default function HeroSection() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.04] mb-4">
             39 Years of Proven<br />
-            <span className="text-primary text-glow-blue">{displayed}<span className="animate-pulse">|</span></span>
+            <span className="text-primary">{displayed}<span className="animate-pulse">|</span></span>
             <br />Excellence
           </motion.h1>
 
@@ -92,7 +74,7 @@ export default function HeroSection() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-wrap gap-3 mb-10">
             <Link to="/quote">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm px-7 h-12 glow-blue group uppercase tracking-wide">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm px-7 h-12 group uppercase tracking-wide">
                 Request a Quote <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

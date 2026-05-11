@@ -35,7 +35,7 @@ export default function StatsSection() {
           {stats.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
               className="text-center group">
-              <div className="text-4xl md:text-5xl font-display text-primary text-glow-blue mb-1 tracking-wide">
+              <div className="text-4xl md:text-5xl font-black text-primary mb-1 tracking-tight">
                 <Counter target={s.value} suffix={s.suffix} />
               </div>
               <div className="text-sm font-bold text-foreground mb-0.5">{s.label}</div>

@@ -12,8 +12,7 @@ export default function SectionHeader({ label, title, description, align = 'cent
       className={`mb-12 md:mb-14 ${isCenter ? 'text-center' : 'text-left'}`}
     >
       {label && (
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-primary/10 border-l-2 border-primary text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-4">
           {label}
         </span>
       )}

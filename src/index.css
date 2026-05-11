@@ -88,16 +88,16 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar-thumb { background: hsl(220 14% 18%); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: hsl(199 90% 58%); }
 
-/* Glow effects */
-.glow-blue { box-shadow: 0 0 20px rgba(6,182,212,0.2), 0 4px 20px rgba(6,182,212,0.08); }
-.glow-orange { box-shadow: 0 0 20px rgba(249,115,22,0.2), 0 4px 20px rgba(249,115,22,0.08); }
-.text-glow-blue { text-shadow: 0 0 20px rgba(6,182,212,0.35); }
-.text-glow-orange { text-shadow: 0 0 20px rgba(249,115,22,0.35); }
+/* Glow effects — toned down for professional look */
+.glow-blue { box-shadow: 0 2px 8px rgba(6,182,212,0.10); }
+.glow-orange { box-shadow: 0 2px 8px rgba(249,115,22,0.10); }
+.text-glow-blue { text-shadow: none; }
+.text-glow-orange { text-shadow: none; }
 
-/* Grid pattern */
+/* Grid pattern — subtle */
 .grid-pattern {
-  background-image: linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(6,182,212,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,182,212,0.02) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 

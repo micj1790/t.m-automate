@@ -26,7 +26,7 @@ export default function CTASection() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/quote">
-              <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm uppercase tracking-wide glow-blue">
+              <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-black text-sm uppercase tracking-wide">
                 Request a Quote <ArrowRight className="w-4 h-4" />
               </motion.button>
             </Link>
