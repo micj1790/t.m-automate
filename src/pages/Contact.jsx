@@ -27,13 +27,8 @@ export default function Contact() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/8580076a4_contact.webp" alt="Contact" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/88" />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-20 border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Get In Touch</h1>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
