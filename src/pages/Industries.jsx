@@ -56,15 +56,15 @@ export default function Industries() {
     <div className="pt-16">
       <ClientsBanner />
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Sectors We Serve
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Industries We Serve</h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-4">Industries We Serve</h1>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
               Deep expertise across 6 major industries. 39 years of delivering reliable automation solutions to South Africa's most demanding sectors.
             </p>
           </motion.div>
