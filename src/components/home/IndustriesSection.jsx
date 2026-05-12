@@ -5,14 +5,14 @@ import { ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const industries = [
-  { name: 'FMCG', sub: 'Fast-Moving Consumer Goods', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/20afd69df_fmcg2.webp', count: '60+ Projects' },
+  { name: 'FMCG', sub: 'Fast Moving Consumer Goods', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/20afd69df_fmcg2.webp', count: '60+ Projects' },
   { name: 'Food & Beverage', sub: 'Production & Packaging', img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80', count: '80+ Projects' },
   { name: 'Pharmaceutical', sub: 'GMP Compliant Systems', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/cb58bf442_pharma2.png', count: '40+ Projects' },
   { name: 'Mining', sub: 'Heavy Industrial', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ff241dd12_mining2.jpg', count: '50+ Projects' },
   { name: 'Manufacturing', sub: 'Production Lines', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/96420aace_manufctauring2.png', count: '120+ Projects' },
   { name: 'Data Centres', sub: 'Power & Monitoring', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80', count: '25+ Projects' },
   { name: 'Industrial Processing', sub: 'Plant Automation', img: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80', count: '90+ Projects' },
-  { name: 'Cosmetics', sub: 'Filling & Labelling', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/55a37d44a_cosmteics2.jpg', count: '30+ Projects' },
+  { name: 'Cosmetics', sub: 'Filling and Labelling', img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/55a37d44a_cosmteics2.jpg', count: '30+ Projects' },
 ];
 
 export default function IndustriesSection() {

@@ -8,7 +8,7 @@ import ClientsBanner from '@/components/home/ClientsBanner';
 
 const industries = [
   {
-    name: 'FMCG', sub: 'Fast-Moving Consumer Goods',
+    name: 'FMCG', sub: 'Fast Moving Consumer Goods',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/954c789f3_fmcg2.webp',
     desc: 'T.M Engineering has been the preferred automation partner for FMCG manufacturers for 39 years. We understand the demanding 24/7 production environments and the critical importance of minimal downtime.',
     services: ['Labelling Machines', 'Liquid Fillers', 'Conveyor Systems', 'Packaging Line Automation', 'PLC Programming', 'VSD & Drive Systems'],
@@ -18,21 +18,21 @@ const industries = [
     name: 'Food & Beverage', sub: 'Production & Packaging',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/3d3506004_fandb.jpg',
     desc: 'From bottling plants to food processing facilities, we deliver hygienic automation solutions that meet food safety standards while maximising throughput and efficiency.',
-    services: ['Filling & Capping Machines', 'Shrink Tunnel Systems', 'Checkweighers', 'SCADA Monitoring', 'CIP-compatible equipment', 'Stainless steel construction'],
+    services: ['Filling & Capping Machines', 'Shrink Tunnel Systems', 'Checkweighers', 'SCADA Monitoring', 'CIP compatible equipment', 'Stainless steel construction'],
     stat: '80+ Projects'
   },
   {
     name: 'Pharmaceutical', sub: 'GMP Compliant Solutions',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/329377a66_pharma2.png',
-    desc: 'We provide GMP-compliant automation solutions for pharmaceutical manufacturers, with full IQ/OQ/PQ documentation, 21 CFR Part 11 compliance and FDA-acceptable designs.',
+    desc: 'We provide GMP compliant automation solutions for pharmaceutical manufacturers, with full IQ/OQ/PQ documentation, 21 CFR Part 11 compliance and FDA acceptable designs.',
     services: ['Tube Fillers & Sealers', 'Tablet Counters', 'Vial Filling Systems', 'Serialisation Integration', 'GMP Documentation', 'Validated Systems'],
     stat: '40+ Projects'
   },
   {
     name: 'Mining', sub: 'Heavy Industrial Solutions',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/883dde3fb_mining2.jpg',
-    desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion-proof controls, conveyor automation and comprehensive SCADA monitoring.',
-    services: ['Conveyor Belt Control', 'Explosion-Proof Panels', 'MCC for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
+    desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion proof controls, conveyor automation and comprehensive SCADA monitoring.',
+    services: ['Conveyor Belt Control', 'Explosion Proof Panels', 'Control and MCC Panels for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
     stat: '50+ Projects'
   },
   {
