@@ -105,8 +105,6 @@ export default function Industries() {
         </div>
       </section>
 
-      <ClientsBanner />
-
       {/* Industries - Second Row */}
       <section className="py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,8 +141,6 @@ export default function Industries() {
         </div>
       </section>
 
-      <ClientsBanner />
-
       {/* Industries - Third Row */}
       <section className="py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,6 +176,22 @@ export default function Industries() {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-4">
+              Ready to Automate Your Operations?
+            </h2>
+            <p className="text-base text-muted-foreground mb-8 max-w-xl mx-auto">
+              Get a free quote from our engineering team. We'll respond within 24 hours.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <ClientsBanner />
     </div>
   );
 }
