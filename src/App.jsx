@@ -16,7 +16,6 @@ import Industries from '@/pages/Industries';
 import Projects from '@/pages/Projects';
 import Contact from '@/pages/Contact';
 import Quote from '@/pages/Quote';
-import Careers from '@/pages/Careers';
 import Catalogue from '@/pages/Catalogue';
 import Parts from '@/pages/Parts';
 import Machines from '@/pages/Machines';
@@ -69,7 +68,6 @@ const AuthenticatedApp = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/quote" element={<Quote />} />
-        <Route path="/careers" element={<Careers />} />
         <Route path="/catalogue" element={<Catalogue />} />
         <Route path="/parts" element={<Parts />} />
         <Route path="/machines" element={<Machines />} />
