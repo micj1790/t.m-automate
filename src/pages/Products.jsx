@@ -135,74 +135,65 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Parts Section */}
+      {/* Two Columns: Parts + Machines */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10">
-            <SectionHeader label="Parts & Components" title="Industrial Parts" description="Browse our full range of electrical and mechanical components." align="left" />
-            <Link to="/parts" className="shrink-0 hidden md:flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-14">
-              View All Parts <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {partsCategories.map((cat, i) => (
-              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <Link to={`/catalogue?category=${cat.key}`}
-                  className="group flex flex-col gap-3 p-5 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <cat.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">{cat.label}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{cat.desc}</p>
-                  </div>
-                  <div className="mt-auto flex items-center gap-1 text-xs font-semibold text-primary">
-                    View Catalogue <ArrowRight className="w-3 h-3" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-6 md:hidden">
-            <Link to="/parts" className="flex items-center gap-1.5 text-sm font-semibold text-primary">
-              View All Parts <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
 
-      {/* Machines Section */}
-      <section className="py-16 md:py-20 bg-card/20 border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10">
-            <SectionHeader label="Machines" title="Manufactured Machines" description="Custom-built FMCG and industrial machines since 1994." align="left" />
-            <Link to="/machines" className="shrink-0 hidden md:flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors mb-14">
-              View All Machines <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {machinesCategories.map((cat, i) => (
-              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
-                <Link to={`/catalogue?category=${cat.key}`}
-                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
-                    <cat.icon className="w-6 h-6 text-accent" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors mb-1">{cat.label}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">{cat.desc}</p>
-                    <span className="flex items-center gap-1 text-xs font-semibold text-accent">
-                      View Catalogue <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
+            {/* Parts Column */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-primary">Parts & Components</span>
+                  <h2 className="text-2xl font-black text-foreground mt-0.5">Industrial Parts</h2>
+                </div>
+                <Link to="/parts" className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors shrink-0">
+                  View All <ArrowRight className="w-3 h-3" />
                 </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-6 md:hidden">
-            <Link to="/machines" className="flex items-center gap-1.5 text-sm font-semibold text-accent">
-              View All Machines <ArrowRight className="w-4 h-4" />
-            </Link>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {partsCategories.map((cat, i) => (
+                  <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
+                    className="group flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <cat.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-snug">{cat.label}</h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Machines Column */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-accent">Manufactured Machines</span>
+                  <h2 className="text-2xl font-black text-foreground mt-0.5">Our Machines</h2>
+                </div>
+                <Link to="/machines" className="flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent/80 transition-colors shrink-0">
+                  View All <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 gap-3">
+                {machinesCategories.map((cat, i) => (
+                  <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
+                    className="group flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all">
+                    <div className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                      <cat.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors mb-0.5">{cat.label}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{cat.desc}</p>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-accent transition-colors shrink-0 mt-0.5" />
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
