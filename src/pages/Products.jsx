@@ -120,6 +120,17 @@ export default function Products() {
       {/* Two Columns: Parts + Machines */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Search Bar */}
+          <div className="mb-10">
+            <div className="relative max-w-xl mx-auto">
+              <input
+                type="text"
+                placeholder="Search products, parts or machines..."
+                className="w-full pl-12 pr-4 py-3 rounded-xl bg-card border border-border text-sm focus:outline-none focus:border-primary/50 transition-colors"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
 
             {/* Parts Column */}
@@ -133,6 +144,9 @@ export default function Products() {
                   View All <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
+              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                Comprehensive range of industrial automation parts from the world's most trusted brands. All components in stock for immediate delivery.
+              </p>
               <div className="grid grid-cols-2 gap-3">
                 {partsCategories.map((cat, i) => (
                   <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
