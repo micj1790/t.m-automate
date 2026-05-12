@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Cylinder, Droplets, Flame, Wind, Wrench, Cpu, ToggleLeft } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
@@ -182,8 +181,6 @@ export default function Products() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }
