@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import ClientsBanner from '@/components/home/ClientsBanner';
 
@@ -107,8 +106,6 @@ export default function Industries() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

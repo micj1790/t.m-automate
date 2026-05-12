@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Briefcase, MapPin, Clock, ArrowRight, Users, Award, Zap } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
+
 
 const openings = [
   { title: 'PLC Programmer / Systems Engineer', type: 'Full-Time', location: 'Randburg, Johannesburg', desc: 'Experienced PLC programmer for Siemens, Allen-Bradley and Mitsubishi systems. SCADA development experience a bonus.' },
@@ -93,8 +93,6 @@ export default function Careers() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

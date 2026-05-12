@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Clock, Target, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const values = [
@@ -145,8 +144,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

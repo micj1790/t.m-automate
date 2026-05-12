@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Zap, Radio, Settings, ToggleLeft, Cpu, Box, Thermometer, Gauge, Wrench, ArrowRight } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
@@ -62,8 +61,6 @@ export default function Parts() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

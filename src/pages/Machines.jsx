@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Tag, Package, Beaker, Droplets, Flame, Wind, ArrowRight } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
 const machinesCategories = [
@@ -57,8 +56,6 @@ export default function Machines() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

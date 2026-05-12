@@ -4,7 +4,6 @@ import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Filter, Search, ArrowRight, ExternalLink } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const ytVideos = [
@@ -169,8 +168,6 @@ export default function Projects() {
           )}
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

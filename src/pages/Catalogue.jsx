@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowLeft, ArrowRight, ChevronRight, ImageOff } from 'lucide-react';
-import CTASection from '@/components/home/CTASection';
+
 
 const CATEGORY_META = {
   switchgear: { label: 'Switchgear', section: 'parts', desc: 'Circuit breakers, isolators, contactors and busbars from top global brands.' },
@@ -200,8 +200,6 @@ export default function Catalogue() {
       <AnimatePresence>
         {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
-
-      <CTASection />
     </div>
   );
 }
