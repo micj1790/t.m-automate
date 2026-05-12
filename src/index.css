@@ -10,68 +10,68 @@
     --font-mono: 'JetBrains Mono', monospace;
     --font-display: 'Bebas Neue', sans-serif;
     --background: 0 0% 100%;
-    --foreground: 220 25% 12%;
-    --card: 220 20% 97%;
-    --card-foreground: 220 25% 12%;
+    --foreground: 221 60% 15%;
+    --card: 220 40% 98%;
+    --card-foreground: 221 60% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
-    --primary: 221 70% 28%;
+    --popover-foreground: 221 60% 15%;
+    --primary: 221 75% 22%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 15% 93%;
-    --secondary-foreground: 220 25% 20%;
-    --muted: 220 15% 93%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 24 95% 58%;
+    --secondary: 220 40% 94%;
+    --secondary-foreground: 221 60% 18%;
+    --muted: 220 40% 94%;
+    --muted-foreground: 221 25% 45%;
+    --accent: 24 95% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 14% 88%;
-    --input: 220 14% 88%;
-    --ring: 221 70% 28%;
-    --chart-1: 221 70% 28%;
-    --chart-2: 24 95% 58%;
+    --border: 220 35% 88%;
+    --input: 220 35% 88%;
+    --ring: 221 75% 22%;
+    --chart-1: 221 75% 22%;
+    --chart-2: 24 95% 55%;
     --chart-3: 142 71% 45%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --radius: 0.5rem;
-    --sidebar-background: 220 20% 97%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 221 70% 28%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 15%;
-    --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 220 14% 20%;
-    --sidebar-ring: 221 70% 28%;
+    --sidebar-background: 221 75% 16%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 221 75% 22%;
+    --sidebar-accent: 221 65% 22%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 221 55% 25%;
+    --sidebar-ring: 221 75% 40%;
   }
 
   .dark {
     --background: 0 0% 100%;
-    --foreground: 220 25% 12%;
-    --card: 220 20% 97%;
-    --card-foreground: 220 25% 12%;
+    --foreground: 221 60% 15%;
+    --card: 220 40% 98%;
+    --card-foreground: 221 60% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
-    --primary: 221 70% 28%;
+    --popover-foreground: 221 60% 15%;
+    --primary: 221 75% 22%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 15% 93%;
-    --secondary-foreground: 220 25% 20%;
-    --muted: 220 15% 93%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 24 95% 58%;
+    --secondary: 220 40% 94%;
+    --secondary-foreground: 221 60% 18%;
+    --muted: 220 40% 94%;
+    --muted-foreground: 221 25% 45%;
+    --accent: 24 95% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 14% 88%;
-    --input: 220 14% 88%;
-    --ring: 221 70% 28%;
-    --sidebar-background: 220 20% 97%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 221 70% 28%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 15%;
-    --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 220 14% 20%;
-    --sidebar-ring: 221 70% 28%;
+    --border: 220 35% 88%;
+    --input: 220 35% 88%;
+    --ring: 221 75% 22%;
+    --sidebar-background: 221 75% 16%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 221 75% 22%;
+    --sidebar-accent: 221 65% 22%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 221 55% 25%;
+    --sidebar-ring: 221 75% 40%;
   }
 }
 
@@ -84,8 +84,8 @@ html { scroll-behavior: smooth; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: hsl(220 18% 5%); }
-::-webkit-scrollbar-thumb { background: hsl(220 14% 18%); border-radius: 3px; }
+::-webkit-scrollbar-track { background: hsl(220 40% 94%); }
+::-webkit-scrollbar-thumb { background: hsl(221 40% 70%); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: hsl(199 90% 58%); }
 
 /* Glow effects — toned down for professional look */
