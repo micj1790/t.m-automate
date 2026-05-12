@@ -13,8 +13,8 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <ServicesPreview />
-      <BrandsBanner />
       <FeaturedProjects />
+      <BrandsBanner />
       <CTASection />
     </>
   );
