@@ -97,7 +97,7 @@ export default function Products() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=90" alt="Products" className="w-full h-full object-cover object-center" />
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=90" alt="Products" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/65 to-background" />
           <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
