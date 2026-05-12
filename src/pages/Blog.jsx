@@ -13,7 +13,7 @@ const fallbackPosts = [
     category: 'industry_news',
     author: 'T.M Engineering',
     created_date: '2025-03-01',
-    cover_image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+    cover_image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
     status: 'published',
     content: `## Industry 4.0 is Here — Is South Africa Ready?
 
@@ -438,7 +438,7 @@ export default function Blog() {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <div onClick={() => setSelected(p)} className="group cursor-pointer rounded-2xl bg-card border border-border hover:border-primary/25 transition-all overflow-hidden gradient-border h-full flex flex-col">
                   <div className="aspect-[16/9] relative overflow-hidden">
-                    <img src={p.cover_image || 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'} alt={p.title}
+                    <img src={p.cover_image || 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80'} alt={p.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
                     <div className="absolute top-3 left-3">
