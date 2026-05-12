@@ -147,9 +147,9 @@ export default function Services() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80" alt="Services" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-background/88" />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1920&q=90" alt="Services" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
+          <div className="absolute inset-0 grid-pattern opacity-30" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
