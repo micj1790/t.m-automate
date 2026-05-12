@@ -181,8 +181,8 @@ export default function Products() {
         </div>
       </section>
 
-      <CTASection />
       <BrandsBanner />
+      <CTASection />
     </div>
   );
 }
