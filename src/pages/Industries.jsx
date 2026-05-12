@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import ClientsBanner from '@/components/home/ClientsBanner';
-import BrandsBanner from '@/components/home/BrandsBanner';
 
 const industries = [
   {
@@ -55,7 +54,6 @@ const industries = [
 export default function Industries() {
   return (
     <div className="pt-16">
-      <ClientsBanner />
       {/* Hero */}
       <section className="relative py-8 md:py-10 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-40" />
@@ -71,6 +69,8 @@ export default function Industries() {
           </motion.div>
         </div>
       </section>
+
+      <ClientsBanner />
 
       {/* Industries */}
       <section className="py-8 md:py-12">
@@ -108,7 +108,6 @@ export default function Industries() {
         </div>
       </section>
 
-      <BrandsBanner />
       <CTASection />
     </div>
   );
