@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Cpu, Zap, Settings, Monitor, Activity, Shield, Tag, Wrench, Package, Beaker, Layers, Box, Radio, Bolt, Truck, Factory, Cable, ChevronRight, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
-import CTASection from '@/components/home/CTASection';
 
 const services = [
   {
@@ -243,7 +242,6 @@ export default function Services() {
         </div>
       </section>
 
-      <CTASection />
     </div>
   );
 }
