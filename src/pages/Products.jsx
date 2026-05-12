@@ -98,8 +98,8 @@ export default function Products() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80" alt="Products" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/88" />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -115,14 +115,14 @@ export default function Products() {
       </section>
 
       {/* Products */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-background via-secondary/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.map((prod, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="rounded-xl bg-card border border-border p-5 flex flex-col gap-4">
+                className="rounded-xl bg-card border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all p-5 flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
                     <prod.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
