@@ -13,7 +13,7 @@ const fallbackPosts = [
     category: 'industry_news',
     author: 'T.M Engineering',
     created_date: '2025-03-01',
-    cover_image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
+    cover_image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
     status: 'published',
     content: `## Industry 4.0 is Here — Is South Africa Ready?
 
