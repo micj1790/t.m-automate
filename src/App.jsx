@@ -17,6 +17,7 @@ import Projects from '@/pages/Projects';
 import Contact from '@/pages/Contact';
 import Quote from '@/pages/Quote';
 import Careers from '@/pages/Careers';
+import Catalogue from '@/pages/Catalogue';
 
 // Auth pages
 import Login from '@/pages/Login';
@@ -67,6 +68,7 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/quote" element={<Quote />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/catalogue" element={<Catalogue />} />
       </Route>
 
       {/* Auth pages */}

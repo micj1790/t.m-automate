@@ -1,0 +1,80 @@
+{
+  "name": "CatalogueItem",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product or machine name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "switchgear",
+        "sensors",
+        "gear_motors",
+        "solenoid_valves",
+        "ac_dc_drives",
+        "plcs_hmis",
+        "temperature_controllers",
+        "valves",
+        "regulators",
+        "cylinders",
+        "labelling_machines",
+        "liquid_fillers",
+        "heat_tunnels",
+        "bottle_capping",
+        "vacuum_pumps",
+        "vffs_machines"
+      ],
+      "description": "Product category"
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "parts",
+        "machines"
+      ],
+      "description": "Main section"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "specifications": {
+      "type": "string",
+      "description": "Technical specifications"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key features list"
+    },
+    "image_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product photo URLs"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand / manufacturer"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model number"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show as featured item"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "section"
+  ]
+}

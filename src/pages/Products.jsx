@@ -1,10 +1,32 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, ExternalLink } from 'lucide-react';
+import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Cylinder, Droplets, Flame, Wind, Wrench, Cpu, ToggleLeft } from 'lucide-react';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
+
+const partsCategories = [
+  { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars.' },
+  { icon: Radio, label: 'Sensors', key: 'sensors', desc: 'Proximity, photoelectric, temperature & pressure sensors.' },
+  { icon: Settings, label: 'Industrial Gear Motors & Gearboxes', key: 'gear_motors', desc: 'Heavy-duty gear motors & gearboxes for conveyors.' },
+  { icon: ToggleLeft, label: 'Solenoid Valves', key: 'solenoid_valves', desc: 'Pneumatic & hydraulic solenoid valves.' },
+  { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'VSDs & drives from ABB, Siemens, Danfoss & more.' },
+  { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Siemens, Allen-Bradley, Mitsubishi & Schneider systems.' },
+  { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers.' },
+  { icon: Gauge, label: 'Valves', key: 'valves', desc: 'Ball, butterfly, gate & globe valves.' },
+  { icon: Gauge, label: 'Regulators', key: 'regulators', desc: 'Pressure regulators & air treatment units.' },
+  { icon: Wrench, label: 'Cylinders', key: 'cylinders', desc: 'Pneumatic & hydraulic cylinders in all configurations.' },
+];
+
+const machinesCategories = [
+  { icon: Tag, label: 'Labelling Machines', key: 'labelling_machines', desc: 'Automatic labelling equipment designed since 1994.' },
+  { icon: Droplets, label: 'Liquid Fillers', key: 'liquid_fillers', desc: 'Fillers for all viscosities and container types.' },
+  { icon: Flame, label: 'Heat Tunnels', key: 'heat_tunnels', desc: 'Shrink sleeve & heat tunnel systems.' },
+  { icon: Package, label: 'Bottle Capping Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers with torque control.' },
+  { icon: Wind, label: 'Vacuum Pumps', key: 'vacuum_pumps', desc: 'PUMPVAC oil-flooded sliding vane vacuum pumps.' },
+  { icon: Beaker, label: 'Vertical Form Fill & Seal Machines', key: 'vffs_machines', desc: 'VFFS for sachets, pouches & pillow packs.' },
+];
 
 const products = [
   {
@@ -113,42 +135,52 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Products */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-background via-secondary/20 to-background">
+      {/* Parts Section */}
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {products.map((prod, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="rounded-xl bg-card border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all p-5 flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
-                    <prod.icon className="w-5 h-5 text-primary" />
+          <SectionHeader label="Parts & Components" title="Industrial Parts" description="Browse our full range of electrical and mechanical components from the world's leading brands." align="left" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {partsCategories.map((cat, i) => (
+              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <Link to={`/catalogue?category=${cat.key}`}
+                  className="group flex flex-col gap-3 p-5 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <cat.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h2 className="text-sm font-black text-foreground">{prod.category}</h2>
-                    <span className="text-[10px] font-semibold text-accent">{prod.tag}</span>
+                    <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">{cat.label}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{cat.desc}</p>
                   </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">{prod.desc}</p>
-                <ul className="space-y-1.5">
-                  {prod.items.map(item => (
-                    <li key={item.name} className="flex items-start gap-2 text-xs text-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1" />
-                      <span><span className="font-semibold">{item.name}</span> — <span className="text-muted-foreground">{item.desc}</span></span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex items-center gap-2 mt-auto pt-2 border-t border-border">
-                  <Link to="/quote" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary/80 transition-colors">
-                    Get a Quote <ArrowRight className="w-3 h-3" />
-                  </Link>
-                  {prod.ytId && (
-                    <a href={`https://www.youtube.com/watch?v=${prod.ytId}`} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-400 hover:text-red-300 transition-colors ml-3">
-                      <Play className="w-3 h-3" /> Watch Video
-                    </a>
-                  )}
-                </div>
+                  <div className="mt-auto flex items-center gap-1 text-xs font-semibold text-primary">
+                    View Catalogue <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Machines Section */}
+      <section className="py-16 md:py-20 bg-card/20 border-y border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader label="Machines" title="Manufactured Machines" description="Custom-built FMCG and industrial machines designed and manufactured by T.M Engineering since 1994." align="left" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {machinesCategories.map((cat, i) => (
+              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+                <Link to={`/catalogue?category=${cat.key}`}
+                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                    <cat.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors mb-1">{cat.label}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">{cat.desc}</p>
+                    <span className="flex items-center gap-1 text-xs font-semibold text-primary">
+                      View Catalogue <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
