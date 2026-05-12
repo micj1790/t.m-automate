@@ -174,6 +174,9 @@ export default function Products() {
                   View All <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
+              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                Engineered and manufactured solutions for packaging, labelling, filling and processing across diverse industries.
+              </p>
               <div className="grid grid-cols-1 gap-3">
                 {machinesCategories.map((cat, i) => (
                   <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
