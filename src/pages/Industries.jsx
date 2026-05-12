@@ -69,16 +69,13 @@ export default function Industries() {
         </div>
       </section>
 
-      {/* Industries */}
+      {/* Industries - First Row */}
       <section className="py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {industries.map((ind, i) => {
-              const showBannerAfter = i === industries.length - 1;
-              return (
-                <React.Fragment key={i}>
-                  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                    className="rounded-xl border border-border bg-card overflow-hidden">
+            {industries.slice(0, 2).map((ind, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="rounded-xl border border-border bg-card overflow-hidden">
                 <div className="relative">
                   <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
                   <div className="absolute bottom-3 right-3">
@@ -103,10 +100,83 @@ export default function Industries() {
                   </Link>
                 </div>
               </motion.div>
-                  {showBannerAfter && <ClientsBanner />}
-                </React.Fragment>
-              );
-            })}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ClientsBanner />
+
+      {/* Industries - Second Row */}
+      <section className="py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {industries.slice(2, 4).map((ind, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="rounded-xl border border-border bg-card overflow-hidden">
+                <div className="relative">
+                  <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
+                  <div className="absolute bottom-3 right-3">
+                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold backdrop-blur-sm">{ind.stat}</span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
+                    {ind.sub}
+                  </span>
+                  <h2 className="text-lg font-black text-foreground mb-2">{ind.name}</h2>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-3">{ind.desc}</p>
+                  <div className="grid grid-cols-2 gap-1.5 mb-4">
+                    {ind.services.map(s => (
+                      <div key={s} className="flex items-center gap-2 text-xs text-foreground">
+                        <CheckCircle className="w-3 h-3 text-primary shrink-0" />{s}
+                      </div>
+                    ))}
+                  </div>
+                  <Link to="/quote" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-bold transition-all">
+                    Get a Quote <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ClientsBanner />
+
+      {/* Industries - Third Row */}
+      <section className="py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {industries.slice(4).map((ind, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="rounded-xl border border-border bg-card overflow-hidden">
+                <div className="relative">
+                  <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
+                  <div className="absolute bottom-3 right-3">
+                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold backdrop-blur-sm">{ind.stat}</span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
+                    {ind.sub}
+                  </span>
+                  <h2 className="text-lg font-black text-foreground mb-2">{ind.name}</h2>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-3">{ind.desc}</p>
+                  <div className="grid grid-cols-2 gap-1.5 mb-4">
+                    {ind.services.map(s => (
+                      <div key={s} className="flex items-center gap-2 text-xs text-foreground">
+                        <CheckCircle className="w-3 h-3 text-primary shrink-0" />{s}
+                      </div>
+                    ))}
+                  </div>
+                  <Link to="/quote" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-bold transition-all">
+                    Get a Quote <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
