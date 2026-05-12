@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Youtube, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Youtube, MessageCircle, Send } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
+import { useMutation } from '@tanstack/react-query';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon–Fri, 7:30am–5pm' },
@@ -10,11 +16,47 @@ const contacts = [
 ];
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  });
+
+  const submitMutation = useMutation({
+    mutationFn: async (data) => {
+      await base44.entities.Lead.create({
+        ...data,
+        source: 'website',
+        type: 'general_enquiry',
+        status: 'new'
+      });
+    },
+    onSuccess: () => {
+      toast.success('Thanks! We will get back to you within 2 hours.');
+      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+    },
+    onError: (error) => {
+      toast.error('Failed to send message. Please try again.');
+    }
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error('Please fill in all required fields.');
+      return;
+    }
+    submitMutation.mutate(formData);
+  };
+
   return (
     <div className="pt-16">
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
+          {/* Contact Info */}
+          <div className="space-y-4 mb-12">
             {contacts.map((c, i) => (
               <motion.a key={i} href={c.link} target={c.label === 'Address' ? '_blank' : undefined} rel="noopener noreferrer"
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}
@@ -30,6 +72,83 @@ export default function Contact() {
               </motion.a>
             ))}
           </div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-6 rounded-xl bg-card border border-border"
+          >
+            <h2 className="text-xl font-bold text-foreground mb-2">Get in Touch</h2>
+            <p className="text-sm text-muted-foreground mb-6">Fill in your details and requirements — we'll get back to you within 2 hours.</p>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Name *</label>
+                  <Input
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your name"
+                    className="bg-background border-border"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Email *</label>
+                  <Input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="your@email.com"
+                    className="bg-background border-border"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Phone</label>
+                  <Input
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="011 123 4567"
+                    className="bg-background border-border"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Company</label>
+                  <Input
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    placeholder="Company name"
+                    className="bg-background border-border"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Requirements *</label>
+                <Textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Tell us about your project or requirements..."
+                  className="bg-background border-border min-h-[120px]"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={submitMutation.isPending}
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              >
+                {submitMutation.isPending ? 'Sending...' : (
+                  <>
+                    <Send className="w-4 h-4 mr-2" /> Send Message
+                  </>
+                )}
+              </Button>
+            </form>
+          </motion.div>
 
           {/* Social */}
           <div className="pt-8">
