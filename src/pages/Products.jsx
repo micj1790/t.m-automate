@@ -117,9 +117,6 @@ export default function Products() {
 
   return (
     <div className="pt-16">
-
-      <BrandsBanner />
-
       {/* Two Columns: Parts + Machines */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -183,7 +180,7 @@ export default function Products() {
         </div>
       </section>
 
-      <CTASection />
+      <BrandsBanner />
     </div>
   );
 }
