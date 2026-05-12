@@ -8,7 +8,6 @@ const services = [
   { icon: Cpu, title: 'PLC & HMI Programming', desc: 'Siemens, Allen-Bradley, Schneider & Mitsubishi — programmed and commissioned.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15' },
   { icon: Zap, title: 'Industrial Automation', desc: 'End-to-end factory automation for FMCG, mining and manufacturing.', color: 'text-accent', bg: 'bg-accent/8 border-accent/15' },
   { icon: Settings, title: 'Control Panels', desc: 'Custom panels designed, manufactured and installed to SANS standards.', color: 'text-purple-400', bg: 'bg-purple-400/8 border-purple-400/15' },
-  { icon: Monitor, title: 'SCADA Systems', desc: 'Real-time process monitoring and control using Wonderware & Ignition.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15' },
   { icon: Tag, title: 'Labelling Machines', desc: 'Custom automatic labelling equipment for FMCG production lines.', color: 'text-yellow-400', bg: 'bg-yellow-400/8 border-yellow-400/15' },
   { icon: Shield, title: '24/7 Breakdown Support', desc: 'Emergency electrical and automation callout across Gauteng.', color: 'text-red-400', bg: 'bg-red-400/8 border-red-400/15' },
 ];
