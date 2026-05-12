@@ -20,6 +20,7 @@ export default function ServicesPreview() {
         <SectionHeader
           label="What We Do"
           title="Engineering That Powers Industry"
+          align="center"
         />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {services.map((s, i) => (
