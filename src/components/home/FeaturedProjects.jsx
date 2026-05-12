@@ -26,12 +26,7 @@ export default function FeaturedProjects() {
   return (
     <section className="py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-          <SectionHeader label="Featured Projects" title="Our Work Speaks for Itself" align="left" />
-          <Link to="/projects" className="shrink-0 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-4">
-            View All Projects <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        <SectionHeader label="Featured Projects" title="Our Work Speaks for Itself" align="center" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {display.slice(0, 3).map((p, i) => (
