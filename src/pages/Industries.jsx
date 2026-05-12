@@ -69,15 +69,16 @@ export default function Industries() {
         </div>
       </section>
 
-      <ClientsBanner />
-
       {/* Industries */}
       <section className="py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {industries.map((ind, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="rounded-xl border border-border bg-card overflow-hidden">
+            {industries.map((ind, i) => {
+              const showBannerAfter = i === industries.length - 1;
+              return (
+                <React.Fragment key={i}>
+                  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                    className="rounded-xl border border-border bg-card overflow-hidden">
                 <div className="relative">
                   <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
                   <div className="absolute bottom-3 right-3">
@@ -102,7 +103,10 @@ export default function Industries() {
                   </Link>
                 </div>
               </motion.div>
-            ))}
+                  {showBannerAfter && <ClientsBanner />}
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       </section>
