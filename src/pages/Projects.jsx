@@ -47,19 +47,14 @@ export default function Projects() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80" alt="Projects" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/88" />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Our Portfolio
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Projects & Case Studies</h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Projects & Case Studies</h1>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               500+ completed projects across all major industries. From labelling machines to complete factory automation — our work speaks for itself.
             </p>
           </motion.div>
