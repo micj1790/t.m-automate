@@ -27,8 +27,8 @@ export default function About() {
       {/* Hero */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/981829911_generated_image.png" alt="About T.M Engineering" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/88" />
+          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/981829911_generated_image.png" alt="About T.M Engineering" className="w-full h-full object-cover object-right" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,8 +40,9 @@ export default function About() {
               <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight leading-tight mb-5">
                 About T.M<br /><span className="text-primary text-glow-blue">Engineering</span>
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                Specialists in Industrial Automation and FMCG Servicing & Supply. For over 39 years, T.M Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and FMCG industries.
+              <p className="text-base md:text-lg leading-relaxed max-w-2xl">
+                <span className="text-white font-semibold">Specialists in Industrial Automation</span>
+                <span className="text-muted-foreground"> and FMCG Servicing & Supply. For over 39 years, T.M Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and FMCG industries.</span>
               </p>
             </motion.div>
           </div>
