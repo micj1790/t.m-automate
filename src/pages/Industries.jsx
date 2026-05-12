@@ -54,6 +54,7 @@ const industries = [
 export default function Industries() {
   return (
     <div className="pt-16">
+      <ClientsBanner />
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-40" />
@@ -69,8 +70,6 @@ export default function Industries() {
           </motion.div>
         </div>
       </section>
-
-      <ClientsBanner />
 
       {/* Industries */}
       <section className="py-16 md:py-20">
