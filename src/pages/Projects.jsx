@@ -110,51 +110,51 @@ export default function Projects() {
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search projects..." className="pl-10 bg-secondary border-border" />
+          <div className="flex flex-col sm:flex-row gap-4 mb-10 items-center">
+            <div className="relative flex-1 w-full">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search projects..." className="pl-11 pr-4 py-2.5 rounded-xl bg-secondary border-border text-sm" />
             </div>
-            <div className="flex gap-2 overflow-x-auto no-scrollbar">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto pb-2 sm:pb-0">
               {industries.map(i => (
                 <button key={i} onClick={() => setFilter(i)}
-                  className={`shrink-0 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${filter === i ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground'}`}>
+                  className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
                   {i}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {display.map((p, i) => (
-                <motion.div key={p.id || p.title} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ delay: i * 0.05 }}>
-                  <div className="group rounded-2xl bg-card border border-border hover:border-primary/25 transition-all overflow-hidden gradient-border">
-                    <div className="aspect-[16/10] relative overflow-hidden">
+                <motion.div key={p.id || p.title} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ delay: i * 0.04 }}>
+                  <div className="group rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden">
+                    <div className="aspect-[16/9] relative overflow-hidden">
                       <img src={p.image_urls?.[0] || 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'} alt={p.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                       {p.results && (
-                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-semibold">
+                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-green-500/15 backdrop-blur-sm border border-green-500/25 text-green-400 text-[10px] font-bold">
                           ✓ Success
                         </div>
                       )}
                     </div>
-                    <div className="p-5">
-                      <div className="flex items-center gap-2 mb-2">
-                        {p.service_type && <span className="px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-semibold">{p.service_type}</span>}
-                        {p.year && <span className="text-[10px] text-muted-foreground">{p.year}</span>}
+                    <div className="p-4">
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        {p.service_type && <span className="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-wide">{p.service_type}</span>}
+                        {p.year && <span className="text-[10px] text-muted-foreground font-medium">{p.year}</span>}
                       </div>
-                      <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{p.title}</h3>
+                      <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">{p.description}</p>
                       {p.results && (
                         <div className="p-2.5 rounded-lg bg-green-500/5 border border-green-500/15 text-xs text-green-400 mb-3">
                           <span className="font-semibold">Result: </span>{p.results}
                         </div>
                       )}
-                      <div className="flex items-center justify-between text-xs text-muted-foreground">
-                        <span>{p.client || p.location || ''}</span>
-                        <span className="px-2 py-0.5 rounded-full bg-secondary">{industryLabels[p.industry] || p.industry || 'Engineering'}</span>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-border/50">
+                        <span className="font-medium">{p.client || p.location || ''}</span>
+                        <span className="px-2.5 py-1 rounded-lg bg-secondary font-medium">{industryLabels[p.industry] || p.industry || 'Engineering'}</span>
                       </div>
                     </div>
                   </div>
