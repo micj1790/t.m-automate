@@ -53,7 +53,7 @@ export default function Projects() {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Our Portfolio
             </span>
-            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Projects & Case Studies</h1>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Projects</h1>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               500+ completed projects across all major industries. From labelling machines to complete factory automation — our work speaks for itself.
             </p>
@@ -61,45 +61,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* YouTube Video Showcase */}
-      <section className="py-16 bg-card/20 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader label="Watch Live" title="Machines in Action" description="See our actual machines running on YouTube — labelling, filling, capping and more." />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {ytVideos.map(v => (
-              <motion.div key={v.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                className="group relative cursor-pointer rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all"
-                onClick={() => setActiveVideo(activeVideo === v.id ? null : v.id)}
-                >
-                <div className="aspect-video relative">
-                  {activeVideo === v.id ? (
-                    <iframe src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} className="w-full h-full" allow="autoplay; encrypted-media; fullscreen" allowFullScreen />
-                  ) : (
-                    <>
-                      <img src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`} alt={v.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Play className="w-5 h-5 text-white ml-1" />
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-                <div className="p-3">
-                  <div className="text-xs font-bold text-foreground">{v.title}</div>
-                  <div className="text-[10px] text-muted-foreground">{v.sub}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-6">
-            <a href="https://www.youtube.com/channel/UC4-3DeJMQVVApm9GhNI4TBg" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-red-500/30 bg-red-500/5 text-red-400 text-sm font-semibold hover:bg-red-500/10 transition-colors">
-              <Play className="w-4 h-4" /> View All Videos on YouTube <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </section>
+
 
       {/* Projects gallery */}
       <section className="py-16 md:py-20">
