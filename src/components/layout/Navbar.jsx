@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, ChevronDown, ArrowRight, Zap } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', path: '/about' },
@@ -67,14 +67,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-all glow-blue">
-                <Zap className="w-4.5 h-4.5 text-primary" />
-              </div>
-              <div>
-                <div className="text-sm font-black text-foreground tracking-wider uppercase">T.M Engineering</div>
-                <div className="text-[9px] text-primary/70 tracking-[0.15em] uppercase font-medium">Industrial Automation</div>
-              </div>
+            <Link to="/" className="flex items-center group">
+              <img
+                src="https://media.base44.com/images/public/69fefc1890408637f331f461/5d822c512_tmlogo.png"
+                alt="T.M Engineering"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop nav */}
