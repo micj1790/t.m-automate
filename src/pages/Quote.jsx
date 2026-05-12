@@ -32,10 +32,10 @@ export default function Quote() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80" alt="Quote" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/85 to-background" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left content */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
