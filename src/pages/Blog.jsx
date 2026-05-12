@@ -405,7 +405,7 @@ export default function Blog() {
     <div className="pt-16">
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/313602e04_blogs.jpg" alt="Blog" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80" alt="Blog" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
           <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
