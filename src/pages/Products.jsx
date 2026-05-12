@@ -150,11 +150,11 @@ export default function Products() {
               <div className="grid grid-cols-2 gap-3">
                 {partsCategories.map((cat, i) => (
                   <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
-                    className="group flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
+                    className="group flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all h-full">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                       <cat.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <h3 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-snug">{cat.label}</h3>
                     </div>
                   </Link>
@@ -176,7 +176,7 @@ export default function Products() {
               <div className="grid grid-cols-1 gap-3">
                 {machinesCategories.map((cat, i) => (
                   <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
-                    className="group flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all">
+                    className="group flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all h-full">
                     <div className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
                       <cat.icon className="w-5 h-5 text-accent" />
                     </div>
