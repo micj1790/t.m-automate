@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, ExternalLink } from 'lucide-react';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
+import BrandsBanner from '@/components/home/BrandsBanner';
 
 const products = [
   {
@@ -96,11 +97,7 @@ export default function Products() {
     <div className="pt-16">
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=90" alt="Products" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/65 to-background" />
-          <div className="absolute inset-0 grid-pattern opacity-20" />
-        </div>
+        <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
@@ -113,6 +110,8 @@ export default function Products() {
           </motion.div>
         </div>
       </section>
+
+      <BrandsBanner />
 
       {/* Products */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-background via-secondary/20 to-background">
