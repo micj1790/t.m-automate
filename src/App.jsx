@@ -14,7 +14,6 @@ import Services from '@/pages/Services';
 import Products from '@/pages/Products';
 import Industries from '@/pages/Industries';
 import Projects from '@/pages/Projects';
-import Blog from '@/pages/Blog';
 import Contact from '@/pages/Contact';
 import Quote from '@/pages/Quote';
 import Careers from '@/pages/Careers';
@@ -65,7 +64,6 @@ const AuthenticatedApp = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/quote" element={<Quote />} />
         <Route path="/careers" element={<Careers />} />

@@ -12,7 +12,6 @@ const company = [
   { label: 'Services', path: '/services' },
   { label: 'Products', path: '/products' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Blog', path: '/blog' },
   { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
 ];
