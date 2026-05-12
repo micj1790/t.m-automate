@@ -95,6 +95,8 @@ export default function Products() {
 
   return (
     <div className="pt-16">
+      <BrandsBanner />
+
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />
@@ -110,8 +112,6 @@ export default function Products() {
           </motion.div>
         </div>
       </section>
-
-      <BrandsBanner />
 
       {/* Products */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-background via-secondary/20 to-background">
