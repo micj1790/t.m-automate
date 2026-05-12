@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Shield, Clock, Award, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const words = ['Industrial Automation', 'Electrical Engineering', 'PLC Programming', 'SCADA Systems', 'Factory Solutions'];
 
@@ -44,12 +44,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      {/* Corner decoration */}
-      <div className="absolute top-24 right-10 hidden xl:flex flex-col items-center gap-1">
-        <div className="text-7xl font-black text-primary/10 leading-none select-none">39</div>
-        <div className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">Years Est. 1986</div>
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -60,15 +54,13 @@ export default function HeroSection() {
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.04] mb-4">
-            39 Years of Proven<br />
             <span className="text-primary">{displayed}<span className="animate-pulse">|</span></span>
-            <br />Excellence
+            <br />Specialists
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
             className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
-            Industrial Automation, Electrical Engineering & Control System Specialists.
-            From PLC programming to complete factory automation — we deliver world-class solutions across South Africa.
+            39 years of engineering expertise across South Africa. PLC programming, factory automation, control panels & more.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
@@ -90,20 +82,7 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Trust badges */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-            className="flex flex-wrap gap-5 md:gap-8">
-            {[
-              { icon: Award, label: '39+ Years Experience' },
-              { icon: Clock, label: '24/7 Emergency Support' },
-              { icon: Shield, label: 'Certified Engineers' },
-            ].map((b, i) => (
-              <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                <b.icon className="w-4 h-4 text-accent" />
-                <span>{b.label}</span>
-              </div>
-            ))}
-          </motion.div>
+
         </div>
       </div>
 

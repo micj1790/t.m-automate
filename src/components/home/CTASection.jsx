@@ -14,15 +14,12 @@ export default function CTASection() {
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[11px] font-bold uppercase tracking-[0.12em] mb-6">
-            Start Your Project Today
-          </span>
           <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight leading-tight mb-5">
-            Ready to Automate Your{' '}
-            <span className="text-primary text-glow-blue">Operations?</span>
+            Let's Build Something{' '}
+            <span className="text-primary">Together</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Contact our expert engineering team today. From a single PLC upgrade to complete factory automation — we deliver on time, on budget, every time.
+          <p className="text-base text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
+            Get a free quote from our engineering team. We'll respond within 24 hours.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/quote">

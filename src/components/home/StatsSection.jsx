@@ -20,10 +20,10 @@ function Counter({ target, suffix, duration = 2000 }) {
 }
 
 const stats = [
-  { value: 39, suffix: '+', label: 'Years of Excellence', sub: 'Since 1986' },
-  { value: 500, suffix: '+', label: 'Projects Delivered', sub: 'Across South Africa' },
-  { value: 400, suffix: '+', label: 'Clients Served', sub: 'All industries' },
-  { value: 24, suffix: '/7', label: 'Support Available', sub: 'Emergency callout' },
+  { value: 39, suffix: '+', label: 'Years Experience' },
+  { value: 500, suffix: '+', label: 'Projects Delivered' },
+  { value: 400, suffix: '+', label: 'Clients Served' },
+  { value: 24, suffix: '/7', label: 'Support' },
 ];
 
 export default function StatsSection() {
@@ -38,8 +38,7 @@ export default function StatsSection() {
               <div className="text-4xl md:text-5xl font-black text-primary mb-1 tracking-tight">
                 <Counter target={s.value} suffix={s.suffix} />
               </div>
-              <div className="text-sm font-bold text-foreground mb-0.5">{s.label}</div>
-              <div className="text-xs text-muted-foreground">{s.sub}</div>
+              <div className="text-sm font-semibold text-muted-foreground">{s.label}</div>
             </motion.div>
           ))}
         </div>
