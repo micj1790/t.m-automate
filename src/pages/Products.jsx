@@ -7,15 +7,15 @@ import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
 const partsCategories = [
-  { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars.' },
-  { icon: Radio, label: 'Sensors', key: 'sensors', desc: 'Proximity, photoelectric, temperature & pressure sensors.' },
-  { icon: Settings, label: 'Industrial Gear Motors & Gearboxes', key: 'gear_motors', desc: 'Heavy-duty gear motors & gearboxes for conveyors.' },
-  { icon: ToggleLeft, label: 'Solenoid Valves', key: 'solenoid_valves', desc: 'Pneumatic & hydraulic solenoid valves.' },
-  { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'VSDs & drives from ABB, Siemens, Danfoss & more.' },
-  { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Siemens, Allen-Bradley, Mitsubishi & Schneider systems.' },
-  { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers.' },
-  { icon: Gauge, label: 'Valves', key: 'valves', desc: 'Ball, butterfly, gate & globe valves.' },
-  { icon: Gauge, label: 'Regulators', key: 'regulators', desc: 'Pressure regulators & air treatment units.' },
+  { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars for industrial power distribution.' },
+  { icon: Radio, label: 'Sensors', key: 'sensors', desc: 'Proximity, photoelectric, temperature & pressure sensors for automation.' },
+  { icon: Settings, label: 'Gear Motors & Gearboxes', key: 'gear_motors', desc: 'Heavy-duty gear motors & gearboxes for conveyor systems.' },
+  { icon: ToggleLeft, label: 'Solenoid Valves', key: 'solenoid_valves', desc: 'Pneumatic & hydraulic solenoid valves for flow control.' },
+  { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'Variable speed drives from ABB, Siemens, Danfoss & more.' },
+  { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Programmable logic controllers & operator interfaces.' },
+  { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers for process control.' },
+  { icon: Gauge, label: 'Valves', key: 'valves', desc: 'Ball, butterfly, gate & globe valves for fluid control.' },
+  { icon: Gauge, label: 'Regulators', key: 'regulators', desc: 'Pressure regulators & air treatment units for pneumatic systems.' },
   { icon: Wrench, label: 'Cylinders', key: 'cylinders', desc: 'Pneumatic & hydraulic cylinders in all configurations.' },
 ];
 
@@ -155,7 +155,8 @@ export default function Products() {
                       <cat.icon className="w-4 h-4 text-primary" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-snug">{cat.label}</h3>
+                      <h3 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">{cat.label}</h3>
+                      <p className="text-[10px] text-muted-foreground leading-relaxed">{cat.desc}</p>
                     </div>
                   </Link>
                 ))}
