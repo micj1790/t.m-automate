@@ -139,8 +139,13 @@ const categories = ['All', 'Automation', 'Electrical', 'Machines', 'Power', 'Ele
 export default function Services() {
   const [active, setActive] = useState('All');
   const [selected, setSelected] = useState(null);
+  const [search, setSearch] = useState('');
 
-  const filtered = active === 'All' ? services : services.filter(s => s.category === active);
+  const filtered = services.filter(s => {
+    const matchesCategory = active === 'All' || s.category === active;
+    const matchesSearch = search === '' || s.title.toLowerCase().includes(search.toLowerCase()) || s.short.toLowerCase().includes(search.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="pt-16">
@@ -167,15 +172,26 @@ export default function Services() {
       {/* Filter bar */}
       <section className="sticky top-16 z-30 bg-background/95 backdrop-blur-xl border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar">
-            {categories.map(cat => (
-              <button key={cat} onClick={() => setActive(cat)}
-                className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                  active === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
-                }`}>
-                {cat}
-              </button>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-3 py-3">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar flex-1">
+              {categories.map(cat => (
+                <button key={cat} onClick={() => setActive(cat)}
+                  className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    active === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
+                  }`}>
+                  {cat}
+                </button>
+              ))}
+            </div>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search services..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full sm:w-64 px-4 py-1.5 rounded-full bg-secondary border border-border text-xs text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50"
+              />
+            </div>
           </div>
         </div>
       </section>
