@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, MessageCircle } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 
 export default function CTASection() {
   return (
@@ -32,11 +32,7 @@ export default function CTASection() {
                 <Phone className="w-4 h-4" /> 011 791 1562
               </motion.button>
             </a>
-            <a href="https://wa.me/27833757670?text=Hi%20T.M%20Engineering" target="_blank" rel="noopener noreferrer">
-              <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-sm hover:bg-green-500/20 transition-all">
-                <MessageCircle className="w-4 h-4" /> WhatsApp Us
-              </motion.button>
-            </a>
+
           </div>
         </motion.div>
       </div>

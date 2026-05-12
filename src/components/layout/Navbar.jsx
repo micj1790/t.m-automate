@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Phone, Mail, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', path: '/about' },
@@ -47,18 +47,22 @@ export default function Navbar() {
         }`}
       >
         {/* Top bar */}
-        <div className={`border-b border-white/5 transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden opacity-0' : 'h-8 opacity-100'}`}>
+        <div className={`border-b border-white/5 transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden opacity-0' : 'h-9 opacity-100'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-            <div className="flex items-center gap-4 text-[11px] text-muted-foreground">
-              <span>📍 10 Susan Street, Strijdom Park, Randburg</span>
-              <span className="hidden sm:block">|</span>
-              <a href="tel:+27117911562" className="hidden sm:flex items-center gap-1 hover:text-primary transition-colors">
-                <Phone className="w-3 h-3" /> 011 791 1562
-              </a>
+            <div className="flex items-center gap-5 text-[11px] text-muted-foreground">
+              <span className="flex items-center gap-1.5">📍 10 Susan Street, Strijdom Park, Randburg</span>
+              <span className="hidden sm:flex items-center gap-1.5 border-l border-white/10 pl-5">
+                <Phone className="w-3 h-3 text-primary" />
+                <a href="tel:+27117911562" className="hover:text-primary transition-colors">011 791 1562</a>
+              </span>
+              <span className="hidden md:flex items-center gap-1.5 border-l border-white/10 pl-5">
+                <Mail className="w-3 h-3 text-primary" />
+                <a href="mailto:sales@tmeng.co.za" className="hover:text-primary transition-colors">sales@tmeng.co.za</a>
+              </span>
             </div>
             <div className="text-[11px] text-muted-foreground flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span>24/7 Emergency Support: <a href="tel:+27833757670" className="text-primary hover:underline">083 375 7670</a></span>
+              <span>24/7 Emergency: <a href="tel:+27833757670" className="text-primary hover:underline font-medium">083 375 7670</a></span>
             </div>
           </div>
         </div>
