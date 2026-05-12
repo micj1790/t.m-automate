@@ -12,18 +12,6 @@ const contacts = [
 export default function Contact() {
   return (
     <div className="pt-16">
-      {/* Hero */}
-      <section className="py-16 md:py-20 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Contact Us</h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our engineering team is available 24/7 to assist with quotes, technical enquiries and emergency breakdowns.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
