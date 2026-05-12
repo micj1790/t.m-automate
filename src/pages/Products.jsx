@@ -117,23 +117,6 @@ export default function Products() {
 
   return (
     <div className="pt-16">
-      <BrandsBanner />
-
-      {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Product Range
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">Our Products</h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              From custom-built labelling machines to pharmaceutical equipment — a comprehensive product range backed by 39 years of engineering expertise.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Two Columns: Parts + Machines */}
       <section className="py-16 md:py-20">
@@ -199,6 +182,7 @@ export default function Products() {
       </section>
 
       <CTASection />
+      <BrandsBanner />
     </div>
   );
 }
