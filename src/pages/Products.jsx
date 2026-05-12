@@ -138,7 +138,12 @@ export default function Products() {
       {/* Parts Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader label="Parts & Components" title="Industrial Parts" description="Browse our full range of electrical and mechanical components from the world's leading brands." align="left" />
+          <div className="flex items-end justify-between mb-10">
+            <SectionHeader label="Parts & Components" title="Industrial Parts" description="Browse our full range of electrical and mechanical components." align="left" />
+            <Link to="/parts" className="shrink-0 hidden md:flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-14">
+              View All Parts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {partsCategories.map((cat, i) => (
               <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
@@ -158,31 +163,46 @@ export default function Products() {
               </motion.div>
             ))}
           </div>
+          <div className="mt-6 md:hidden">
+            <Link to="/parts" className="flex items-center gap-1.5 text-sm font-semibold text-primary">
+              View All Parts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Machines Section */}
       <section className="py-16 md:py-20 bg-card/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader label="Machines" title="Manufactured Machines" description="Custom-built FMCG and industrial machines designed and manufactured by T.M Engineering since 1994." align="left" />
+          <div className="flex items-end justify-between mb-10">
+            <SectionHeader label="Machines" title="Manufactured Machines" description="Custom-built FMCG and industrial machines since 1994." align="left" />
+            <Link to="/machines" className="shrink-0 hidden md:flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors mb-14">
+              View All Machines <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {machinesCategories.map((cat, i) => (
               <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
                 <Link to={`/catalogue?category=${cat.key}`}
-                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all">
+                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
                     <cat.icon className="w-6 h-6 text-accent" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors mb-1">{cat.label}</h3>
+                    <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors mb-1">{cat.label}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed mb-3">{cat.desc}</p>
-                    <span className="flex items-center gap-1 text-xs font-semibold text-primary">
+                    <span className="flex items-center gap-1 text-xs font-semibold text-accent">
                       View Catalogue <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
                 </Link>
               </motion.div>
             ))}
+          </div>
+          <div className="mt-6 md:hidden">
+            <Link to="/machines" className="flex items-center gap-1.5 text-sm font-semibold text-accent">
+              View All Machines <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
