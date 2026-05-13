@@ -11,13 +11,13 @@ const values = [
 ];
 
 const milestones = [
-  { year: '1986', title: 'T.M Engineering Founded', desc: 'Established in Johannesburg, focusing on industrial electrical engineering.' },
-  { year: '1994', title: 'Service Department Established', desc: 'Formed a dedicated service department to provide on-site support, maintenance and rapid response to clients across industries.' },
-  { year: '2000', title: 'Progression into PLCs', desc: 'Expanded capabilities into PLC programming and commissioning, enabling more advanced machine control and process automation for clients.' },
-  { year: '2010', title: 'Factory Automation Expertise', desc: 'Deepened our knowledge and capabilities in full factory automation - designing, building and commissioning complete automated production lines for clients across multiple industries.' },
-  { year: '2018', title: 'Projects Division Established', desc: 'Launched a dedicated projects division to manage large-scale turnkey automation and electrical engineering projects from design through to commissioning.' },
-  { year: '2023', title: 'Headquarters Expansion & Upgrades', desc: 'Expanded and upgraded the Strijdom Park headquarters with modern facilities, workshop improvements and enhanced capabilities to support growing client demand.' },
-  { year: '2026', title: 'Here to Serve', desc: 'Today, T.M Engineering stands ready to serve all your electrical and industrial automation needs - delivering the same commitment to quality, reliability and 24-hour service that has defined us for 40 years.' },
+  { year: '1986', title: 'Founded', desc: 'Industrial electrical engineering established in Johannesburg.' },
+  { year: '1994', title: 'Service Department', desc: '24-hour support & maintenance across industries.' },
+  { year: '2000', title: 'PLC Expertise', desc: 'Added PLC programming & automation capabilities.' },
+  { year: '2010', title: 'Factory Automation', desc: 'Full automation solutions & production line design.' },
+  { year: '2018', title: 'Projects Division', desc: 'Dedicated team for large-scale turnkey projects.' },
+  { year: '2023', title: 'Expansion', desc: 'Upgraded headquarters with modern facilities.' },
+  { year: '2026', title: 'Here to Serve', desc: '40 years of quality, reliability & excellence.' },
 ];
 
 export default function About() {
@@ -57,16 +57,13 @@ export default function About() {
                 Our Story
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-5 tracking-tight leading-tight">
-                Leading By Example - <span className="text-primary">39 Years Strong</span>
+                <span className="text-primary">39 Years</span> of Excellence
               </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                T.M. Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and FMCG industries for over 39 years. As a leading industrial electrical engineering company, we specialize in industrial electronic products and services that support a range of sectors.
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Throughout these 39 years, we have trained and developed a team of highly skilled professionals dedicated to exceeding expectations and building strong, long-lasting relationships with each client. The owner and management are hands-on at all times to ensure this commitment filters from the very top of the organization.
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                T.M Engineering has delivered exceptional 24-hour service and high-quality electrical & FMCG solutions for nearly 40 years. Our experienced team specializes in industrial automation, PLC systems, and engineering projects across multiple sectors.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                <span className="text-foreground font-semibold">"A satisfied customer is the best business strategy of all."</span> - This quote drives everything we do at T.M Engineering. We pride ourselves on consistently exceeding expectations.
+                <span className="text-foreground font-semibold">"A satisfied customer is the best business strategy."</span> This drives everything we do.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
