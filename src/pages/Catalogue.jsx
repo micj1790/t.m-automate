@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, ChevronRight, ImageOff } from 'lucide-react';
 import LabellingVideos from '@/components/products/LabellingVideos';
 import LiquidFillerVideos from '@/components/products/LiquidFillerVideos';
 import HeatTunnelVideos from '@/components/products/HeatTunnelVideos';
+import LiddingCapperVideos from '@/components/products/LiddingCapperVideos';
 
 
 const CATEGORY_META = {
@@ -184,6 +185,11 @@ export default function Catalogue() {
           {category === 'heat_tunnels' && (
             <div className="mt-10">
               <HeatTunnelVideos />
+            </div>
+          )}
+          {category === 'lidding_machines' && (
+            <div className="mt-10">
+              <LiddingCapperVideos />
             </div>
           )}
         </div>
