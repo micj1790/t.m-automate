@@ -135,6 +135,7 @@ function ProjectModal({ project, onClose }) {
 }
 
 export default function Projects() {
+  const [activeTab, setActiveTab] = useState('projects');
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -175,6 +176,20 @@ export default function Projects() {
       {/* Projects gallery */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Tabs */}
+          <div className="flex gap-2 mb-10">
+            {[{ key: 'projects', label: 'Projects' }, { key: 'refurbishments', label: 'Machine Refurbishments' }].map(tab => (
+              <button key={tab.key} onClick={() => setActiveTab(tab.key)}
+                className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === tab.key ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {activeTab === 'refurbishments' && <MachineRefurbishments />}
+
+          {activeTab === 'projects' && <>
           {/* Filter */}
           <div className="flex flex-col sm:flex-row gap-4 mb-10 items-center">
             <div className="relative flex-1 w-full">
@@ -232,7 +247,7 @@ export default function Projects() {
           {display.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-sm">No projects match your filter. Try a different category.</div>
           )}
-          <MachineRefurbishments />
+          </>}
         </div>
       </section>
     </div>
