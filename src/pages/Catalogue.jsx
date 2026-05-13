@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowLeft, ArrowRight, ChevronRight, ImageOff } from 'lucide-react';
 import LabellingVideos from '@/components/products/LabellingVideos';
+import LiquidFillerVideos from '@/components/products/LiquidFillerVideos';
 
 
 const CATEGORY_META = {
@@ -172,6 +173,11 @@ export default function Catalogue() {
           {category === 'labelling_machines' && (
             <div className="mt-10">
               <LabellingVideos />
+            </div>
+          )}
+          {category === 'liquid_fillers' && (
+            <div className="mt-10">
+              <LiquidFillerVideos />
             </div>
           )}
         </div>
