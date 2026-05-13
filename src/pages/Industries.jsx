@@ -28,7 +28,7 @@ const industries = [
     name: 'Mining', sub: 'Heavy Industrial Solutions',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/883dde3fb_mining2.jpg',
     desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion proof controls, conveyor automation and comprehensive SCADA monitoring.',
-    services: ['Conveyor Belt Control', 'Explosion Proof Panels', 'Control and MCC Panels for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
+    services: ['Conveyor Belt Control', 'Explosion Proof Panels', 'Control and MCC Panels for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation'],
   },
   {
     name: 'Manufacturing', sub: 'Production Line Automation',
