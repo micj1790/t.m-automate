@@ -193,13 +193,13 @@ export default function Products() {
                   </Link>
                 ))}
               </div>
+              <LabellingVideos />
             </motion.div>
 
           </div>
         </div>
       </section>
 
-      <LabellingVideos />
       <BrandsBanner />
     </div>
   );
