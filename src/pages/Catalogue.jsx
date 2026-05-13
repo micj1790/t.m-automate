@@ -8,6 +8,7 @@ import LabellingVideos from '@/components/products/LabellingVideos';
 import LiquidFillerVideos from '@/components/products/LiquidFillerVideos';
 import HeatTunnelVideos from '@/components/products/HeatTunnelVideos';
 import LiddingCapperVideos from '@/components/products/LiddingCapperVideos';
+import BoxingVFFSVideos from '@/components/products/BoxingVFFSVideos';
 
 
 const CATEGORY_META = {
@@ -24,9 +25,9 @@ const CATEGORY_META = {
   labelling_machines: { label: 'Labelling Machines', section: 'machines', desc: 'Automatic labelling equipment designed and manufactured since 1994.' },
   liquid_fillers: { label: 'Liquid Fillers', section: 'machines', desc: 'Automatic liquid filling machines for all viscosities and container types.' },
   heat_tunnels: { label: 'Heat Tunnels', section: 'machines', desc: 'Shrink sleeve and heat tunnel systems for label and packaging applications.' },
-  bottle_capping: { label: 'Bottle Capping Machines', section: 'machines', desc: 'Inline and rotary capping machines with torque control for all cap types.' },
-  lidding_machines: { label: 'Lidding Machines', section: 'machines', desc: 'Tray lidding and sealing machines for food and pharmaceutical packaging.' },
+  bottle_capping: { label: 'Bottle Capping & Lidding Machines', section: 'machines', desc: 'Inline and rotary capping machines, tray lidding and sealing systems for all container and cap types.' },
   vffs_machines: { label: 'Vertical Form Fill & Seal Machines', section: 'machines', desc: 'VFFS machines for sachet, pouch and pillow pack applications.' },
+  boxing_machines: { label: 'Boxing Machines', section: 'machines', desc: 'Automatic boxing and carton erecting machines for end-of-line packaging.' },
 };
 
 function ProductCard({ item, onSelect }) {
@@ -187,9 +188,19 @@ export default function Catalogue() {
               <HeatTunnelVideos />
             </div>
           )}
-          {category === 'lidding_machines' && (
+          {category === 'bottle_capping' && (
             <div className="mt-10">
               <LiddingCapperVideos />
+            </div>
+          )}
+          {category === 'boxing_machines' && (
+            <div className="mt-10">
+              <BoxingVFFSVideos />
+            </div>
+          )}
+          {category === 'vffs_machines' && (
+            <div className="mt-10">
+              <BoxingVFFSVideos />
             </div>
           )}
         </div>

@@ -3,14 +3,11 @@ import { motion } from 'framer-motion';
 import { Play, X } from 'lucide-react';
 
 const videos = [
-  { id: '7uRvWpIYDdY', title: 'Pick & Place Capper' },
-  { id: 'wi0Gf6DJ6bY', title: 'Automatic Cap Tightening Machine' },
-  { id: 'w3c65z5NOso', title: 'Cap Adjustable Torquer Fully Automatic' },
-  { id: 'csr0JRJpzTM', title: 'IMC Perfume Filling & Crimping Machine' },
-  { id: 'a-oBNBMdyr4', title: '50ML Plastic Bottle Filling, Capping, Sealing & Labelling' },
+  { id: 'dI2_k5uQGrk', title: 'Box Machine' },
+  { id: 'oxQ2bbncr2U', title: 'Fully Automatic Box Making Machine' },
 ];
 
-export default function LiddingCapperVideos() {
+export default function BoxingVFFSVideos() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
@@ -18,8 +15,8 @@ export default function LiddingCapperVideos() {
       <div>
         <div className="mb-8">
           <span className="text-[11px] font-bold uppercase tracking-widest text-accent">Video Gallery</span>
-          <h2 className="text-xl font-black text-foreground mt-0.5">Bottle Capping & Lidding Machines in Action</h2>
-          <p className="text-sm text-muted-foreground mt-1">Watch our capping and lidding machines across a range of applications.</p>
+          <h2 className="text-xl font-black text-foreground mt-0.5">Boxing & VFFS Machines in Action</h2>
+          <p className="text-sm text-muted-foreground mt-1">Watch our boxing and vertical form fill & seal machines across a range of applications.</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">

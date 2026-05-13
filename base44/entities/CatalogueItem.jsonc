@@ -23,8 +23,8 @@
         "liquid_fillers",
         "heat_tunnels",
         "bottle_capping",
-        "lidding_machines",
-        "vffs_machines"
+        "vffs_machines",
+        "boxing_machines"
       ],
       "description": "Product category"
     },

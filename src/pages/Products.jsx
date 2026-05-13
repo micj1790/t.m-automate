@@ -24,9 +24,9 @@ const machinesCategories = [
   { icon: Tag, label: 'Labelling Machines', key: 'labelling_machines', desc: 'Automatic labelling equipment designed since 1994.' },
   { icon: Droplets, label: 'Liquid Fillers', key: 'liquid_fillers', desc: 'Fillers for all viscosities and container types.' },
   { icon: Flame, label: 'Heat Tunnels', key: 'heat_tunnels', desc: 'Shrink sleeve & heat tunnel systems.' },
-  { icon: Package, label: 'Bottle Capping Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers with torque control.' },
-  { icon: Package, label: 'Lidding Machines', key: 'lidding_machines', desc: 'Tray lidding and sealing machines for food and pharmaceutical packaging.' },
+  { icon: Package, label: 'Bottle Capping & Lidding Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers, tray lidding and sealing machines for all container types.' },
   { icon: Beaker, label: 'Vertical Form Fill & Seal Machines', key: 'vffs_machines', desc: 'VFFS for sachets, pouches & pillow packs.' },
+  { icon: Box, label: 'Boxing Machines', key: 'boxing_machines', desc: 'Automatic boxing and carton erecting machines for end-of-line packaging.' },
 ];
 
 const products = [
