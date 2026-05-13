@@ -11,7 +11,10 @@ const refurbs = [
       'https://media.base44.com/images/public/69fefc1890408637f331f461/ed17f78a3_ChatGPTImageMay13202605_17_19PM.png',
       'https://media.base44.com/images/public/69fefc1890408637f331f461/1ec44c8d1_ChatGPTImageMay13202605_15_47PM.png',
     ],
-    after: [], // To be added
+    after: [
+      'https://media.base44.com/images/public/69fefc1890408637f331f461/f171cee8a_ChatGPTImageMay13202605_20_46PM.png',
+      'https://media.base44.com/images/public/69fefc1890408637f331f461/b9d247aa1_ChatGPTImageMay13202605_21_25PM.png',
+    ],
   },
   // Project 2 and 3 to be added
 ];
