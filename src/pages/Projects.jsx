@@ -144,7 +144,8 @@ export default function Projects() {
     queryFn: () => base44.entities.Project.list('-year', 50),
   });
 
-  const display = (projects.length > 0 ? projects : fallback).filter(p => {
+  const allProjects = [...fallback, ...projects];
+  const display = allProjects.filter(p => {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
