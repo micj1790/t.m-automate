@@ -23,7 +23,7 @@
         "liquid_fillers",
         "heat_tunnels",
         "bottle_capping",
-        "vacuum_pumps",
+        "lidding_machines",
         "vffs_machines"
       ],
       "description": "Product category"

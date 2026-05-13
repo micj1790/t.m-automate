@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Cylinder, Droplets, Flame, Wind, Wrench, Cpu, ToggleLeft } from 'lucide-react';
+import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Droplets, Flame, Wrench, Cpu, ToggleLeft } from 'lucide-react';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
@@ -25,7 +25,7 @@ const machinesCategories = [
   { icon: Droplets, label: 'Liquid Fillers', key: 'liquid_fillers', desc: 'Fillers for all viscosities and container types.' },
   { icon: Flame, label: 'Heat Tunnels', key: 'heat_tunnels', desc: 'Shrink sleeve & heat tunnel systems.' },
   { icon: Package, label: 'Bottle Capping Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers with torque control.' },
-  { icon: Wind, label: 'Vacuum Pumps', key: 'vacuum_pumps', desc: 'PUMPVAC oil-flooded sliding vane vacuum pumps.' },
+  { icon: Package, label: 'Lidding Machines', key: 'lidding_machines', desc: 'Tray lidding and sealing machines for food and pharmaceutical packaging.' },
   { icon: Beaker, label: 'Vertical Form Fill & Seal Machines', key: 'vffs_machines', desc: 'VFFS for sachets, pouches & pillow packs.' },
 ];
 
@@ -86,16 +86,16 @@ const products = [
     ]
   },
   {
-    icon: Factory, category: 'Industrial Vacuum Pumps', tag: 'PUMPVAC Brand',
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80',
-    desc: 'PUMPVAC oil-flooded sliding vane vacuum pumps built to the highest rotary vane vacuum technology. Ideal for food packaging and industrial applications.',
+    icon: Package, category: 'Lidding & Capper Machines', tag: 'Packaging Solutions',
+    img: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&q=80',
+    desc: 'Tray lidding and capping machines for food, beverage and pharmaceutical packaging. Precision sealing for all container types.',
     items: [
-      { name: 'PUMPVAC Sliding Vane Pump', desc: 'Oil-flooded design for reliable, continuous operation.' },
-      { name: 'Food Grade Vacuum Pump', desc: 'NSF-approved for direct food contact applications.' },
-      { name: 'Pharmaceutical Grade', desc: 'Clean room compatible vacuum systems.' },
-      { name: 'High Vacuum Systems', desc: 'For deep vacuum applications in processing.' },
-      { name: 'Pump Service & Repair', desc: 'Full overhaul and repair service for all makes.' },
-      { name: 'Spare Parts Supply', desc: 'Genuine and OEM spare parts for all PUMPVAC models.' },
+      { name: 'Tray Lidding Machine', desc: 'Automatic tray sealing with film or foil lids.' },
+      { name: 'Inline Capper', desc: 'Continuous motion capping for all cap styles.' },
+      { name: 'Rotary Capper', desc: 'High-speed rotary capping with torque control.' },
+      { name: 'Pick & Place Capper', desc: 'Servo-driven pick and place for precision capping.' },
+      { name: 'Foil Sealer', desc: 'Induction and heat foil sealing for bottles and jars.' },
+      { name: 'ROPP Capper', desc: 'Roll-on pilfer-proof aluminium cap applicator.' },
     ]
   },
   {

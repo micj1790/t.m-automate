@@ -6,6 +6,7 @@ import { base44 } from '@/api/base44Client';
 import { ArrowLeft, ArrowRight, ChevronRight, ImageOff } from 'lucide-react';
 import LabellingVideos from '@/components/products/LabellingVideos';
 import LiquidFillerVideos from '@/components/products/LiquidFillerVideos';
+import HeatTunnelVideos from '@/components/products/HeatTunnelVideos';
 
 
 const CATEGORY_META = {
@@ -23,7 +24,7 @@ const CATEGORY_META = {
   liquid_fillers: { label: 'Liquid Fillers', section: 'machines', desc: 'Automatic liquid filling machines for all viscosities and container types.' },
   heat_tunnels: { label: 'Heat Tunnels', section: 'machines', desc: 'Shrink sleeve and heat tunnel systems for label and packaging applications.' },
   bottle_capping: { label: 'Bottle Capping Machines', section: 'machines', desc: 'Inline and rotary capping machines with torque control for all cap types.' },
-  vacuum_pumps: { label: 'Vacuum Pumps', section: 'machines', desc: 'PUMPVAC oil-flooded sliding vane vacuum pumps for food and industrial use.' },
+  lidding_machines: { label: 'Lidding Machines', section: 'machines', desc: 'Tray lidding and sealing machines for food and pharmaceutical packaging.' },
   vffs_machines: { label: 'Vertical Form Fill & Seal Machines', section: 'machines', desc: 'VFFS machines for sachet, pouch and pillow pack applications.' },
 };
 
@@ -178,6 +179,11 @@ export default function Catalogue() {
           {category === 'liquid_fillers' && (
             <div className="mt-10">
               <LiquidFillerVideos />
+            </div>
+          )}
+          {category === 'heat_tunnels' && (
+            <div className="mt-10">
+              <HeatTunnelVideos />
             </div>
           )}
         </div>
