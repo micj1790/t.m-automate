@@ -5,7 +5,6 @@ import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Setti
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
-import LabellingVideos from '@/components/products/LabellingVideos';
 
 const partsCategories = [
   { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars for industrial power distribution.' },
@@ -193,7 +192,6 @@ export default function Products() {
                   </Link>
                 ))}
               </div>
-              <LabellingVideos />
             </motion.div>
 
           </div>
