@@ -72,7 +72,7 @@ export default function Quote() {
 
             {/* Form */}
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="p-6 md:p-8 rounded-2xl bg-card/95 backdrop-blur-xl border border-border gradient-border">
+              <div className="p-6 md:p-8 rounded-2xl bg-card/40 backdrop-blur-xl border border-border gradient-border">
                 {success ? (
                   <div className="flex flex-col items-center justify-center py-10 text-center">
                     <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
