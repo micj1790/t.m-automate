@@ -23,7 +23,7 @@ const CATEGORY_META = {
   regulators: { label: 'Regulators', section: 'parts', desc: 'Pressure regulators and air treatment units for pneumatic systems.' },
   cylinders: { label: 'Cylinders', section: 'parts', desc: 'Pneumatic and hydraulic cylinders in standard and custom configurations.' },
   labelling_machines: { label: 'Labelling Machines', section: 'machines', desc: 'Automatic labelling equipment designed and manufactured since 1994.' },
-  liquid_fillers: { label: 'Liquid Fillers', section: 'machines', desc: 'Automatic liquid filling machines for all viscosities and container types.' },
+  liquid_fillers: { label: 'Liquid & Powder Fillers', section: 'machines', desc: 'Automatic liquid and powder filling machines for all viscosities and container types.' },
   heat_tunnels: { label: 'Heat Tunnels', section: 'machines', desc: 'Shrink sleeve and heat tunnel systems for label and packaging applications.' },
   bottle_capping: { label: 'Bottle Capping & Lidding Machines', section: 'machines', desc: 'Inline and rotary capping machines, tray lidding and sealing systems for all container and cap types.' },
   vffs_machines: { label: 'Vertical Form Fill & Seal Machines', section: 'machines', desc: 'VFFS machines for sachet, pouch and pillow pack applications.' },

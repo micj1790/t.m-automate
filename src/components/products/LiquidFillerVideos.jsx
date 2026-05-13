@@ -12,6 +12,8 @@ const videos = [
   { id: 'qrnKB9EmitI', title: 'Tube Filler Repair & Maintenance' },
   { id: 'b7EY71ckx-0', title: 'Liquid Filler Machine' },
   { id: 'RNgcgxEVwFk', title: 'Multi Head Accurate Automatic Liquid Filling Machine' },
+  { id: 'i83602ftai8', title: 'Auger Talcum Powder Filling Machine' },
+  { id: '5h95p5zJVx8', title: 'Complete Tablet / Capsule Filling Machine' },
 ];
 
 export default function LiquidFillerVideos() {
@@ -22,8 +24,8 @@ export default function LiquidFillerVideos() {
       <div>
         <div className="mb-8">
           <span className="text-[11px] font-bold uppercase tracking-widest text-accent">Video Gallery</span>
-          <h2 className="text-xl font-black text-foreground mt-0.5">Liquid Fillers in Action</h2>
-          <p className="text-sm text-muted-foreground mt-1">Watch our liquid filling machines across a wide range of applications.</p>
+          <h2 className="text-xl font-black text-foreground mt-0.5">Liquid & Powder Fillers in Action</h2>
+          <p className="text-sm text-muted-foreground mt-1">Watch our liquid and powder filling machines across a wide range of applications.</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
