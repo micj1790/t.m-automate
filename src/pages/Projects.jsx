@@ -46,8 +46,8 @@ function ProjectModal({ project, onClose }) {
 
         {/* Image gallery */}
         {images.length > 0 && (
-          <div className="relative aspect-[16/9] bg-black rounded-t-2xl overflow-hidden">
-            <img src={images[imgIndex]} alt={project.title} className="w-full h-full object-cover" />
+          <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ maxHeight: '70vh', minHeight: '260px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={images[imgIndex]} alt={project.title} className="max-w-full max-h-[70vh] w-auto h-auto object-contain" style={{ display: 'block' }} />
             {images.length > 1 && (
               <>
                 <button onClick={() => setImgIndex((imgIndex - 1 + images.length) % images.length)}
