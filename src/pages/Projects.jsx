@@ -185,7 +185,6 @@ export default function Projects() {
 
           <MachineRefurbishments />
 
-          <>
           {/* Filter */}
           <div className="flex flex-col sm:flex-row gap-4 mb-10 items-center">
             <div className="relative flex-1 w-full">
