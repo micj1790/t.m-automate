@@ -53,8 +53,8 @@ function ProjectModal({ project, onClose }) {
 
         {/* Image gallery */}
         {images.length > 0 && (
-          <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ maxHeight: '70vh', minHeight: '260px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={images[imgIndex]} alt={project.title} className="max-w-full max-h-[70vh] w-auto h-auto object-contain" style={{ display: 'block' }} />
+          <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ maxHeight: '45vh', minHeight: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={images[imgIndex]} alt={project.title} className="max-w-full max-h-[45vh] w-auto h-auto object-contain" style={{ display: 'block' }} />
             {images.length > 1 && (
               <>
                 <button onClick={() => setImgIndex((imgIndex - 1 + images.length) % images.length)}
@@ -95,7 +95,7 @@ function ProjectModal({ project, onClose }) {
               {allVideos.length > 1 ? `Videos (${allVideos.length})` : 'Video'}
             </p>
             {allVideos.map((url, i) => (
-              <video key={i} controls className="w-full rounded-xl bg-black" src={url} />
+              <video key={i} controls className="w-full rounded-xl bg-black" style={{ maxHeight: '220px' }} src={url} />
             ))}
           </div>
         )}
