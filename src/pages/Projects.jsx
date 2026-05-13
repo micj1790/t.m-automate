@@ -19,9 +19,6 @@ const fallback = [
   { title: 'Vacuum Sealer Refurbishment', description: 'Complete control system upgrade for industrial vacuum sealing machines. Replaced legacy relay logic with Siemens S7-1200 PLC and KTP700 HMI.', client: 'SA Food Processing', industry: 'food_beverage', service_type: 'Machine Refurbishments', location: 'Cape Town', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'], results: '50% reduction in downtime, 30% increase in production speed.' },
   { title: 'MCC Installation — Automotive Plant', description: 'Design, manufacture and installation of a 16-bucket MCC panel with soft starters, VSDs and full protection coordination.', client: 'Johannesburg Automotive', industry: 'manufacturing', service_type: 'MCC Panels', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'] },
   { title: 'Conveyor Belt Control System', description: 'Automated conveyor belt system with PLC control, speed monitoring, belt alignment detection and centralised SCADA monitoring.', client: 'Gauteng Mining Corp', industry: 'mining', service_type: 'Conveyor Systems', location: 'Gauteng', year: 2023, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80'], results: 'Real-time monitoring of 12 conveyor belts from central control room.' },
-  { title: 'PLC Retrofit — Packaging Line', description: 'Migration from legacy relay logic to Allen-Bradley CompactLogix with PanelView Plus HMI for high-speed packaging line.', client: 'National Beverages', industry: 'food_beverage', service_type: 'PLC Programming', location: 'Durban', year: 2023, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'] },
-  { title: 'SCADA — Water Treatment Plant', description: 'Wonderware SCADA implementation for municipal water treatment with remote monitoring and alarm management.', client: 'Municipal Water Authority', industry: 'industrial_processing', service_type: 'SCADA Systems', location: 'Pretoria', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80'], results: '24/7 remote monitoring with 99.9% system uptime.' },
-  { title: 'Generator Synchronisation System', description: 'Automatic synchronisation and load sharing system for three 1MW diesel generators at a data centre.', client: 'DataCentre SA', industry: 'data_centres', service_type: 'Generator Control', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'] },
 ];
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
@@ -144,8 +141,7 @@ export default function Projects() {
     queryFn: () => base44.entities.Project.list('-year', 50),
   });
 
-  const allProjects = [...fallback, ...projects];
-  const display = allProjects.filter(p => {
+  const display = fallback.filter(p => {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
