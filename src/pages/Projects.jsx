@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import MachineRefurbishments from '@/components/projects/MachineRefurbishments';
 import { Input } from '@/components/ui/input';
 
 const ytVideos = [
@@ -182,8 +181,6 @@ export default function Projects() {
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Projects</h2>
           </div>
-
-          <MachineRefurbishments />
 
           {/* Filter */}
           <div className="flex flex-col sm:flex-row gap-4 mb-10 items-center">
