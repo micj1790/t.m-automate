@@ -31,6 +31,13 @@ function ProjectModal({ project, onClose }) {
   const [imgIndex, setImgIndex] = useState(0);
   const images = project.image_urls || [];
 
+  // Parse extra videos stored in case_study as "videos:url1|url2|..."
+  const extraVideos = (() => {
+    if (!project.case_study?.startsWith('videos:')) return [];
+    return project.case_study.replace('videos:', '').split('|').filter(Boolean);
+  })();
+  const allVideos = [project.video_url, ...extraVideos].filter(Boolean);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
       <motion.div
@@ -81,11 +88,15 @@ function ProjectModal({ project, onClose }) {
           </div>
         )}
 
-        {/* Video */}
-        {project.video_url && (
-          <div className="px-5 pt-4">
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Video</p>
-            <video controls className="w-full rounded-xl bg-black" src={project.video_url} />
+        {/* Videos */}
+        {allVideos.length > 0 && (
+          <div className="px-5 pt-4 space-y-3">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              {allVideos.length > 1 ? `Videos (${allVideos.length})` : 'Video'}
+            </p>
+            {allVideos.map((url, i) => (
+              <video key={i} controls className="w-full rounded-xl bg-black" src={url} />
+            ))}
           </div>
         )}
 
