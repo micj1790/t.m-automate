@@ -24,7 +24,6 @@ const machinesCategories = [
   { icon: Droplets, label: 'Liquid & Powder Fillers', key: 'liquid_fillers', desc: 'Fillers for liquids, powders and all viscosities.' },
   { icon: Flame, label: 'Heat Tunnels', key: 'heat_tunnels', desc: 'Shrink sleeve & heat tunnel systems.' },
   { icon: Package, label: 'Bottle Capping & Lidding Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers, tray lidding and sealing machines for all container types.' },
-  { icon: Beaker, label: 'Vertical Form Fill & Seal Machines', key: 'vffs_machines', desc: 'VFFS for sachets, pouches & pillow packs.' },
   { icon: Box, label: 'Boxing Machines', key: 'boxing_machines', desc: 'Automatic boxing and carton erecting machines for end-of-line packaging.' },
 ];
 
