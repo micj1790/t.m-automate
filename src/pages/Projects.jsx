@@ -29,6 +29,7 @@ const industries = ['All', 'Food & Beverage', 'FMCG', 'Manufacturing', 'Mining',
 
 function ProjectModal({ project, onClose }) {
   const [imgIndex, setImgIndex] = useState(0);
+  const [videoIndex, setVideoIndex] = useState(0);
   const images = project.image_urls || [];
 
   // Parse extra videos stored in case_study as "videos:url1|url2|..."
@@ -53,8 +54,8 @@ function ProjectModal({ project, onClose }) {
 
         {/* Image gallery */}
         {images.length > 0 && (
-          <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ maxHeight: '45vh', minHeight: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={images[imgIndex]} alt={project.title} className="max-w-full max-h-[45vh] w-auto h-auto object-contain" style={{ display: 'block' }} />
+          <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ maxHeight: '70vh', minHeight: '260px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={images[imgIndex]} alt={project.title} className="max-w-full max-h-[70vh] w-auto h-auto object-contain" style={{ display: 'block' }} />
             {images.length > 1 && (
               <>
                 <button onClick={() => setImgIndex((imgIndex - 1 + images.length) % images.length)}
@@ -90,13 +91,25 @@ function ProjectModal({ project, onClose }) {
 
         {/* Videos */}
         {allVideos.length > 0 && (
-          <div className="px-5 pt-4 space-y-3">
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-              {allVideos.length > 1 ? `Videos (${allVideos.length})` : 'Video'}
-            </p>
-            {allVideos.map((url, i) => (
-              <video key={i} controls className="w-full rounded-xl bg-black" style={{ maxHeight: '220px' }} src={url} />
-            ))}
+          <div className="px-5 pt-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                {allVideos.length > 1 ? `Video ${videoIndex + 1} of ${allVideos.length}` : 'Video'}
+              </p>
+              {allVideos.length > 1 && (
+                <div className="flex gap-2">
+                  <button onClick={() => setVideoIndex((videoIndex - 1 + allVideos.length) % allVideos.length)}
+                    className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center hover:bg-border transition-colors">
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <button onClick={() => setVideoIndex((videoIndex + 1) % allVideos.length)}
+                    className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center hover:bg-border transition-colors">
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
+            </div>
+            <video key={videoIndex} controls className="w-full rounded-xl bg-black" src={allVideos[videoIndex]} />
           </div>
         )}
 
