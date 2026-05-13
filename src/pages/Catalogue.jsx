@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { ArrowLeft, ArrowRight, ChevronRight, ImageOff } from 'lucide-react';
+import LabellingVideos from '@/components/products/LabellingVideos';
 
 
 const CATEGORY_META = {
@@ -196,6 +197,14 @@ export default function Catalogue() {
           )}
         </div>
       </section>
+
+      {category === 'labelling_machines' && (
+        <section className="pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <LabellingVideos />
+          </div>
+        </section>
+      )}
 
       <AnimatePresence>
         {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
