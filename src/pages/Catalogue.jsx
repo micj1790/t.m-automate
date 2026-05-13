@@ -168,11 +168,17 @@ export default function Catalogue() {
           </span>
           <h1 className="text-3xl md:text-5xl font-black text-foreground tracking-tight mb-3">{meta.label}</h1>
           <p className="text-base text-muted-foreground max-w-2xl">{meta.desc}</p>
+
+          {category === 'labelling_machines' && (
+            <div className="mt-10">
+              <LabellingVideos />
+            </div>
+          )}
         </div>
       </section>
 
       {/* Grid */}
-      <section className="pb-20">
+      <section className="pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -181,12 +187,9 @@ export default function Catalogue() {
               ))}
             </div>
           ) : items.length === 0 ? (
-            <div className="text-center py-20">
+            <div className="text-center py-10">
               <p className="text-muted-foreground text-sm mb-2">No products listed yet in this category.</p>
               <p className="text-muted-foreground/60 text-xs">Products can be added via the admin panel.</p>
-              <Link to="/quote" className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm transition-all">
-                Request a Quote <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -198,13 +201,18 @@ export default function Catalogue() {
         </div>
       </section>
 
-      {category === 'labelling_machines' && (
-        <section className="pb-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <LabellingVideos />
+      {/* Request a Quote */}
+      <section className="pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-card border border-border">
+            <p className="text-lg font-black text-foreground">Interested in our {meta.label}?</p>
+            <p className="text-sm text-muted-foreground max-w-md">Get in touch with our team for pricing, availability and custom configurations.</p>
+            <Link to="/quote" className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm transition-all">
+              Request a Quote <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       <AnimatePresence>
         {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}

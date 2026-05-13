@@ -21,7 +21,7 @@ export default function LabellingVideos() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
-    <section className="mt-10 pt-8 border-t border-border">
+    <section className="mt-0 pt-0">
       <div>
         <div className="mb-8">
           <span className="text-[11px] font-bold uppercase tracking-widest text-accent">Video Gallery</span>
