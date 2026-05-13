@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Filter, Search, ArrowRight, ExternalLink } from 'lucide-react';
+import { Play, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import SectionHeader from '@/components/shared/SectionHeader';
 
 const ytVideos = [
   { id: 'cmfQPh0OZOQ', title: 'Clever Machine', sub: 'High Speed Vertical Sleeving Machine' },
@@ -28,10 +27,92 @@ const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufac
 
 const industries = ['All', 'Food & Beverage', 'FMCG', 'Manufacturing', 'Mining', 'Pharmaceutical', 'Data Centres', 'Industrial Processing'];
 
+function ProjectModal({ project, onClose }) {
+  const [imgIndex, setImgIndex] = useState(0);
+  const images = project.image_urls || [];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        onClick={e => e.stopPropagation()}
+        className="relative bg-card border border-border rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-border transition-colors">
+          <X className="w-4 h-4" />
+        </button>
+
+        {/* Image gallery */}
+        {images.length > 0 && (
+          <div className="relative aspect-[16/9] bg-black rounded-t-2xl overflow-hidden">
+            <img src={images[imgIndex]} alt={project.title} className="w-full h-full object-cover" />
+            {images.length > 1 && (
+              <>
+                <button onClick={() => setImgIndex((imgIndex - 1 + images.length) % images.length)}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 flex items-center justify-center hover:bg-black/80 transition-colors">
+                  <ChevronLeft className="w-4 h-4 text-white" />
+                </button>
+                <button onClick={() => setImgIndex((imgIndex + 1) % images.length)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 flex items-center justify-center hover:bg-black/80 transition-colors">
+                  <ChevronRight className="w-4 h-4 text-white" />
+                </button>
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {images.map((_, i) => (
+                    <button key={i} onClick={() => setImgIndex(i)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all ${i === imgIndex ? 'bg-white scale-125' : 'bg-white/50'}`} />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Thumbnail strip */}
+        {images.length > 1 && (
+          <div className="flex gap-2 px-5 pt-3 overflow-x-auto no-scrollbar">
+            {images.map((img, i) => (
+              <button key={i} onClick={() => setImgIndex(i)}
+                className={`shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${i === imgIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+                <img src={img} alt="" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Video */}
+        {project.video_url && (
+          <div className="px-5 pt-4">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Video</p>
+            <video controls className="w-full rounded-xl bg-black" src={project.video_url} />
+          </div>
+        )}
+
+        {/* Details */}
+        <div className="p-5">
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            {project.service_type && <span className="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-wide">{project.service_type}</span>}
+            {project.year && <span className="text-[10px] text-muted-foreground font-medium">{project.year}</span>}
+            {project.client && <span className="text-[10px] text-muted-foreground">· {project.client}</span>}
+          </div>
+          <h2 className="text-xl font-black text-foreground mb-3">{project.title}</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{project.description}</p>
+          {project.results && (
+            <div className="mt-4 p-3 rounded-xl bg-green-500/5 border border-green-500/15 text-sm text-green-400">
+              <span className="font-bold">Result: </span>{project.results}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
-  const [activeVideo, setActiveVideo] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const { data: projects = [] } = useQuery({
     queryKey: ['projects-all'],
@@ -46,6 +127,9 @@ export default function Projects() {
 
   return (
     <div className="pt-16">
+      <AnimatePresence>
+        {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+      </AnimatePresence>
       {/* Hero */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -86,7 +170,7 @@ export default function Projects() {
             <AnimatePresence mode="popLayout">
               {display.map((p, i) => (
                 <motion.div key={p.id || p.title} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ delay: i * 0.04 }}>
-                  <div className="group rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden">
+                  <div onClick={() => setSelectedProject(p)} className="group rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden cursor-pointer">
                     <div className="aspect-[16/9] relative overflow-hidden">
                       <img src={p.image_urls?.[0] || 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'} alt={p.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
