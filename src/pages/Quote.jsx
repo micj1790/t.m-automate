@@ -23,7 +23,14 @@ export default function Quote() {
   const [success, setSuccess] = useState(false);
 
   const mutation = useMutation({
-    mutationFn: data => base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' }),
+    mutationFn: async (data) => {
+      await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
+      await base44.integrations.Core.SendEmail({
+        to: 'sales@tmeng.co.za',
+        subject: `New Quote Request from ${data.name}`,
+        body: `New quote request received:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\nService: ${data.service_interest}\nIndustry: ${data.industry}\n\nDetails:\n${data.message}`
+      });
+    },
     onSuccess: () => setSuccess(true),
   });
 
@@ -84,38 +91,38 @@ export default function Quote() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label className="text-xs">Full Name *</Label>
-                        <Input required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Your name" className="mt-1.5 bg-secondary border-border h-10" />
+                        <Input required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Your name" className="mt-1.5 bg-card/50 border-border h-10" />
                       </div>
                       <div>
                         <Label className="text-xs">Email *</Label>
-                        <Input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="you@company.co.za" className="mt-1.5 bg-secondary border-border h-10" />
+                        <Input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="you@company.co.za" className="mt-1.5 bg-card/50 border-border h-10" />
                       </div>
                       <div>
                         <Label className="text-xs">Phone *</Label>
-                        <Input required value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} placeholder="011 xxx xxxx" className="mt-1.5 bg-secondary border-border h-10" />
+                        <Input required value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} placeholder="011 xxx xxxx" className="mt-1.5 bg-card/50 border-border h-10" />
                       </div>
                       <div>
                         <Label className="text-xs">Company</Label>
-                        <Input value={form.company} onChange={e => setForm({...form, company: e.target.value})} placeholder="Company name" className="mt-1.5 bg-secondary border-border h-10" />
+                        <Input value={form.company} onChange={e => setForm({...form, company: e.target.value})} placeholder="Company name" className="mt-1.5 bg-card/50 border-border h-10" />
                       </div>
                     </div>
                     <div>
                       <Label className="text-xs">Service Required *</Label>
                       <Select value={form.service_interest} onValueChange={v => setForm({...form, service_interest: v})}>
-                        <SelectTrigger className="mt-1.5 bg-secondary border-border h-10"><SelectValue placeholder="Select a service" /></SelectTrigger>
+                        <SelectTrigger className="mt-1.5 bg-card/50 border-border h-10"><SelectValue placeholder="Select a service" /></SelectTrigger>
                         <SelectContent>{serviceOptions.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
                       </Select>
                     </div>
                     <div>
                       <Label className="text-xs">Industry</Label>
                       <Select value={form.industry} onValueChange={v => setForm({...form, industry: v})}>
-                        <SelectTrigger className="mt-1.5 bg-secondary border-border h-10"><SelectValue placeholder="Select your industry" /></SelectTrigger>
+                        <SelectTrigger className="mt-1.5 bg-card/50 border-border h-10"><SelectValue placeholder="Select your industry" /></SelectTrigger>
                         <SelectContent>{industryOptions.map(i => <SelectItem key={i} value={i}>{i}</SelectItem>)}</SelectContent>
                       </Select>
                     </div>
                     <div>
                       <Label className="text-xs">Project Details *</Label>
-                      <Textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, requirements, timeline..." rows={4} className="mt-1.5 bg-secondary border-border resize-none" />
+                      <Textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, requirements, timeline..." rows={4} className="mt-1.5 bg-card/50 border-border resize-none" />
                     </div>
                     <Button type="submit" disabled={mutation.isPending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-12 uppercase tracking-wide glow-blue">
                       {mutation.isPending ? 'Submitting...' : 'Request Free Quote'}
