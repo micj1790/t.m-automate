@@ -11,42 +11,36 @@ const industries = [
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/954c789f3_fmcg2.webp',
     desc: 'T.M Engineering has been the preferred automation partner for FMCG manufacturers for 39 years. We understand the demanding 24/7 production environments and the critical importance of minimal downtime.',
     services: ['Labelling Machines', 'Liquid Fillers', 'Conveyor Systems', 'Packaging Line Automation', 'PLC Programming', 'VSD & Drive Systems'],
-    stat: '150+ Projects'
   },
   {
     name: 'Food & Beverage', sub: 'Production & Packaging',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/3d3506004_fandb.jpg',
     desc: 'From bottling plants to food processing facilities, we deliver hygienic automation solutions that meet food safety standards while maximising throughput and efficiency.',
     services: ['Filling & Capping Machines', 'Shrink Tunnel Systems', 'Checkweighers', 'SCADA Monitoring', 'CIP compatible equipment', 'Stainless steel construction'],
-    stat: '80+ Projects'
   },
   {
     name: 'Pharmaceutical', sub: 'GMP Compliant Solutions',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/329377a66_pharma2.png',
     desc: 'We provide GMP compliant automation solutions for pharmaceutical manufacturers, with full IQ/OQ/PQ documentation, 21 CFR Part 11 compliance and FDA acceptable designs.',
     services: ['Tube Fillers & Sealers', 'Tablet Counters', 'Vial Filling Systems', 'Serialisation Integration', 'GMP Documentation', 'Validated Systems'],
-    stat: '40+ Projects'
   },
   {
     name: 'Mining', sub: 'Heavy Industrial Solutions',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/883dde3fb_mining2.jpg',
     desc: 'Mining applications demand rugged, reliable automation that performs in harsh environments. We deliver explosion proof controls, conveyor automation and comprehensive SCADA monitoring.',
     services: ['Conveyor Belt Control', 'Explosion Proof Panels', 'Control and MCC Panels for Pumps & Fans', 'SCADA & Historian', 'Generator Synchronisation', '24/7 Breakdown Support'],
-    stat: '50+ Projects'
   },
   {
     name: 'Manufacturing', sub: 'Production Line Automation',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/eee7278bf_manufctauring2.png',
     desc: 'From automotive assembly to discrete manufacturing, we provide complete production line automation solutions that increase throughput, improve quality and reduce costs.',
     services: ['Assembly Line Automation', 'Robot Integration', 'Quality Control Systems', 'OEE Monitoring', 'MES Integration', 'Machine Refurbishments'],
-    stat: '120+ Projects'
   },
   {
     name: 'Cosmetics', sub: 'Filling, Labelling & Packaging',
     img: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e273fb242_cosmteics2.jpg',
     desc: 'Cosmetics and personal care manufacturers trust T.M Engineering for precision filling, labelling and packaging automation. Our machines handle creams, lotions, gels and liquids with accuracy.',
     services: ['Precision Liquid Fillers', 'Tube Fillers', 'Labelling Systems', 'Capping Machines', 'Tamper Evidence', 'Serialisation'],
-    stat: '30+ Projects'
   },
 ];
 
@@ -77,11 +71,8 @@ export default function Industries() {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 className="rounded-xl border border-border bg-card overflow-hidden">
                 <div className="relative">
-                  <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
-                  <div className="absolute bottom-3 right-3">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold backdrop-blur-sm">{ind.stat}</span>
-                  </div>
-                </div>
+                   <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
+                 </div>
                 <div className="p-5">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
                     {ind.sub}
@@ -113,11 +104,8 @@ export default function Industries() {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 className="rounded-xl border border-border bg-card overflow-hidden">
                 <div className="relative">
-                  <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
-                  <div className="absolute bottom-3 right-3">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold backdrop-blur-sm">{ind.stat}</span>
-                  </div>
-                </div>
+                   <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
+                 </div>
                 <div className="p-5">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
                     {ind.sub}
@@ -149,11 +137,8 @@ export default function Industries() {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 className="rounded-xl border border-border bg-card overflow-hidden">
                 <div className="relative">
-                  <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
-                  <div className="absolute bottom-3 right-3">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold backdrop-blur-sm">{ind.stat}</span>
-                  </div>
-                </div>
+                   <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
+                 </div>
                 <div className="p-5">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/8 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
                     {ind.sub}
