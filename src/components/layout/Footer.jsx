@@ -4,7 +4,7 @@ import { Zap, Phone, Mail, MapPin, Facebook, Youtube, Linkedin, ArrowRight } fro
 
 const services = [
   'PLC & HMI Programming', 'Industrial Automation', 'MCC Panels', 'SCADA Systems',
-  'Power Monitoring', 'Machine Refurbishments', 'PCB Repairs', '24/7 Support',
+  'Power Monitoring', 'Machine Refurbishments', 'PCB Repairs',
 ];
 const industries = ['FMCG', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Food & Beverage', 'Data Centres', 'Industrial Processing'];
 const company = [
@@ -126,13 +126,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <div className="p-3 rounded-lg bg-green-500/5 border border-green-500/20">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs font-semibold text-green-400">24/7 Emergency</span>
-            </div>
-            <a href="tel:+27833757670" className="text-xs text-green-300 font-mono hover:underline">083 375 7670</a>
-          </div>
+
         </div>
       </div>
 

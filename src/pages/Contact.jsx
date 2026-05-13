@@ -10,7 +10,6 @@ import { toast } from 'sonner';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon–Fri, 7:30am–5pm' },
-  { icon: Clock, label: 'After Hours', value: '083 375 7670', link: 'tel:+27833757670', sub: '24/7 Emergency Support' },
   { icon: Mail, label: 'Email', value: 'sales@tmeng.co.za', link: 'mailto:sales@tmeng.co.za', sub: 'We reply within 2 hours' },
   { icon: MapPin, label: 'Address', value: '10 Susan Street, Strijdom Park', link: 'https://maps.google.com/?q=10+Susan+Street+Strijdompark+Randburg', sub: 'Randburg, Johannesburg, SA' },
 ];
@@ -157,7 +156,7 @@ export default function Contact() {
               {[
                 { icon: Facebook, url: 'https://www.facebook.com/tmengineeringptyltd/', color: 'text-blue-400', bg: 'bg-blue-400/8 border-blue-400/15' },
                 { icon: Youtube, url: 'https://www.youtube.com/channel/UC4-3DeJMQVVApm9GhNI4TBg', color: 'text-red-400', bg: 'bg-red-400/8 border-red-400/15' },
-                { icon: MessageCircle, url: 'https://wa.me/27833757670', color: 'text-green-400', bg: 'bg-green-400/8 border-green-400/15' },
+ 
               ].map((s, i) => (
                 <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
                   className={`w-10 h-10 rounded-xl ${s.bg} border flex items-center justify-center ${s.color} hover:scale-110 transition-all`}>

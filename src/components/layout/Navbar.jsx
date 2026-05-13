@@ -59,10 +59,7 @@ export default function Navbar() {
                 <a href="mailto:sales@tmeng.co.za" className="hover:text-primary transition-colors">sales@tmeng.co.za</a>
               </span>
             </div>
-            <div className="text-[11px] text-muted-foreground flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span>24/7 Emergency: <a href="tel:+27833757670" className="text-primary hover:underline font-medium">083 375 7670</a></span>
-            </div>
+
           </div>
         </div>
 
