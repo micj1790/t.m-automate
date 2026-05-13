@@ -232,10 +232,9 @@ export default function Projects() {
           {display.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-sm">No projects match your filter. Try a different category.</div>
           )}
+          <MachineRefurbishments />
         </div>
       </section>
-
-      <MachineRefurbishments />
     </div>
   );
 }

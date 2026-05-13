@@ -119,48 +119,46 @@ function BeforeAfterSlider({ before, after }) {
 
 export default function MachineRefurbishments() {
   return (
-    <section className="py-16 md:py-20 border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
-        >
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-accent/10 border-l-2 border-accent text-accent text-[11px] font-bold uppercase tracking-[0.15em] mb-4">
-            Before & After
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-4">
-            Machine Refurbishments
-          </h2>
-          <p className="text-muted-foreground text-base max-w-2xl mx-auto">
-            We take aging, fault-prone machines and bring them back to full production capability — new wiring, new control systems, new life.
-          </p>
-        </motion.div>
+    <div className="mt-16 pt-12 border-t border-border">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-10 text-center"
+      >
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-accent/10 border-l-2 border-accent text-accent text-[11px] font-bold uppercase tracking-[0.15em] mb-4">
+          Before & After
+        </span>
+        <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-4">
+          Machine Refurbishments
+        </h2>
+        <p className="text-muted-foreground text-base max-w-2xl mx-auto">
+          We take aging, fault-prone machines and bring them back to full production capability — new wiring, new control systems, new life.
+        </p>
+      </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {refurbs.map((r, i) => (
-            <motion.div
-              key={r.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl overflow-hidden"
-            >
-              <div className="p-4 pb-0">
-                <BeforeAfterSlider before={r.before} after={r.after} />
-              </div>
-              <div className="p-5">
-                <h3 className="text-base font-bold text-foreground mb-2">{r.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{r.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {refurbs.map((r, i) => (
+          <motion.div
+            key={r.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="bg-card border border-border rounded-2xl overflow-hidden"
+          >
+            <div className="p-4 pb-0">
+              <BeforeAfterSlider before={r.before} after={r.after} />
+            </div>
+            <div className="p-5">
+              <h3 className="text-base font-bold text-foreground mb-2">{r.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{r.description}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
