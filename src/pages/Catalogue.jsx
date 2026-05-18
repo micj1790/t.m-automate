@@ -173,6 +173,29 @@ export default function Catalogue() {
           <h1 className="text-3xl md:text-5xl font-black text-foreground tracking-tight mb-3">{meta.label}</h1>
           <p className="text-base text-muted-foreground max-w-2xl">{meta.desc}</p>
 
+          {category === 'switchgear' && (
+            <div className="mt-10">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-8">
+                Switchgear refers to the combination of electrical disconnect switches, fuses, and circuit breakers used to control, protect, and isolate electrical equipment. It is the backbone of any industrial power distribution system — safeguarding machinery, preventing faults from cascading, and enabling safe maintenance. From motor control centres (MCCs) to distribution boards, switchgear ensures reliable and safe power management across your entire facility.
+              </p>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-5">Brands We Supply</h3>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                {[
+                  { name: 'ABB', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6cd42cf52_ABB.png' },
+                  { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
+                  { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
+                  { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
+                  { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0ac438d46_SCHNIEDERR.png' },
+                  { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
+                ].map(brand => (
+                  <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                    <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {category === 'labelling_machines' && (
             <div className="mt-10">
               <LabellingVideos />
