@@ -3,15 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import { Zap, Phone, Mail, MapPin, Facebook, Youtube, Linkedin, ArrowRight } from 'lucide-react';
 
 const services = [
-  'PLC & HMI Programming', 'Industrial Automation', 'Control Panels', 'SCADA Systems',
+  'PLC & HMI Programming', 'Industrial Automation', 'MCC Panels', 'SCADA Systems',
   'Power Monitoring', 'Machine Refurbishments', 'PCB Repairs',
 ];
-const industries = ['FMCG', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Food & Beverage'];
+const industries = ['FMCG', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Food & Beverage', 'Data Centres', 'Industrial Processing'];
 const company = [
   { label: 'About Us', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Products', path: '/products' },
   { label: 'Projects', path: '/projects' },
+  { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
 ];
 
