@@ -285,18 +285,19 @@ export default function Catalogue() {
         </div>
       </section>
 
-      {/* Request a Quote */}
-      <section className="pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-card border border-border">
-            <p className="text-lg font-black text-foreground">Interested in our {meta.label}?</p>
-            <p className="text-sm text-muted-foreground max-w-md">Get in touch with our team for pricing, availability and custom configurations.</p>
-            <Link to="/quote" className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm transition-all">
-              Request a Quote <ArrowRight className="w-4 h-4" />
-            </Link>
+      {category !== 'switchgear' && (
+        <section className="pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-card border border-border">
+              <p className="text-lg font-black text-foreground">Interested in our {meta.label}?</p>
+              <p className="text-sm text-muted-foreground max-w-md">Get in touch with our team for pricing, availability and custom configurations.</p>
+              <Link to="/quote" className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm transition-all">
+                Request a Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <AnimatePresence>
         {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
