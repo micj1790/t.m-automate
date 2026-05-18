@@ -392,10 +392,10 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                   {[
-                    { name: 'Toho Electronics', url: 'https://toho-inc.com/english/img/common/logo.png', size: 'max-h-8' },
+                    { name: 'Toho Electronics', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/c76e0a913_toho.png', size: 'max-h-14' },
                     { name: 'Delta Electronics', url: 'https://companieslogo.com/img/orig/2308.TW_BIG-c8d9bd8a.png?t=1720244490', size: 'max-h-10' },
                     { name: 'Siemens', url: 'https://companieslogo.com/img/orig/SIE.DE_BIG-8513f49c.png?t=1720244493', size: 'max-h-10' },
-                    { name: 'Autonics', url: 'https://images.seeklogo.com/logo-png/27/1/autonics-logo-png_seeklogo-278846.png', size: 'max-h-8' },
+                    { name: 'Autonics', url: 'https://images.seeklogo.com/logo-png/27/1/autonics-logo-png_seeklogo-278846.png', size: 'max-h-12' },
                     { name: 'Danfoss', url: 'https://1000logos.net/wp-content/uploads/2020/09/Danfoss-Logo.png', size: 'max-h-10' },
                   ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
