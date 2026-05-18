@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'About', path: '/about' },
   {
     label: 'Services', path: '/services',
-    sub: ['PLC & HMI Programming', 'Industrial Automation', 'MCC Panels', 'SCADA Systems', 'Power Monitoring', 'Machine Refurbishments']
+    sub: ['PLC & HMI Programming', 'Industrial Automation', 'Control Panels', 'SCADA Systems', 'Power Monitoring', 'Machine Refurbishments']
   },
   {
     label: 'Products', path: '/products',
