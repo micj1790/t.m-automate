@@ -210,7 +210,7 @@ export default function Catalogue() {
                     { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
                     { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
                     { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
-                    { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0ac438d46_SCHNIEDERR.png' },
+                    { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/02bc0c2ec_SCHIEDER.png' },
                     { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
                   ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
