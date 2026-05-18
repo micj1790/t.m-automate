@@ -332,7 +332,7 @@ export default function Catalogue() {
                   {[
                     { name: 'Bürkert', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f64852725_burkett.jpg', size: 'max-h-12' },
                     { name: 'Camozzi', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/dd1a6c577_camizzzi.png', size: 'max-h-12' },
-                    { name: 'Festo', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/25ccd575c_festo.png', size: 'max-h-10' },
+                    { name: 'Festo', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/25ccd575c_festo.png', size: 'max-h-16' },
                     { name: 'Metal Work', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/9818246f6_metlaworks.jpg', size: 'max-h-12' },
                   ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
