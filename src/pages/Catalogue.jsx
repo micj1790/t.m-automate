@@ -381,6 +381,29 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 Variable speed drives (VSDs) and DC drives for precise motor speed and torque control. We supply and programme drives from all major manufacturers including Siemens, Omron, Delta, Nidec, WEG, Invertek, Mitsubishi, Danfoss and Yaskawa. Our team can assist with selection, commissioning and programming on site.
               </p>
+
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Drive Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'AC Variable Speed Drives', url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80' },
+                    { label: 'DC Drives', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
+                    { label: 'Servo Drives', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+                    { label: 'Soft Starters', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                    { label: 'Drive Panels', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                    { label: 'Drive Accessories', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
