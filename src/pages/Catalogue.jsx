@@ -349,16 +349,16 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Pneumatic Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Solenoid Valves', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
-                    { label: 'Directional Control Valves', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
-                    { label: 'Pneumatic Cylinders', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
-                    { label: 'FRL Units', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
-                    { label: 'Fittings & Tubing', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-                    { label: 'Vacuum Components', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                    { label: 'Solenoid Valves', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/3476634b1_solenoidvlaves.jpg' },
+                    { label: 'Directional Control Valves', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/80e4d1c10_airpreprationmunits.jpg' },
+                    { label: 'Pneumatic Cylinders', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c42e9932_pnematiccyclinder.jpg' },
+                    { label: 'FRL Units', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f9e8de1e6_frlunits.jpg' },
+                    { label: 'Fittings & Tubing', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/9982ddf05_fittings.jpg' },
+                    { label: 'Vacuum Components', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/77dc9af36_vaccumcomoneints.jpg' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
                     </div>
                   ))}
@@ -495,8 +495,8 @@ export default function Catalogue() {
                     { label: 'Temperature Transmitters', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
                     </div>
                   ))}
