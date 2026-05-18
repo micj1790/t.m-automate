@@ -457,16 +457,17 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">PLC & HMI Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Programmable Logic Controllers', url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80' },
-                    { label: 'HMI Touch Panels', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
-                    { label: 'Remote I/O Modules', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
-                    { label: 'Safety PLCs', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
-                    { label: 'Motion Controllers', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-                    { label: 'Communication Modules', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                    { label: 'HMI Touch Panels (Allen-Bradley)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f589637dc_allenbard.jpg' },
+                    { label: 'PLC (Delta AS Series)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/69f0cf485_dletaplc.webp' },
+                    { label: 'HMI Panels (Siemens SIMATIC)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8451e3ccb_hmi.jpg' },
+                    { label: 'HMI Touch Panel (Delta DOP)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/498ba477e_hmi2.jpg' },
+                    { label: 'PLC (Mitsubishi FX Series)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/afa658f08_mitubishi.webp' },
+                    { label: 'PLCs & HMIs (Omron)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/53b2543d3_omron.jpg' },
+                    { label: 'PLC (Siemens S7-1200)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/2404f0d37_simens.jpg' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
                       <div className="px-3 py-2 bg-card">
                         <p className="text-xs font-semibold text-foreground">{img.label}</p>
