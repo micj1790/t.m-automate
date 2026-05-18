@@ -444,7 +444,6 @@ export default function Catalogue() {
                   {[
                     { label: 'HMI Touch Panels (Allen-Bradley)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f589637dc_allenbard.jpg' },
                     { label: 'PLC (Delta AS Series)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/69f0cf485_dletaplc.webp' },
-                    { label: 'HMI Panels (Siemens SIMATIC)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8451e3ccb_hmi.jpg' },
                     { label: 'HMI Touch Panel (Delta DOP)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/498ba477e_hmi2.jpg' },
                     { label: 'PLC (Mitsubishi FX Series)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/afa658f08_mitubishi.webp' },
                     { label: 'PLCs & HMIs (Omron)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/53b2543d3_omron.jpg' },
