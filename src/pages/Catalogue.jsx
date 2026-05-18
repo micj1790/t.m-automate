@@ -486,12 +486,12 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Temperature Controller Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'PID Controllers', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
-                    { label: 'On/Off Controllers', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
-                    { label: 'Multi-Loop Controllers', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
-                    { label: 'Thermocouple Sensors', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-                    { label: 'RTD Sensors', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
-                    { label: 'Temperature Transmitters', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                    { label: 'Temperature Controller (Delta)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/02138778c_contoireller.jpg' },
+                    { label: 'Temperature Controller (Autonics TC4Y)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/9a02a8555_contorlelr4.jpg' },
+                    { label: 'Temperature Controller (Danfoss)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/bb3f7b6f4_danofscontoeller.jpg' },
+                    { label: 'Multi-Zone Temperature HMI (Siemens)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/464832c7b_hmicntorellerinrgation.jpg' },
+                    { label: 'Temperature Controller (Siemens RWF10)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/b6b93933f_tempcontoillers.jpg' },
+                    { label: 'Temperature Controller (Toho TTM-004W)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f06bb933f_toho.jpg' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
