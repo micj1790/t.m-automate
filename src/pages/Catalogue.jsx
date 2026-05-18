@@ -309,10 +309,11 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Worm Gearboxes', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/38d034e0a_gearbix.webp' },
+                    { label: 'Gearboxes', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/81c002ec4_gerabox.webp' },
                     { label: 'Gear Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/d7c76903a_gearboxes.jpg' },
-                    { label: 'Electric Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/03e00998a_motors.webp' },
-                    { label: 'Servo Motors & Drives', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/658eb1936_servos.webp' },
+                    { label: 'AC Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/03e00998a_motors.webp' },
+                    { label: 'DC Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/d0d71be22_dcmotorsd.jpg' },
+                    { label: 'Servos', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/658eb1936_servos.webp' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
