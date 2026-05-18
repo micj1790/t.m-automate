@@ -15,7 +15,6 @@ const CATEGORY_META = {
   switchgear: { label: 'Switchgear', section: 'parts', desc: 'Circuit breakers, isolators, contactors and busbars from top global brands.' },
   sensors: { label: 'Sensors', section: 'parts', desc: 'Proximity, photoelectric, temperature and pressure sensors for industrial applications.' },
   gear_motors: { label: 'Industrial Gear Motors & Gearboxes', section: 'parts', desc: 'Heavy-duty gear motors and gearboxes for conveyor and process applications.' },
-  solenoid_valves: { label: 'Solenoid Valves', section: 'parts', desc: 'Pneumatic and hydraulic solenoid valves for fluid and air control.' },
   ac_dc_drives: { label: 'AC & DC Drives', section: 'parts', desc: 'Variable speed drives from ABB, Siemens, Danfoss, Yaskawa and more.' },
   plcs_hmis: { label: 'PLCs & HMIs', section: 'parts', desc: 'Siemens, Allen-Bradley, Mitsubishi and Schneider PLC and HMI systems.' },
   temperature_controllers: { label: 'Temperature Controllers', section: 'parts', desc: 'PID and on/off temperature controllers for process and machine control.' },
@@ -232,6 +231,241 @@ export default function Catalogue() {
                 <Link to="/quote" className="shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-white text-primary font-black text-sm uppercase tracking-wide hover:bg-white/90 transition-all">
                   Request a Quote <ArrowRight className="w-4 h-4" />
                 </Link>
+              </div>
+            </div>
+          )}
+
+          {category === 'sensors' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'Brand 1', url: '' },
+                    { name: 'Brand 2', url: '' },
+                    { name: 'Brand 3', url: '' },
+                    { name: 'Brand 4', url: '' },
+                    { name: 'Brand 5', url: '' },
+                    { name: 'Brand 6', url: '' },
+                  ].filter(b => b.url).map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply a comprehensive range of industrial sensors for detection, measurement and monitoring applications — including proximity, photoelectric, inductive, capacitive, temperature and pressure sensors from leading global brands.
+              </p>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Proximity Sensors', url: '' },
+                    { label: 'Photoelectric Sensors', url: '' },
+                    { label: 'Inductive Sensors', url: '' },
+                    { label: 'Capacitive Sensors', url: '' },
+                    { label: 'Pressure Sensors', url: '' },
+                    { label: 'Temperature Sensors', url: '' },
+                  ].filter(img => img.url).map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {category === 'gear_motors' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'Brand 1', url: '' },
+                    { name: 'Brand 2', url: '' },
+                    { name: 'Brand 3', url: '' },
+                    { name: 'Brand 4', url: '' },
+                    { name: 'Brand 5', url: '' },
+                    { name: 'Brand 6', url: '' },
+                  ].filter(b => b.url).map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply heavy-duty gear motors and gearboxes suitable for conveyors, mixers, pumps and industrial machinery. Available in inline, parallel shaft, bevel and worm gear configurations from trusted global manufacturers.
+              </p>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Inline Gear Motors', url: '' },
+                    { label: 'Bevel Gear Motors', url: '' },
+                    { label: 'Worm Gearboxes', url: '' },
+                    { label: 'Parallel Shaft Gearboxes', url: '' },
+                    { label: 'Helical Gearboxes', url: '' },
+                    { label: 'Gear Reducers', url: '' },
+                  ].filter(img => img.url).map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {category === 'ac_dc_drives' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Drive Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'Brand 1', url: '' },
+                    { name: 'Brand 2', url: '' },
+                    { name: 'Brand 3', url: '' },
+                    { name: 'Brand 4', url: '' },
+                    { name: 'Brand 5', url: '' },
+                    { name: 'Brand 6', url: '' },
+                  ].filter(b => b.url).map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                Variable speed drives (VSDs) and DC drives for precise motor speed and torque control. We supply and programme drives from all major manufacturers including ABB, Siemens, Danfoss, Yaskawa, Schneider and Control Techniques.
+              </p>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Drive Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'AC Variable Speed Drives', url: '' },
+                    { label: 'DC Drives', url: '' },
+                    { label: 'Servo Drives', url: '' },
+                    { label: 'Soft Starters', url: '' },
+                    { label: 'Drive Accessories', url: '' },
+                    { label: 'Drive Enclosures', url: '' },
+                  ].filter(img => img.url).map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {category === 'plcs_hmis' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">PLC & HMI Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'Brand 1', url: '' },
+                    { name: 'Brand 2', url: '' },
+                    { name: 'Brand 3', url: '' },
+                    { name: 'Brand 4', url: '' },
+                    { name: 'Brand 5', url: '' },
+                    { name: 'Brand 6', url: '' },
+                  ].filter(b => b.url).map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply and programme PLCs and HMIs from all leading manufacturers. From entry-level micro-PLCs to large modular systems, we have the hardware and the expertise to implement your control solution.
+              </p>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">PLC & HMI Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Siemens PLCs', url: '' },
+                    { label: 'Allen-Bradley PLCs', url: '' },
+                    { label: 'Mitsubishi PLCs', url: '' },
+                    { label: 'Schneider PLCs', url: '' },
+                    { label: 'HMI Touch Panels', url: '' },
+                    { label: 'I/O Modules', url: '' },
+                  ].filter(img => img.url).map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {category === 'temperature_controllers' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'Brand 1', url: '' },
+                    { name: 'Brand 2', url: '' },
+                    { name: 'Brand 3', url: '' },
+                    { name: 'Brand 4', url: '' },
+                    { name: 'Brand 5', url: '' },
+                    { name: 'Brand 6', url: '' },
+                  ].filter(b => b.url).map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply PID, on/off and advanced temperature controllers for industrial process and machine temperature control. Compatible with all thermocouple and RTD sensor types, from simple panel-mount units to multi-loop systems.
+              </p>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'PID Controllers', url: '' },
+                    { label: 'On/Off Controllers', url: '' },
+                    { label: 'Multi-Loop Controllers', url: '' },
+                    { label: 'Temperature Transmitters', url: '' },
+                    { label: 'Thermocouples', url: '' },
+                    { label: 'RTD Sensors', url: '' },
+                  ].filter(img => img.url).map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}

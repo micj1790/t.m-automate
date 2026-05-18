@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Droplets, Flame, Wrench, Cpu, ToggleLeft } from 'lucide-react';
+import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Droplets, Flame, Wrench, Cpu } from 'lucide-react';
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
@@ -10,7 +10,6 @@ const partsCategories = [
   { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars for industrial power distribution.' },
   { icon: Radio, label: 'Sensors', key: 'sensors', desc: 'Proximity, photoelectric, temperature & pressure sensors for automation.' },
   { icon: Settings, label: 'Gear Motors & Gearboxes', key: 'gear_motors', desc: 'Heavy-duty gear motors & gearboxes for conveyor systems.' },
-  { icon: ToggleLeft, label: 'Solenoid Valves', key: 'solenoid_valves', desc: 'Pneumatic & hydraulic solenoid valves for flow control.' },
   { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'Variable speed drives from ABB, Siemens, Danfoss & more.' },
   { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Programmable logic controllers & operator interfaces.' },
   { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers for process control.' },
