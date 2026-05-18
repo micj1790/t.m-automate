@@ -265,16 +265,16 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Proximity Sensors', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
-                    { label: 'Photoelectric Sensors', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
-                    { label: 'Pressure Sensors', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
-                    { label: 'Temperature Sensors', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-                    { label: 'Ultrasonic Sensors', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
-                    { label: 'Vision & Safety Sensors', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                    { label: 'Proximity Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/36bed267f_proximity.jpg' },
+                    { label: 'Photoelectric Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/1a87d25b2_photoelectirc.jpg' },
+                    { label: 'Pressure Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6b1e0c7ef_pressure.jpg' },
+                    { label: 'Temperature Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0ba51db45_temptreure.jpg' },
+                    { label: 'Ultrasonic Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/b58c5926d_ultrasinic.jpg' },
+                    { label: 'Safety Sensors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e9ebaaead_safety2.jpg' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
                       <div className="px-3 py-2 bg-card">
                         <p className="text-xs font-semibold text-foreground">{img.label}</p>
