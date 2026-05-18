@@ -214,9 +214,6 @@ export default function Catalogue() {
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" style={{ imageRendering: 'auto' }} />
                       </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -276,9 +273,6 @@ export default function Catalogue() {
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -323,9 +317,6 @@ export default function Catalogue() {
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -368,9 +359,6 @@ export default function Catalogue() {
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
-                      </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
                       </div>
                     </div>
                   ))}
@@ -420,9 +408,6 @@ export default function Catalogue() {
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -469,9 +454,6 @@ export default function Catalogue() {
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -515,9 +497,6 @@ export default function Catalogue() {
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
-                      </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
                       </div>
                     </div>
                   ))}
