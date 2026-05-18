@@ -260,6 +260,29 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 We supply a comprehensive range of industrial sensors for detection, measurement and monitoring applications — including proximity, photoelectric, inductive, capacitive, temperature and pressure sensors from leading global brands including IFM, Omron, SICK, Pepperl+Fuchs, Turck, Datalogic, Datasensing, Panasonic and Siemens.
               </p>
+
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Proximity Sensors', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+                    { label: 'Photoelectric Sensors', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
+                    { label: 'Pressure Sensors', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
+                    { label: 'Temperature Sensors', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
+                    { label: 'Ultrasonic Sensors', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                    { label: 'Vision & Safety Sensors', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
