@@ -387,46 +387,23 @@ export default function Catalogue() {
             <div className="mt-10 space-y-10">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                   {[
-                    { name: 'Brand 1', url: '' },
-                    { name: 'Brand 2', url: '' },
-                    { name: 'Brand 3', url: '' },
-                    { name: 'Brand 4', url: '' },
-                    { name: 'Brand 5', url: '' },
-                    { name: 'Brand 6', url: '' },
-                  ].filter(b => b.url).map(brand => (
+                    { name: 'Toho Electronics', url: 'https://toho-inc.com/english/img/common/logo.png', size: 'max-h-8' },
+                    { name: 'Delta Electronics', url: 'https://companieslogo.com/img/orig/2308.TW_BIG-c8d9bd8a.png?t=1720244490', size: 'max-h-10' },
+                    { name: 'Siemens', url: 'https://companieslogo.com/img/orig/SIE.DE_BIG-8513f49c.png?t=1720244493', size: 'max-h-10' },
+                    { name: 'Autonics', url: 'https://images.seeklogo.com/logo-png/27/1/autonics-logo-png_seeklogo-278846.png', size: 'max-h-8' },
+                    { name: 'Danfoss', url: 'https://1000logos.net/wp-content/uploads/2020/09/Danfoss-Logo.png', size: 'max-h-10' },
+                  ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
-                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                      <img src={brand.url} alt={brand.name} className={`${brand.size} max-w-full w-auto h-auto object-contain`} />
                     </div>
                   ))}
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                We supply PID, on/off and advanced temperature controllers for industrial process and machine temperature control. Compatible with all thermocouple and RTD sensor types, from simple panel-mount units to multi-loop systems.
+                We supply PID, on/off and advanced temperature controllers for industrial process and machine temperature control. Compatible with all thermocouple and RTD sensor types, from simple panel-mount units to multi-loop systems — supplied from trusted brands including Toho, Delta, Siemens, Autonics and Danfoss.
               </p>
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Products</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {[
-                    { label: 'PID Controllers', url: '' },
-                    { label: 'On/Off Controllers', url: '' },
-                    { label: 'Multi-Loop Controllers', url: '' },
-                    { label: 'Temperature Transmitters', url: '' },
-                    { label: 'Thermocouples', url: '' },
-                    { label: 'RTD Sensors', url: '' },
-                  ].filter(img => img.url).map(img => (
-                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
-                      </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
 
