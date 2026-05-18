@@ -286,15 +286,16 @@ export default function Catalogue() {
             <div className="mt-10 space-y-10">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
                   {[
-                    { name: 'Brand 1', url: '' },
-                    { name: 'Brand 2', url: '' },
-                    { name: 'Brand 3', url: '' },
-                    { name: 'Brand 4', url: '' },
-                    { name: 'Brand 5', url: '' },
-                    { name: 'Brand 6', url: '' },
-                  ].filter(b => b.url).map(brand => (
+                    { name: 'ACTOM', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/a0036d4cd_actom.jpg' },
+                    { name: 'BMG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e664ce882_bmg.jpg' },
+                    { name: 'Bonfiglioli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/597248bcc_bonfigiioli.jpg' },
+                    { name: 'Marathon Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8be6f45df_marahtoinmotors.png' },
+                    { name: 'Motorelli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/94eb08c7d_motorelli.jpg' },
+                    { name: 'SEW Eurodrive', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ac4f55ebd_sew.png' },
+                    { name: 'WEG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/cd24058d5_weg.png' },
+                  ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
                       <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
                     </div>
