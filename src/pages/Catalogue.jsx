@@ -309,13 +309,11 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Products</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Inline Gear Motors', url: '' },
-                    { label: 'Bevel Gear Motors', url: '' },
-                    { label: 'Worm Gearboxes', url: '' },
-                    { label: 'Parallel Shaft Gearboxes', url: '' },
-                    { label: 'Helical Gearboxes', url: '' },
-                    { label: 'Gear Reducers', url: '' },
-                  ].filter(img => img.url).map(img => (
+                    { label: 'Worm Gearboxes', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/38d034e0a_gearbix.webp' },
+                    { label: 'Gear Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/d7c76903a_gearboxes.jpg' },
+                    { label: 'Electric Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/03e00998a_motors.webp' },
+                    { label: 'Servo Motors & Drives', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/658eb1936_servos.webp' },
+                  ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
                         <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
