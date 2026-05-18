@@ -14,9 +14,7 @@ const partsCategories = [
   { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'Variable speed drives from ABB, Siemens, Danfoss & more.' },
   { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Programmable logic controllers & operator interfaces.' },
   { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers for process control.' },
-  { icon: Gauge, label: 'Valves', key: 'valves', desc: 'Ball, butterfly, gate & globe valves for fluid control.' },
-  { icon: Gauge, label: 'Regulators', key: 'regulators', desc: 'Pressure regulators & air treatment units for pneumatic systems.' },
-  { icon: Wrench, label: 'Cylinders', key: 'cylinders', desc: 'Pneumatic & hydraulic cylinders in all configurations.' },
+  { icon: Gauge, label: 'Pneumatics', key: 'valves', desc: 'Valves, regulators, cylinders & air treatment units for pneumatic systems.' },
 ];
 
 const machinesCategories = [
