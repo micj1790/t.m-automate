@@ -175,8 +175,28 @@ export default function Catalogue() {
 
           {category === 'switchgear' && (
             <div className="mt-10 space-y-10">
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
-                Switchgear is the combination of electrical disconnect switches, fuses and circuit breakers used to control, protect and isolate electrical equipment. It is the backbone of any industrial power distribution system, safeguarding machinery, preventing faults from cascading, and enabling safe maintenance. From motor control centres (MCCs) to distribution boards, switchgear ensures reliable and safe power management across your entire facility.
+
+              {/* Brand logos — top */}
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Switchgear Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'ABB', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6cd42cf52_ABB.png' },
+                    { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
+                    { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
+                    { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
+                    { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/02bc0c2ec_SCHIEDER.png' },
+                    { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
+                  ].map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                Switchgear controls, protects and isolates electrical equipment across your facility — from circuit breakers and contactors to distribution boards and isolators. We supply all major brands with immediate availability.
               </p>
 
               {/* Product images */}
@@ -197,25 +217,6 @@ export default function Catalogue() {
                       <div className="px-3 py-2 bg-card">
                         <p className="text-xs font-semibold text-foreground">{img.label}</p>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Brand logos */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-                  {[
-                    { name: 'ABB', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6cd42cf52_ABB.png' },
-                    { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
-                    { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
-                    { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
-                    { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/02bc0c2ec_SCHIEDER.png' },
-                    { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
-                  ].map(brand => (
-                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
-                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
                     </div>
                   ))}
                 </div>
