@@ -174,24 +174,61 @@ export default function Catalogue() {
           <p className="text-base text-muted-foreground max-w-2xl">{meta.desc}</p>
 
           {category === 'switchgear' && (
-            <div className="mt-10">
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-8">
-                Switchgear refers to the combination of electrical disconnect switches, fuses, and circuit breakers used to control, protect, and isolate electrical equipment. It is the backbone of any industrial power distribution system — safeguarding machinery, preventing faults from cascading, and enabling safe maintenance. From motor control centres (MCCs) to distribution boards, switchgear ensures reliable and safe power management across your entire facility.
+            <div className="mt-10 space-y-10">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+                Switchgear is the combination of electrical disconnect switches, fuses and circuit breakers used to control, protect and isolate electrical equipment. It is the backbone of any industrial power distribution system, safeguarding machinery, preventing faults from cascading, and enabling safe maintenance. From motor control centres (MCCs) to distribution boards, switchgear ensures reliable and safe power management across your entire facility.
               </p>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-5">Brands We Supply</h3>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-                {[
-                  { name: 'ABB', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6cd42cf52_ABB.png' },
-                  { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
-                  { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
-                  { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
-                  { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0ac438d46_SCHNIEDERR.png' },
-                  { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
-                ].map(brand => (
-                  <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
-                    <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
-                  </div>
-                ))}
+
+              {/* Product images */}
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Switchgear Products</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {[
+                    { label: 'Circuit Breakers', url: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80' },
+                    { label: 'Contactors', url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80' },
+                    { label: 'MCC Panels', url: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80' },
+                    { label: 'Distribution Boards', url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Brand logos */}
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                  {[
+                    { name: 'ABB', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/6cd42cf52_ABB.png' },
+                    { name: 'CBI Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/389884334_CBI.png' },
+                    { name: 'Eaton', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0f719f0e0_EATON.png' },
+                    { name: 'Hager', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/7673aca03_HAGER.png' },
+                    { name: 'Schneider Electric', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/0ac438d46_SCHNIEDERR.png' },
+                    { name: 'Siemens', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8c8decdd4_SIEMENS.png' },
+                  ].map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Inline CTA */}
+              <div className="rounded-2xl bg-primary p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <p className="text-lg font-black text-primary-foreground">Need Switchgear? Get a Quote Today.</p>
+                  <p className="text-sm text-primary-foreground/80 mt-1">Tell us what you need and we will get back to you with pricing and availability.</p>
+                </div>
+                <Link to="/quote" className="shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-white text-primary font-black text-sm uppercase tracking-wide hover:bg-white/90 transition-all">
+                  Request a Quote <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           )}
