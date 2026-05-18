@@ -353,6 +353,29 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 We supply a full range of pneumatic components for industrial automation — including solenoid valves, directional control valves, cylinders, FRL units, fittings and tubing. Our pneumatics range covers everything from simple on/off control to complex multi-axis pneumatic circuits, supplied from trusted brands including Festo, Bürkert, Camozzi and Metal Work.
               </p>
+
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Pneumatic Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Solenoid Valves', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                    { label: 'Directional Control Valves', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+                    { label: 'Pneumatic Cylinders', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
+                    { label: 'FRL Units', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
+                    { label: 'Fittings & Tubing', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
+                    { label: 'Vacuum Components', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -429,6 +452,29 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 We supply and programme PLCs and HMIs from all leading manufacturers including Delta, Mitsubishi, Siemens, Omron, Allen-Bradley and Schneider Electric. From entry-level micro-PLCs to large modular systems, we have the hardware and expertise to implement your control solution.
               </p>
+
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">PLC & HMI Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'Programmable Logic Controllers', url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80' },
+                    { label: 'HMI Touch Panels', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+                    { label: 'Remote I/O Modules', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
+                    { label: 'Safety PLCs', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                    { label: 'Motion Controllers', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
+                    { label: 'Communication Modules', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -453,6 +499,29 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 We supply PID, on/off and advanced temperature controllers for industrial process and machine temperature control. Compatible with all thermocouple and RTD sensor types, from simple panel-mount units to multi-loop systems — supplied from trusted brands including Toho, Delta, Siemens, Autonics and Danfoss.
               </p>
+
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Temperature Controller Products</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: 'PID Controllers', url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80' },
+                    { label: 'On/Off Controllers', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+                    { label: 'Multi-Loop Controllers', url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80' },
+                    { label: 'Thermocouple Sensors', url: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
+                    { label: 'RTD Sensors', url: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80' },
+                    { label: 'Temperature Transmitters', url: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
+                  ].map(img => (
+                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
+                      <div className="h-36 overflow-hidden bg-secondary/30 flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="px-3 py-2 bg-card">
+                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
