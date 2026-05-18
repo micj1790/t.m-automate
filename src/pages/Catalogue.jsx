@@ -412,6 +412,9 @@ export default function Catalogue() {
                     { label: 'AC Variable Speed Drives (Delta)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/5fa163959_deltavfd.jpg' },
                     { label: 'Servo Drives (Omron)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/c1c96c112_servodrive.jpg' },
                     { label: 'AC Drives (Siemens SINAMICS)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/b6e7907cd_simensdirve.jpg' },
+                    { label: 'AC Drives (Danfoss)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/768f75413_4danfoss.jpg' },
+                    { label: 'AC Drives (Nidec Control Techniques)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/a0e55fc84_nidec.png' },
+                    { label: 'AC Drives (Yaskawa)', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/42c14b408_yaskawa.webp' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
