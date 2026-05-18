@@ -182,12 +182,11 @@ export default function Catalogue() {
               {/* Product images */}
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Switchgear Products</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: 'Circuit Breakers', url: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80' },
-                    { label: 'Contactors', url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80' },
-                    { label: 'MCC Panels', url: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80' },
-                    { label: 'Distribution Boards', url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
+                    { label: 'Circuit Breakers', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/282745232_CircuitBreaker.webp' },
+                    { label: 'Contactors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/aecb97a1d_cotactor.webp' },
+                    { label: 'Distribution Boards', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/d78d819f1_dbbaord.webp' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
                       <div className="h-36 overflow-hidden">
