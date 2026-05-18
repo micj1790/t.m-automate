@@ -288,16 +288,16 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Brands We Supply</h3>
                 <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
                   {[
-                    { name: 'ACTOM', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/a0036d4cd_actom.jpg' },
-                    { name: 'BMG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e664ce882_bmg.jpg' },
-                    { name: 'Bonfiglioli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/597248bcc_bonfigiioli.jpg' },
-                    { name: 'Marathon Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8be6f45df_marahtoinmotors.png' },
-                    { name: 'Motorelli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/94eb08c7d_motorelli.jpg' },
-                    { name: 'SEW Eurodrive', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ac4f55ebd_sew.png' },
-                    { name: 'WEG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/cd24058d5_weg.png' },
+                    { name: 'ACTOM', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/a0036d4cd_actom.jpg', size: 'max-h-10' },
+                    { name: 'BMG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/e664ce882_bmg.jpg', size: 'max-h-10' },
+                    { name: 'Bonfiglioli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/597248bcc_bonfigiioli.jpg', size: 'max-h-14' },
+                    { name: 'Marathon Motors', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8be6f45df_marahtoinmotors.png', size: 'max-h-10' },
+                    { name: 'Motorelli', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/94eb08c7d_motorelli.jpg', size: 'max-h-14' },
+                    { name: 'SEW Eurodrive', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/ac4f55ebd_sew.png', size: 'max-h-10' },
+                    { name: 'WEG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/cd24058d5_weg.png', size: 'max-h-14' },
                   ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
-                      <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
+                      <img src={brand.url} alt={brand.name} className={`${brand.size} max-w-full w-auto h-auto object-contain`} />
                     </div>
                   ))}
                 </div>
