@@ -189,8 +189,8 @@ export default function Catalogue() {
                     { label: 'Distribution Boards', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/d78d819f1_dbbaord.webp' },
                   ].map(img => (
                     <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
+                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
                       </div>
                       <div className="px-3 py-2 bg-card">
                         <p className="text-xs font-semibold text-foreground">{img.label}</p>
