@@ -257,28 +257,6 @@ export default function Catalogue() {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 We supply a comprehensive range of industrial sensors for detection, measurement and monitoring applications — including proximity, photoelectric, inductive, capacitive, temperature and pressure sensors from leading global brands.
               </p>
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Products</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {[
-                    { label: 'Proximity Sensors', url: '' },
-                    { label: 'Photoelectric Sensors', url: '' },
-                    { label: 'Inductive Sensors', url: '' },
-                    { label: 'Capacitive Sensors', url: '' },
-                    { label: 'Pressure Sensors', url: '' },
-                    { label: 'Temperature Sensors', url: '' },
-                  ].filter(img => img.url).map(img => (
-                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
-                      </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
 
@@ -326,6 +304,29 @@ export default function Catalogue() {
                   ))}
                 </div>
               </div>
+            </div>
+          )}
+
+          {category === 'valves' && (
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Pneumatics Brands We Supply</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {[
+                    { name: 'Bürkert', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/f64852725_burkett.jpg', size: 'max-h-12' },
+                    { name: 'Camozzi', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/dd1a6c577_camizzzi.png', size: 'max-h-12' },
+                    { name: 'Festo', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/25ccd575c_festo.png', size: 'max-h-10' },
+                    { name: 'Metal Work', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/9818246f6_metlaworks.jpg', size: 'max-h-12' },
+                  ].map(brand => (
+                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
+                      <img src={brand.url} alt={brand.name} className={`${brand.size} max-w-full w-auto h-auto object-contain`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply a full range of pneumatic components for industrial automation — including solenoid valves, directional control valves, cylinders, FRL units, fittings and tubing. Our pneumatics range covers everything from simple on/off control to complex multi-axis pneumatic circuits, supplied from trusted brands including Festo, Bürkert, Camozzi and Metal Work.
+              </p>
             </div>
           )}
 
