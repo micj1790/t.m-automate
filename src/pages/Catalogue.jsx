@@ -334,15 +334,18 @@ export default function Catalogue() {
             <div className="mt-10 space-y-10">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Drive Brands We Supply</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                   {[
-                    { name: 'Brand 1', url: '' },
-                    { name: 'Brand 2', url: '' },
-                    { name: 'Brand 3', url: '' },
-                    { name: 'Brand 4', url: '' },
-                    { name: 'Brand 5', url: '' },
-                    { name: 'Brand 6', url: '' },
-                  ].filter(b => b.url).map(brand => (
+                    { name: 'Siemens', url: 'https://companieslogo.com/img/orig/SIE.DE_BIG-8513f49c.png?t=1720244493' },
+                    { name: 'Omron', url: 'https://companieslogo.com/img/orig/6645.T_BIG-0076ac82.png?t=1720244490' },
+                    { name: 'Delta Electronics', url: 'https://companieslogo.com/img/orig/2308.TW_BIG-c8d9bd8a.png?t=1720244490' },
+                    { name: 'Nidec', url: 'https://companieslogo.com/img/orig/6594.T_BIG-13391db2.png?t=1746602084' },
+                    { name: 'WEG', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/cd24058d5_weg.png' },
+                    { name: 'Invertek', url: 'https://seeklogo.com/images/I/invertek-drives-logo-7B3C8E5A4A-seeklogo.com.png' },
+                    { name: 'Mitsubishi Electric', url: 'https://companieslogo.com/img/orig/6503.T_BIG-b9eeef26.png?t=1746461543' },
+                    { name: 'Danfoss', url: 'https://1000logos.net/wp-content/uploads/2020/09/Danfoss-Logo.png' },
+                    { name: 'Yaskawa', url: 'https://companieslogo.com/img/orig/6506.T_BIG-13794c28.png?t=1746004112' },
+                  ].map(brand => (
                     <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
                       <img src={brand.url} alt={brand.name} className="max-h-10 max-w-full w-auto h-auto object-contain" />
                     </div>
@@ -350,30 +353,8 @@ export default function Catalogue() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                Variable speed drives (VSDs) and DC drives for precise motor speed and torque control. We supply and programme drives from all major manufacturers including ABB, Siemens, Danfoss, Yaskawa, Schneider and Control Techniques.
+                Variable speed drives (VSDs) and DC drives for precise motor speed and torque control. We supply and programme drives from all major manufacturers including Siemens, Omron, Delta, Nidec, WEG, Invertek, Mitsubishi, Danfoss and Yaskawa. Our team can assist with selection, commissioning and programming on site.
               </p>
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Drive Products</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {[
-                    { label: 'AC Variable Speed Drives', url: '' },
-                    { label: 'DC Drives', url: '' },
-                    { label: 'Servo Drives', url: '' },
-                    { label: 'Soft Starters', url: '' },
-                    { label: 'Drive Accessories', url: '' },
-                    { label: 'Drive Enclosures', url: '' },
-                  ].filter(img => img.url).map(img => (
-                    <div key={img.label} className="rounded-xl overflow-hidden border border-border">
-                      <div className="h-36 overflow-hidden bg-white flex items-center justify-center">
-                        <img src={img.url} alt={img.label} className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
-                      </div>
-                      <div className="px-3 py-2 bg-card">
-                        <p className="text-xs font-semibold text-foreground">{img.label}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
 
