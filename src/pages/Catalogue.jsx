@@ -501,6 +501,17 @@ export default function Catalogue() {
                   ))}
                 </div>
               </div>
+
+              {/* Inline CTA */}
+              <div className="rounded-2xl bg-primary p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <p className="text-lg font-black text-primary-foreground">Need Temperature Controllers? Get a Quote Today.</p>
+                  <p className="text-sm text-primary-foreground/80 mt-1">Tell us what you need and we will get back to you with pricing and availability.</p>
+                </div>
+                <Link to="/quote" className="shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-white text-primary font-black text-sm uppercase tracking-wide hover:bg-white/90 transition-all">
+                  Request a Quote <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           )}
 
