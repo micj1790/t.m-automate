@@ -241,13 +241,13 @@ export default function Catalogue() {
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Brands We Supply</h3>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                   {[
-                    { name: 'IFM Electronic', url: 'https://images.seeklogo.com/logo-png/44/1/ifm-logo-png_seeklogo-449732.png', size: 'max-h-8' },
+                    { name: 'IFM Electronic', url: 'https://images.seeklogo.com/logo-png/44/1/ifm-logo-png_seeklogo-449732.png', size: 'max-h-12' },
                     { name: 'Omron', url: 'https://companieslogo.com/img/orig/6645.T_BIG-0076ac82.png?t=1720244490', size: 'max-h-10' },
-                    { name: 'SICK', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logo_SICK_AG_2009.svg/320px-Logo_SICK_AG_2009.svg.png', size: 'max-h-10' },
-                    { name: 'Pepperl+Fuchs', url: 'https://images.seeklogo.com/logo-png/50/1/pepperlfuchs-logo-png_seeklogo-504361.png', size: 'max-h-6' },
-                    { name: 'Turck', url: 'https://images.seeklogo.com/logo-png/37/1/hans-turck-gmbh-co-kg-logo-png_seeklogo-378113.png', size: 'max-h-8' },
+                    { name: 'SICK', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8e3805b85_download1.png', size: 'max-h-14' },
+                    { name: 'Pepperl+Fuchs', url: 'https://images.seeklogo.com/logo-png/50/1/pepperlfuchs-logo-png_seeklogo-504361.png', size: 'max-h-10' },
+                    { name: 'Turck', url: 'https://images.seeklogo.com/logo-png/37/1/hans-turck-gmbh-co-kg-logo-png_seeklogo-378113.png', size: 'max-h-12' },
                     { name: 'Datalogic', url: 'https://companieslogo.com/img/orig/DAL.MI_BIG-72cd6f79.png?t=1728201747', size: 'max-h-8' },
-                    { name: 'Datasensing', url: 'https://images.seeklogo.com/logo-png/46/1/datasensing-logo-png_seeklogo-464703.png', size: 'max-h-8' },
+                    { name: 'Datasensing', url: 'https://images.seeklogo.com/logo-png/46/1/datasensing-logo-png_seeklogo-464703.png', size: 'max-h-12' },
                     { name: 'Panasonic', url: 'https://companieslogo.com/img/orig/6752.T_BIG-15a74309.png?t=1720244490', size: 'max-h-10' },
                     { name: 'Siemens', url: 'https://companieslogo.com/img/orig/SIE.DE_BIG-8513f49c.png?t=1720244493', size: 'max-h-10' },
                   ].map(brand => (
