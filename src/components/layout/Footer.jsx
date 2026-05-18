@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Zap, Phone, Mail, MapPin, Facebook, Youtube, Linkedin, ArrowRight } from 'lucide-react';
 
 const services = [
@@ -17,13 +17,16 @@ const company = [
 ];
 
 export default function Footer() {
+  const location = useLocation();
+  const hideCTA = location.pathname === '/catalogue';
+
   return (
     <footer className="relative bg-card/50 border-t border-border overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
 
       {/* CTA Banner */}
-      <div className="relative border-b border-border">
+      {!hideCTA && <div className="relative border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-black text-foreground">Ready to automate your operations?</h3>
@@ -42,7 +45,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
