@@ -40,8 +40,8 @@ export default function About() {
                 About T.M<br /><span className="text-primary text-glow-blue">Engineering</span>
               </h1>
               <p className="text-base md:text-lg leading-relaxed max-w-2xl">
-                <span className="text-white font-semibold">Specialists in Industrial Automation</span>
-                <span className="text-muted-foreground"> and FMCG Servicing & Supply. For over 39 years, T.M Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and FMCG industries.</span>
+                <span className="text-white font-semibold">Specialists in Industrial Automation and Electrical Engineering</span>
+                <span className="text-muted-foreground">. For over 39 years, T.M Engineering has been providing exceptional 24-hour service and supplying only the highest quality products in the electrical and automation industries.</span>
               </p>
             </motion.div>
           </div>
