@@ -5,11 +5,11 @@ import { Cpu, Zap, Settings, Monitor, Shield, Tag, ArrowRight } from 'lucide-rea
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const services = [
-  { icon: Cpu, title: 'PLC & HMI Programming', desc: 'Siemens, Allen-Bradley, Schneider & Mitsubishi — programmed and commissioned.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15' },
-  { icon: Zap, title: 'Industrial Automation', desc: 'End-to-end factory automation for FMCG, mining and manufacturing.', color: 'text-accent', bg: 'bg-accent/8 border-accent/15' },
-  { icon: Settings, title: 'Control Panels', desc: 'Custom panels designed, manufactured and installed to SANS standards.', color: 'text-purple-400', bg: 'bg-purple-400/8 border-purple-400/15' },
-  { icon: Tag, title: 'Labelling Machines', desc: 'Custom automatic labelling equipment for FMCG production lines.', color: 'text-yellow-400', bg: 'bg-yellow-400/8 border-yellow-400/15' },
-  { icon: Shield, title: '24/7 Breakdown Support', desc: 'Emergency electrical and automation callout across Gauteng.', color: 'text-red-400', bg: 'bg-red-400/8 border-red-400/15' },
+  { icon: Cpu, title: 'PLC & HMI Programming', desc: 'Siemens, Allen-Bradley, Schneider & Mitsubishi — programmed and commissioned.', color: 'text-primary', bg: 'bg-primary/8 border-primary/15', link: '/services' },
+  { icon: Zap, title: 'Industrial Automation', desc: 'End-to-end factory automation for FMCG, mining and manufacturing.', color: 'text-accent', bg: 'bg-accent/8 border-accent/15', link: '/services' },
+  { icon: Settings, title: 'Control Panels', desc: 'Custom panels designed, manufactured and installed to SANS standards.', color: 'text-purple-400', bg: 'bg-purple-400/8 border-purple-400/15', link: '/services' },
+  { icon: Tag, title: 'Machines & Parts', desc: 'Labelling machines, liquid fillers, heat tunnels, spare parts and more.', color: 'text-yellow-400', bg: 'bg-yellow-400/8 border-yellow-400/15', link: '/products' },
+  { icon: Shield, title: '24/7 Breakdown Support', desc: 'Emergency electrical and automation callout across Gauteng.', color: 'text-red-400', bg: 'bg-red-400/8 border-red-400/15', link: '/services' },
 ];
 
 export default function ServicesPreview() {
@@ -24,7 +24,7 @@ export default function ServicesPreview() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {services.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-              <Link to="/services" className={`group block p-3 rounded-xl border ${s.bg} hover:border-current/30 transition-all duration-400 h-full gradient-border`}>
+              <Link to={s.link} className={`group block p-3 rounded-xl border ${s.bg} hover:border-current/30 transition-all duration-400 h-full gradient-border`}>
                 <div className={`w-8 h-8 rounded-lg border ${s.bg} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300`}>
                   <s.icon className={`w-4 h-4 ${s.color}`} />
                 </div>
