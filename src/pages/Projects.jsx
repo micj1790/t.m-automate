@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { Play, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
@@ -175,13 +175,6 @@ export default function Projects() {
             </p>
           </motion.div>
         </div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
-          className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
-          <span className="text-[10px] text-white/60 uppercase tracking-widest">Scroll</span>
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-            <ChevronDown className="w-4 h-4 text-white/50" />
-          </motion.div>
-        </motion.div>
         {/* Banner pinned to bottom of hero */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <ClientsBanner />

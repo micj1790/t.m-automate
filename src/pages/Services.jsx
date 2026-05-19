@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight, ChevronDown } from 'lucide-react';
+import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
@@ -119,13 +119,6 @@ export default function Services() {
             </p>
           </motion.div>
         </div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
-          className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
-          <span className="text-[10px] text-white/60 uppercase tracking-widest">Scroll</span>
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-            <ChevronDown className="w-4 h-4 text-white/50" />
-          </motion.div>
-        </motion.div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <BrandsBanner />
         </div>
