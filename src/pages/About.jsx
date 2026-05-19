@@ -11,16 +11,16 @@ const values = [
 ];
 
 const milestones = [
-  { year: '1986', title: 'Founded', desc: 'Started as a small electrical engineering workshop in Johannesburg with a vision for excellence.', icon: '🏗️' },
-  { year: '1994', title: '24/7 Service Launch', desc: 'Pioneered round-the-clock emergency support across Gauteng industries.', icon: '⚡' },
-  { year: '2000', title: 'PLC Specialization', desc: 'Became certified experts in Siemens, Allen-Bradley and Schneider PLC systems.', icon: '🖥️' },
-  { year: '2005', title: 'Major Contracts', desc: 'Secured partnerships with leading FMCG and beverage manufacturers across South Africa.', icon: '🤝' },
-  { year: '2010', title: 'Factory Automation', desc: 'Expanded into complete production line automation and robotics integration.', icon: '🤖' },
-  { year: '2015', title: 'Mining Sector Growth', desc: 'Delivered critical conveyor and control panel systems for major mining operations.', icon: '⛏️' },
-  { year: '2018', title: 'Projects Division', desc: 'Established dedicated team for large-scale turnkey industrial projects.', icon: '📋' },
-  { year: '2020', title: 'Digital Transformation', desc: 'Implemented remote monitoring, SCADA systems and IoT-enabled solutions.', icon: '📡' },
-  { year: '2023', title: 'Facility Expansion', desc: 'Upgraded headquarters with modern workshop, testing facilities and training centre.', icon: '🏢' },
-  { year: '2026', title: '2000+ Jobs Completed', desc: 'Nearly 40 years of continuous service excellence across all industries.', icon: '🎯' },
+  { year: '1986', title: 'Founded', desc: 'Started as a small electrical engineering workshop in Johannesburg with a vision for excellence.' },
+  { year: '1994', title: '24/7 Service Launch', desc: 'Pioneered round-the-clock emergency support across Gauteng industries.' },
+  { year: '2000', title: 'PLC Specialization', desc: 'Became certified experts in Siemens, Allen-Bradley and Schneider PLC systems.' },
+  { year: '2005', title: 'Major Contracts', desc: 'Secured partnerships with leading FMCG and beverage manufacturers across South Africa.' },
+  { year: '2010', title: 'Factory Automation', desc: 'Expanded into complete production line automation and robotics integration.' },
+  { year: '2015', title: 'Mining Sector Growth', desc: 'Delivered critical conveyor and control panel systems for major mining operations.' },
+  { year: '2018', title: 'Projects Division', desc: 'Established dedicated team for large-scale turnkey industrial projects.' },
+  { year: '2020', title: 'Digital Transformation', desc: 'Implemented remote monitoring, SCADA systems and IoT-enabled solutions.' },
+  { year: '2023', title: 'Facility Expansion', desc: 'Upgraded headquarters with modern workshop, testing facilities and training centre.' },
+  { year: '2026', title: '2000+ Jobs Completed', desc: 'Nearly 40 years of continuous service excellence across all industries.' },
 ];
 
 export default function About() {
@@ -127,16 +127,15 @@ export default function About() {
                       className="p-5 rounded-xl bg-card border border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all gradient-border group"
                     >
                       <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} flex-row`}>
-                        <span className="text-2xl">{m.icon}</span>
-                        <span className="text-xs font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded">{m.year}</span>
+                        <span className="text-xs font-mono text-primary font-bold bg-primary/10 px-3 py-1.5 rounded">{m.year}</span>
                       </div>
                       <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{m.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
                     </motion.div>
                   </div>
                   {/* Node point */}
-                  <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/20 z-10">
-                    <span className="text-lg">{m.icon}</span>
+                  <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-8 h-8 rounded-full bg-primary border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/20 z-10">
+                    <div className="w-2 h-2 rounded-full bg-background" />
                   </div>
                   <div className="hidden md:block md:w-1/2" />
                 </motion.div>
