@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
@@ -173,6 +173,13 @@ export default function Projects() {
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               500+ completed projects across all major industries. From labelling machines to complete factory automation — our work speaks for itself.
             </p>
+          </motion.div>
+        </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
+          <span className="text-[11px] font-semibold text-white/70 uppercase tracking-widest">Scroll</span>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}>
+            <ChevronDown className="w-6 h-6 text-white/70" />
           </motion.div>
         </div>
         {/* Banner pinned to bottom of hero */}

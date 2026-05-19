@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '@/components/shared/SectionHeader';
 import ClientsBanner from '@/components/home/ClientsBanner';
@@ -67,6 +67,12 @@ export default function Industries() {
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               Deep expertise across 6 major industries. 39 years of delivering reliable automation solutions to South Africa's most demanding sectors.
             </p>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
+          <span className="text-[11px] font-semibold text-white/70 uppercase tracking-widest">Scroll</span>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}>
+            <ChevronDown className="w-6 h-6 text-white/70" />
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
