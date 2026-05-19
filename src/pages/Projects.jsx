@@ -205,10 +205,10 @@ export default function Projects() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search projects..." className="pl-11 pr-4 py-2.5 rounded-xl bg-secondary border-border text-sm" />
             </div>
-            <div className="flex gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto pb-2 sm:pb-0">
+            <div className="grid grid-cols-5 sm:flex gap-2 w-full sm:w-auto">
               {industries.map(i => (
                 <button key={i} onClick={() => setFilter(i)}
-                  className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
+                  className={`flex-1 sm:flex-none text-center px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
                   {i}
                 </button>
               ))}
