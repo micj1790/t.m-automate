@@ -205,10 +205,10 @@ export default function Projects() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search projects..." className="pl-11 pr-4 py-2.5 rounded-xl bg-secondary border-border text-sm" />
             </div>
-            <div className="grid grid-cols-5 sm:flex gap-2 w-full sm:w-auto">
+            <div className="grid grid-cols-5 gap-2 w-full">
               {industries.map(i => (
                 <button key={i} onClick={() => setFilter(i)}
-                  className={`flex-1 sm:flex-none text-center px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
+                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all text-center ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
                   {i}
                 </button>
               ))}
@@ -232,10 +232,7 @@ export default function Projects() {
                       </div>
                       <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">{p.description}</p>
-                      <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-border/50">
-                        <span className="font-medium">{p.client || p.location || ''}</span>
-                        <span className="px-2.5 py-1 rounded-lg bg-secondary font-medium">{industryLabels[p.industry] || p.industry || 'Engineering'}</span>
-                      </div>
+
                     </div>
                   </div>
                 </motion.div>
