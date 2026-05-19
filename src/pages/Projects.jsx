@@ -199,40 +199,23 @@ export default function Projects() {
             <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Projects</h2>
           </div>
 
-          {/* Filter */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10 items-center">
-            <div className="relative flex-1 w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search projects..." className="pl-11 pr-4 py-2.5 rounded-xl bg-secondary border-border text-sm" />
-            </div>
-            <div className="grid grid-cols-2 gap-2 w-full">
-              {industries.map(i => (
-                <button key={i} onClick={() => setFilter(i)}
-                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all text-center ${filter === i ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'}`}>
-                  {i}
-                </button>
-              ))}
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {display.map((p, i) => (
                 <motion.div key={p.id || p.title} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ delay: i * 0.04 }}>
-                  <div onClick={() => setSelectedProject(p)} className="group rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden cursor-pointer">
-                    <div className="aspect-[16/9] relative overflow-hidden">
+                  <div onClick={() => setSelectedProject(p)} className="group h-72 flex flex-col rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden cursor-pointer">
+                    <div className="h-40 relative overflow-hidden shrink-0">
                       <img src={p.image_urls?.[0] || 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'} alt={p.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col flex-1 overflow-hidden">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
                         {p.service_type && <span className="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-wide">{p.service_type}</span>}
                         {p.year && <span className="text-[10px] text-muted-foreground font-medium">{p.year}</span>}
                       </div>
-                      <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">{p.description}</p>
-
+                      <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{p.description}</p>
                     </div>
                   </div>
                 </motion.div>
