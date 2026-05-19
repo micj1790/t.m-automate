@@ -164,7 +164,7 @@ export default function Projects() {
           <div className="absolute inset-0 bg-background/60" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
         </div>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-32">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Our Portfolio
