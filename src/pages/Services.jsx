@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
-import ClientsBanner from '@/components/home/ClientsBanner';
+import BrandsBanner from '@/components/home/BrandsBanner';
 
 const services = [
   {
@@ -120,7 +120,7 @@ export default function Services() {
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
-          <ClientsBanner />
+          <BrandsBanner />
         </div>
       </section>
 
