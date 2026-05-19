@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '@/components/shared/SectionHeader';
 import ClientsBanner from '@/components/home/ClientsBanner';
@@ -69,6 +69,13 @@ export default function Industries() {
             </p>
           </motion.div>
         </div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+          className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
+          <span className="text-[10px] text-white/60 uppercase tracking-widest">Scroll</span>
+          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+            <ChevronDown className="w-4 h-4 text-white/50" />
+          </motion.div>
+        </motion.div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <ClientsBanner />
         </div>
