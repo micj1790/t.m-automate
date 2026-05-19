@@ -11,13 +11,16 @@ const values = [
 ];
 
 const milestones = [
-  { year: '1986', title: 'Founded', desc: 'Industrial electrical engineering established in Johannesburg.' },
-  { year: '1994', title: 'Service Department', desc: '24-hour support & maintenance across industries.' },
-  { year: '2000', title: 'PLC Expertise', desc: 'Added PLC programming & automation capabilities.' },
-  { year: '2010', title: 'Factory Automation', desc: 'Full automation solutions & production line design.' },
-  { year: '2018', title: 'Projects Division', desc: 'Dedicated team for large-scale turnkey projects.' },
-  { year: '2023', title: 'Expansion', desc: 'Upgraded headquarters with modern facilities.' },
-  { year: '2026', title: 'Here to Serve', desc: '40 years of quality, reliability & excellence.' },
+  { year: '1986', title: 'Founded', desc: 'Started as a small electrical engineering workshop in Johannesburg with a vision for excellence.', icon: '🏗️' },
+  { year: '1994', title: '24/7 Service Launch', desc: 'Pioneered round-the-clock emergency support across Gauteng industries.', icon: '⚡' },
+  { year: '2000', title: 'PLC Specialization', desc: 'Became certified experts in Siemens, Allen-Bradley and Schneider PLC systems.', icon: '🖥️' },
+  { year: '2005', title: 'Major Contracts', desc: 'Secured partnerships with SAB, Tiger Brands and leading FMCG manufacturers.', icon: '🤝' },
+  { year: '2010', title: 'Factory Automation', desc: 'Expanded into complete production line automation and robotics integration.', icon: '🤖' },
+  { year: '2015', title: 'Mining Sector Growth', desc: 'Delivered critical conveyor and MCC systems for major mining operations.', icon: '⛏️' },
+  { year: '2018', title: 'Projects Division', desc: 'Established dedicated team for large-scale turnkey industrial projects.', icon: '📋' },
+  { year: '2020', title: 'Digital Transformation', desc: 'Implemented remote monitoring, SCADA systems and IoT-enabled solutions.', icon: '📡' },
+  { year: '2023', title: 'Facility Expansion', desc: 'Upgraded headquarters with modern workshop, testing facilities and training centre.', icon: '🏢' },
+  { year: '2026', title: '2000+ Jobs Completed', desc: 'Nearly 40 years of continuous service excellence across all industries.', icon: '🎯' },
 ];
 
 export default function About() {
@@ -105,20 +108,35 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="Company History" title="39 Years of Growth & Innovation" />
           <div className="relative">
-            <div className="absolute left-12 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-border to-transparent" />
+            {/* Animated growth line */}
+            <div className="absolute left-12 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary/5 to-transparent rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-primary via-accent to-primary opacity-30 animate-pulse" />
+            </div>
             <div className="space-y-8">
               {milestones.map((m, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40, y: 20 }} 
+                  whileInView={{ opacity: 1, x: 0, y: 0 }} 
+                  viewport={{ once: true, margin: "-100px" }} 
+                  transition={{ delay: i * 0.08, duration: 0.6 }}
                   className={`relative flex items-start gap-6 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className={`md:w-1/2 ${i % 2 === 0 ? 'md:pr-10 md:text-right' : 'md:pl-10 md:text-left'} pl-20 md:pl-0`}>
-                    <div className="p-4 rounded-xl bg-card border border-border hover:border-primary/20 transition-all gradient-border">
-                      <span className="text-xs font-mono text-primary font-bold">{m.year}</span>
-                      <h3 className="text-sm font-bold text-foreground mt-1 mb-1">{m.title}</h3>
+                    <motion.div 
+                      whileHover={{ scale: 1.02, y: -4 }}
+                      className="p-5 rounded-xl bg-card border border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all gradient-border group"
+                    >
+                      <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} flex-row`}>
+                        <span className="text-2xl">{m.icon}</span>
+                        <span className="text-xs font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded">{m.year}</span>
+                      </div>
+                      <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{m.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
-                    </div>
+                    </motion.div>
                   </div>
-                  <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-8 h-8 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+                  {/* Node point */}
+                  <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/20 z-10">
+                    <span className="text-lg">{m.icon}</span>
                   </div>
                   <div className="hidden md:block md:w-1/2" />
                 </motion.div>
