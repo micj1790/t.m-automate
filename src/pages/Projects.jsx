@@ -152,18 +152,19 @@ export default function Projects() {
         {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
       </AnimatePresence>
       {/* Hero */}
-      <section className="relative py-24 md:py-36 overflow-hidden">
+      <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="https://media.base44.com/images/public/69fefc1890408637f331f461/0877cc90e_images.jpg"
+            src="https://media.base44.com/images/public/69fefc1890408637f331f461/f89c5ba22_man-electrical-working-switchboard-with-fuses-uses-tablet.jpg"
             alt="Projects background"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-top"
+            style={{ imageRendering: 'auto' }}
           />
-          <div className="absolute inset-0 bg-background/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Our Portfolio
