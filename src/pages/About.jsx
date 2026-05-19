@@ -73,8 +73,8 @@ export default function About() {
                 <div className="text-xs text-muted-foreground font-semibold">Years of Excellence</div>
               </div>
               <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl p-4 shadow-xl">
-                <div className="text-3xl font-display text-accent">500+</div>
-                <div className="text-xs text-muted-foreground font-semibold">Projects Completed</div>
+                <div className="text-3xl font-display text-accent">2000+</div>
+                <div className="text-xs text-muted-foreground font-semibold">Jobs Completed</div>
               </div>
             </motion.div>
           </div>
