@@ -70,18 +70,18 @@ export default function Industries() {
             {industries.map((ind, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
                 className="rounded-xl border border-border bg-card overflow-hidden">
-                <img src={ind.img} alt={ind.name} className="w-full aspect-[16/9] object-cover" />
-                <div className="p-3">
-                  <h2 className="text-sm font-black text-foreground mb-1">{ind.name}</h2>
-                  <p className="text-[11px] text-muted-foreground leading-relaxed mb-2 line-clamp-2">{ind.desc}</p>
+                <img src={ind.img} alt={ind.name} className="w-full h-24 object-cover" />
+                <div className="p-2.5">
+                  <h2 className="text-xs font-black text-foreground mb-0.5">{ind.name}</h2>
+                  <p className="text-[10px] text-muted-foreground leading-relaxed mb-1.5 line-clamp-2">{ind.desc}</p>
                   <div className="grid grid-cols-2 gap-0.5 mb-2">
                     {ind.services.slice(0, 4).map(s => (
-                      <div key={s} className="flex items-center gap-1 text-[10px] text-foreground">
+                      <div key={s} className="flex items-center gap-1 text-[9px] text-foreground">
                         <CheckCircle className="w-2 h-2 text-primary shrink-0" />{s}
                       </div>
                     ))}
                   </div>
-                  <Link to="/quote" className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] font-bold transition-all">
+                  <Link to="/quote" className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] font-bold transition-all">
                     Get a Quote <ArrowRight className="w-2.5 h-2.5" />
                   </Link>
                 </div>
