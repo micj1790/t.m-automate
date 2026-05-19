@@ -59,25 +59,11 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-5 tracking-tight leading-tight">
                 <span className="text-primary">39 Years</span> of Excellence
               </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                T.M Engineering has delivered exceptional 24-hour service and high-quality electrical & FMCG solutions for nearly 40 years. Our experienced team specializes in industrial automation, PLC systems, and engineering projects across multiple sectors.
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                <span className="text-foreground font-semibold">"A satisfied customer is the best business strategy."</span> This drives everything we do.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  <span>10 Susan Street, Strijdom Park, Randburg</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Phone className="w-4 h-4 text-primary" />
-                  <a href="tel:+27117911562" className="hover:text-primary transition-colors">011 791 1562</a>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <a href="mailto:sales@tmeng.co.za" className="hover:text-primary transition-colors">sales@tmeng.co.za</a>
-                </div>
+              <div className="p-6 rounded-xl bg-card border border-border mb-8">
+                <p className="text-base text-muted-foreground leading-relaxed italic">
+                  "A customer is the most important visitor to our premises. He is not dependent on us; we are dependent on him. He is not an interruption to our business, and he is the purpose of it. He is not an outsider to our business, and he is part of it. We are not doing him a favour by serving him, and he is doing us a favour by giving us the opportunity to do so."
+                </p>
+                <p className="text-sm font-bold text-primary mt-4">— Director, T.M Engineering</p>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
