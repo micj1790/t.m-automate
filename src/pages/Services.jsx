@@ -9,22 +9,22 @@ const services = [
   {
     icon: Cpu, title: 'PLC & HMI System Integrators', category: 'Automation',
     short: 'Expert programming, supply and integration of all major PLC and HMI brands.',
-    desc: 'T.M Engineering are extreme specialists in PLC & HMI System Integration. We program, supply, install and commission Siemens S7/S5, Allen-Bradley, Schneider Electric Modicon, Mitsubishi and all other major brands. From simple conveyor control to complex multi-axis coordinated motion systems.',
-    features: ['Siemens TIA Portal & Step 7', 'Allen-Bradley ControlLogix / CompactLogix', 'Schneider Unity Pro', 'Mitsubishi GX Works', 'On-site & remote programming', 'PLC Retrofits & Upgrades'],
+    desc: 'T.M Engineering are extreme specialists in PLC & HMI System Integration. We program, supply, install and commission Siemens, Allen-Bradley, Schneider Electric Modicon, Mitsubishi, Delta and all other major brands. From simple conveyor control to complex multi-axis coordinated motion systems.',
+    features: ['Siemens TIA Portal', 'Allen-Bradley ControlLogix / CompactLogix', 'Schneider Unity Pro', 'Mitsubishi GX Works', 'Delta PLCs', 'On-site & remote programming', 'PLC Retrofits & Upgrades'],
     img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'
   },
   {
     icon: Zap, title: 'Industrial Automation', category: 'Automation',
     short: 'Complete end-to-end factory automation solutions for all industries.',
     desc: 'We design, build and commission complete industrial automation systems. From concept design through to final commissioning, our team handles every aspect of your automation project including hardware selection, panel building, software development, installation and handover training.',
-    features: ['Full turnkey automation', 'Process control systems', 'Motion control', 'Robotics integration', 'Safety systems (SIL rated)', 'Factory acceptance testing'],
+    features: ['Full turnkey automation', 'Process control systems', 'Motion control', 'Robotics integration', 'Safety systems', 'Factory acceptance testing'],
     img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80'
   },
   {
     icon: Settings, title: 'Control Panels', category: 'Electrical',
     short: 'Custom control panel design, manufacture and installation to SANS standards.',
-    desc: 'We build, write the software, install and commission on site. Our facility has the infrastructure to manufacture heavy control panels and we have transport capacity for delivery. All panels are built to SANS and IEC standards with full documentation. Includes MCC sections with soft starters, VSDs, DOL and star-delta starters with full protection coordination.',
-    features: ['Custom design & manufacture', 'SANS/IEC compliant', 'Full electrical drawings', 'FAT/SAT testing', 'Heavy industrial panels', 'IP65/IP66 rated enclosures', 'MCC sections & motor protection', 'Up to 6,600V systems', 'ATEX rated for hazardous areas'],
+    desc: 'We build, write the software, install and commission on site. Our facility has the infrastructure to manufacture heavy control panels and we have transport capacity for delivery. All panels are built to SANS and IEC standards with full documentation. Includes sections with soft starters, VSDs, DOL and star-delta starters with full protection coordination.',
+    features: ['Custom design & manufacture', 'SANS/IEC compliant', 'Full electrical drawings', 'FAT/SAT testing', 'Heavy industrial panels', 'IP65/IP66 rated enclosures', 'Motor protection & soft starters', 'and more'],
     img: 'https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&q=80'
   },
   {
@@ -36,23 +36,23 @@ const services = [
   },
   {
     icon: Radio, title: 'Electrical Wholesalers', category: 'Supply',
-    short: 'Best quality electrical products from reputable world brands for 39 years.',
-    desc: 'We have been supplying the best quality electrical products from the most reputable brand names around the world for over 39 years. With immediate delivery, the best prices and after sale technical support — T.M Engineering is your one stop electrical supplier.',
-    features: ['Circuit breakers and MCBs', 'Contactors and relays', 'Cable and conduit', 'Sensors and transducers', 'Immediate delivery', 'Technical support included'],
+    short: 'Quality electrical products from reputable world brands for 39 years.',
+    desc: 'We have been supplying quality electrical products from reputable brand names around the world for over 39 years. With immediate delivery, competitive prices and after sale technical support — T.M Engineering is your one stop electrical supplier.',
+    features: ['Circuit breakers and MCBs', 'Contactors and relays', 'Cable and conduit', 'Sensors and transducers', 'Immediate delivery', 'Technical support included', 'and more'],
     img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'
   },
   {
     icon: Monitor, title: 'SCADA Systems', category: 'Automation',
     short: 'Wonderware, Ignition and custom SCADA/HMI implementation.',
     desc: 'Real-time monitoring and supervisory control solutions for industrial processes. We implement Wonderware InTouch/System Platform, Ignition, iFix and custom SCADA solutions. Includes historian data logging, alarm management and mobile access.',
-    features: ['Wonderware & Ignition', 'Real-time dashboards', 'Historian data logging', 'Alarm management', 'Mobile access', 'OPC-UA connectivity'],
+    features: ['Wonderware & Ignition', 'Real-time dashboards', 'Historian data logging', 'Alarm management', 'Mobile access', 'and more'],
     img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
   },
   {
     icon: Activity, title: 'Power Monitoring', category: 'Power',
     short: 'Energy management and power quality analysis systems.',
-    desc: 'Comprehensive power monitoring and energy management systems. We install power meters, power quality analysers and energy management software to help reduce electricity costs, improve power factor and comply with SANS standards. Full Eskom reporting capability.',
-    features: ['Power quality analysis', 'Energy metering', 'Power factor correction', 'Harmonic analysis', 'Load profiling', 'Eskom reporting'],
+    desc: 'Comprehensive power monitoring and energy management systems. We install power meters, power quality analysers and energy management software to help reduce electricity costs, improve power factor and comply with SANS standards.',
+    features: ['Power quality analysis', 'Energy metering', 'Power factor correction', 'Harmonic analysis', 'Load profiling', 'and more'],
     img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80'
   },
   {
@@ -80,7 +80,7 @@ const services = [
     icon: Shield, title: '24/7 Technical Support', category: 'Support',
     short: 'Round the clock emergency callout service across Gauteng.',
     desc: 'Our primary goal is to constantly provide our clients with exceptional service 24-hours a day. With a team of highly trained employees who are 100% committed to service excellence, we work around the clock to ensure all electrical faults are taken care of quickly and efficiently.',
-    features: ['24/7/365 availability', '90 minute response target', 'Gauteng coverage', 'After-hours: 083 375 7670', 'Remote diagnostics', 'Emergency spare parts'],
+    features: ['24/7/365 availability', 'Gauteng coverage', 'After-hours: 083 375 7670', 'Remote diagnostics', 'Emergency spare parts', 'and more'],
     img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'
   },
 ];
