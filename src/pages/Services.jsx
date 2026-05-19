@@ -136,12 +136,12 @@ export default function Services() {
           <div className="flex flex-col sm:flex-row gap-3 py-3">
             <div className="flex items-center gap-2 overflow-x-auto no-scrollbar flex-1">
               {categories.map(cat => (
-                <button key={cat} onClick={() => setActive(cat)}
-                  className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                    active === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
-                  }`}>
-                  {cat}
-                </button>
+               <button key={cat} onClick={() => setActive(cat)}
+                 className={`shrink-0 w-28 py-2 rounded-full text-xs font-semibold transition-all text-center ${
+                   active === cat ? 'bg-primary text-white' : 'bg-secondary text-foreground hover:bg-secondary/80'
+                 }`}>
+                 {cat}
+               </button>
               ))}
             </div>
             <div className="relative">
@@ -173,7 +173,7 @@ export default function Services() {
                           <s.icon className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold text-primary/70 uppercase tracking-widest block mb-0.5">{s.category}</span>
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest block mb-0.5">{s.category}</span>
                           <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">{s.title}</h3>
                         </div>
                       </div>
