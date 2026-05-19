@@ -52,6 +52,30 @@ export default function Contact() {
 
   return (
     <div className="pt-16">
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+            alt="Contact background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Get In Touch
+            </span>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Contact Us</h1>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Our team is ready to assist with your engineering needs. Reach out and we'll get back to you within 2 hours.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Get in Touch Form */}
