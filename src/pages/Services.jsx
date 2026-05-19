@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
+import ClientsBanner from '@/components/home/ClientsBanner';
 
 const services = [
   {
@@ -100,15 +101,16 @@ export default function Services() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1920&q=90" alt="Services" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
           <div className="absolute inset-0 grid-pattern opacity-30" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-32">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> What We Do
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-5">Our Services</h1>
@@ -116,6 +118,9 @@ export default function Services() {
               Specialist engineering services covering industrial automation, electrical engineering, custom machines and 24/7 technical support.
             </p>
           </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <ClientsBanner />
         </div>
       </section>
 
