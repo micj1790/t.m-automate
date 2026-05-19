@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Beaker, Droplets, Flame, Wind, ArrowRight } from 'lucide-react';
+import { Tag, Package, Beaker, Droplets, Flame, Wind, ArrowRight, MessageSquare } from 'lucide-react';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
 const machinesCategories = [
@@ -37,9 +37,10 @@ export default function Machines() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {machinesCategories.map((cat, i) => (
-              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+              <motion.div key={cat.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                className="flex flex-col rounded-xl bg-card border border-border overflow-hidden">
                 <Link to={`/catalogue?category=${cat.key}`}
-                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all h-full">
+                  className="group flex items-start gap-4 p-6 hover:bg-accent/5 transition-all flex-1">
                   <div className="w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
                     <cat.icon className="w-7 h-7 text-accent" />
                   </div>
@@ -51,6 +52,12 @@ export default function Machines() {
                     </span>
                   </div>
                 </Link>
+                <div className="border-t border-border bg-primary p-3 flex items-center justify-between gap-3">
+                  <p className="text-xs font-semibold text-primary-foreground/90">Interested in this machine?</p>
+                  <Link to="/quote" className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-primary font-black text-xs uppercase tracking-wide hover:bg-white/90 transition-all">
+                    Request a Quote <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
