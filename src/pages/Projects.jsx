@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
 const ytVideos = [
@@ -171,6 +172,8 @@ export default function Projects() {
       </section>
 
 
+
+      <ClientsBanner />
 
       {/* Projects gallery */}
       <section className="py-16 md:py-20">
