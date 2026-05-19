@@ -124,11 +124,6 @@ function ProjectModal({ project, onClose }) {
           </div>
           <h2 className="text-xl font-black text-foreground mb-3">{project.title}</h2>
           <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{project.description}</p>
-          {project.results && (
-            <div className="mt-4 p-3 rounded-xl bg-green-500/5 border border-green-500/15 text-sm text-green-400">
-              <span className="font-bold">Result: </span>{project.results}
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
@@ -211,11 +206,6 @@ export default function Projects() {
                       <img src={p.image_urls?.[0] || 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'} alt={p.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-                      {p.results && (
-                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-green-500/15 backdrop-blur-sm border border-green-500/25 text-green-400 text-[10px] font-bold">
-                          ✓ Success
-                        </div>
-                      )}
                     </div>
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -224,11 +214,6 @@ export default function Projects() {
                       </div>
                       <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">{p.description}</p>
-                      {p.results && (
-                        <div className="p-2.5 rounded-lg bg-green-500/5 border border-green-500/15 text-xs text-green-400 mb-3">
-                          <span className="font-semibold">Result: </span>{p.results}
-                        </div>
-                      )}
                       <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-border/50">
                         <span className="font-medium">{p.client || p.location || ''}</span>
                         <span className="px-2.5 py-1 rounded-lg bg-secondary font-medium">{industryLabels[p.industry] || p.industry || 'Engineering'}</span>
