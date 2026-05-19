@@ -46,32 +46,37 @@ export default function Navbar() {
         }`}
       >
         {/* Top bar */}
-        <div className={`border-b border-white/5 transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden opacity-0' : 'h-9 opacity-100'}`}>
+        <div className={`transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden opacity-0' : 'h-9 opacity-100'}`}
+          style={{ background: 'hsl(221 70% 22%)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-            <div className="flex items-center gap-5 text-[11px] text-muted-foreground">
-              <span className="flex items-center gap-1.5">📍 10 Susan Street, Strijdom Park, Randburg</span>
-              <span className="hidden sm:flex items-center gap-1.5 border-l border-white/10 pl-5">
-                <Phone className="w-3 h-3 text-primary" />
-                <a href="tel:+27117911562" className="hover:text-primary transition-colors">011 791 1562</a>
+            <div className="flex items-center gap-6 text-[11px] text-white/70">
+              <span className="flex items-center gap-1.5">
+                <span className="text-white/40">📍</span> 10 Susan Street, Strijdom Park, Randburg
               </span>
-              <span className="hidden md:flex items-center gap-1.5 border-l border-white/10 pl-5">
-                <Mail className="w-3 h-3 text-primary" />
-                <a href="mailto:sales@tmeng.co.za" className="hover:text-primary transition-colors">sales@tmeng.co.za</a>
+              <span className="hidden sm:flex items-center gap-1.5">
+                <span className="w-px h-3 bg-white/20" />
+                <Phone className="w-3 h-3 text-white/50" />
+                <a href="tel:+27117911562" className="hover:text-white transition-colors">011 791 1562</a>
+              </span>
+              <span className="hidden md:flex items-center gap-1.5">
+                <span className="w-px h-3 bg-white/20" />
+                <Mail className="w-3 h-3 text-white/50" />
+                <a href="mailto:sales@tmeng.co.za" className="hover:text-white transition-colors">sales@tmeng.co.za</a>
               </span>
             </div>
-
+            <span className="hidden sm:block text-[10px] text-white/40 uppercase tracking-widest">24 Hour Service · Always</span>
           </div>
         </div>
 
         {/* Main nav */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center group">
+            {/* Logo — text-only wordmark for clean look */}
+            <Link to="/" className="flex items-center gap-3 group">
               <img
                 src="https://media.base44.com/images/public/69fefc1890408637f331f461/5d822c512_tmlogo.png"
                 alt="T.M Engineering"
-                className="h-14 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </Link>
 
@@ -86,15 +91,19 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium rounded-lg transition-all ${
+                    className={`flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-lg transition-all tracking-wide ${
                       location.pathname === link.path || location.pathname.startsWith(link.path + '/')
-                        ? 'text-primary bg-primary/5'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                        ? 'text-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {link.label}
-                    {link.sub && <ChevronDown className="w-3 h-3" />}
+                    {link.sub && <ChevronDown className="w-3 h-3 opacity-50" />}
                   </Link>
+                  {/* Active underline */}
+                  {(location.pathname === link.path || location.pathname.startsWith(link.path + '/')) && (
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-accent rounded-full" />
+                  )}
                   {link.sub && (
                     <AnimatePresence>
                       {hoveredItem === link.label && (
@@ -103,11 +112,11 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.97 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-56 bg-card/98 backdrop-blur-xl border border-border rounded-xl shadow-2xl shadow-black/40 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-56 bg-card/98 backdrop-blur-xl border border-border rounded-xl shadow-2xl shadow-black/40 overflow-hidden"
                         >
                           {link.sub.map(s => (
-                            <Link key={s} to={link.path} className="flex items-center gap-2 px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors group">
-                              <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+                            <Link key={s} to={link.path} className="flex items-center gap-2.5 px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors">
+                              <span className="w-1 h-1 rounded-full bg-accent/60" />
                               {s}
                             </Link>
                           ))}
@@ -120,21 +129,21 @@ export default function Navbar() {
             </nav>
 
             {/* CTA */}
-            <div className="hidden lg:flex items-center gap-3">
-              <a href="tel:+27117911562" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+            <div className="hidden lg:flex items-center gap-4">
+              <a href="tel:+27117911562" className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-3.5 h-3.5" />
                 011 791 1562
               </a>
               <Link to="/quote">
-                <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs px-4 h-8 glow-blue">
-                  Request Quote <ArrowRight className="w-3 h-3 ml-1" />
+                <Button size="sm" className="bg-accent hover:bg-accent/90 text-white font-semibold text-xs px-5 h-9 rounded-lg shadow-lg shadow-accent/20">
+                  Get a Quote <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
               </Link>
             </div>
 
             {/* Mobile toggle */}
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
-              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all">
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
