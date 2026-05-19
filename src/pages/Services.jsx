@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight } from 'lucide-react';
+import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 
@@ -117,6 +117,12 @@ export default function Services() {
             <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
               Specialist engineering services covering industrial automation, electrical engineering, custom machines and 24/7 technical support.
             </p>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1">
+          <span className="text-[11px] font-semibold text-white/70 uppercase tracking-widest">Scroll</span>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}>
+            <ChevronDown className="w-6 h-6 text-white/70" />
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
