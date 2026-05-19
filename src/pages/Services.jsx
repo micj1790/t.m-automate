@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Cpu, Zap, Settings, Monitor, Activity, Shield, Tag, Wrench, Package, Beaker, Layers, Box, Radio, Bolt, Truck, Factory, Cable, ChevronRight, ArrowRight } from 'lucide-react';
+import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const services = [
@@ -20,18 +20,11 @@ const services = [
     img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80'
   },
   {
-    icon: Settings, title: 'Control and MCC Panels', category: 'Electrical',
-    short: 'Custom control panel and MCC design, manufacture and installation to SANS standards.',
-    desc: 'We build, write the software, install and commission on site. Our facility has the infrastructure to manufacture heavy control panels and we have transport capacity for delivery. All panels are built to SANS and IEC standards with full documentation.',
-    features: ['Custom design & manufacture', 'SANS/IEC compliant', 'Full electrical drawings', 'FAT/SAT testing', 'Heavy industrial panels', 'IP65/IP66 rated enclosures', 'MCC sections & motor protection'],
+    icon: Settings, title: 'Control Panels', category: 'Electrical',
+    short: 'Custom control panel design, manufacture and installation to SANS standards.',
+    desc: 'We build, write the software, install and commission on site. Our facility has the infrastructure to manufacture heavy control panels and we have transport capacity for delivery. All panels are built to SANS and IEC standards with full documentation. Includes MCC sections with soft starters, VSDs, DOL and star-delta starters with full protection coordination.',
+    features: ['Custom design & manufacture', 'SANS/IEC compliant', 'Full electrical drawings', 'FAT/SAT testing', 'Heavy industrial panels', 'IP65/IP66 rated enclosures', 'MCC sections & motor protection', 'Up to 6,600V systems', 'ATEX rated for hazardous areas'],
     img: 'https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&q=80'
-  },
-  {
-    icon: Layers, title: 'Control and MCC Panels', category: 'Electrical',
-    short: 'Motor Control Centre design, manufacture and installation.',
-    desc: 'Complete motor control centre solutions from design through commissioning. We supply and install MCCs with soft starters, VSDs, direct-on-line starters, star-delta starters with full protection coordination. Suitable for all industrial environments.',
-    features: ['Up to 6,600V systems', 'Soft starters & VSDs', 'Full protection coordination', 'Draw-out sections available', 'Busbar systems', 'ATEX rated for hazardous areas'],
-    img: 'https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=800&q=80'
   },
   {
     icon: Box, title: 'PCB Repairs', category: 'Electronics',
@@ -48,20 +41,6 @@ const services = [
     img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'
   },
   {
-    icon: Bolt, title: 'Switchgear', category: 'Electrical',
-    short: 'Medium and low voltage switchgear supply and installation.',
-    desc: 'Complete switchgear solutions from LV distribution to MV ring main units. We supply and commission protection relays, circuit breakers, isolators and busbars for industrial and commercial applications.',
-    features: ['LV and MV switchgear', 'Protection relays', 'Busbar systems', 'Load break switches', 'Ring main units', 'Commissioning and testing'],
-    img: 'https://images.unsplash.com/photo-1509390874189-2d7a5e75b6c8?w=800&q=80'
-  },
-  {
-    icon: Activity, title: 'VSD & Drive Systems', category: 'Automation',
-    short: 'Variable speed drive supply, programming and commissioning.',
-    desc: 'Complete VSD and servo drive solutions from all major manufacturers. We supply, program, install and commission variable speed drives for pumps, fans, conveyors and process applications. Includes energy savings analysis and motor protection.',
-    features: ['ABB, Danfoss, Siemens VSDs', 'Servo and stepper drives', 'Energy savings analysis', 'Motor protection', 'Remote monitoring', 'Preventive maintenance'],
-    img: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80'
-  },
-  {
     icon: Monitor, title: 'SCADA Systems', category: 'Automation',
     short: 'Wonderware, Ignition and custom SCADA/HMI implementation.',
     desc: 'Real-time monitoring and supervisory control solutions for industrial processes. We implement Wonderware InTouch/System Platform, Ignition, iFix and custom SCADA solutions. Includes historian data logging, alarm management and mobile access.',
@@ -76,39 +55,11 @@ const services = [
     img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80'
   },
   {
-    icon: Tag, title: 'Labelling Machines', category: 'Machines',
-    short: 'Automatic labelling equipment designed and manufactured since 1994.',
-    desc: 'T.M Engineering and its team have been designing and manufacturing automatic labelling equipment since 1994. We manufacture wrap-around labellers, top/bottom labellers, overhead labellers, sleeve labellers and custom special-purpose labelling systems for the FMCG and pharmaceutical industries.',
-    features: ['Wrap-around labellers', 'Top & bottom labellers', 'Sleeve labellers', 'High-speed systems (300+ BPM)', 'Servo-driven precision', 'GMP pharmaceutical grade'],
-    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'
-  },
-  {
-    icon: Package, title: 'Liquid Fillers', category: 'Machines',
-    short: 'Automatic liquid filling machines for all viscosities.',
-    desc: 'T.M Engineering provides a wide range of automatic liquid filling machines. From single head to multi head fillers, gravity fillers to gear pump fillers with loadcell feedback for accurate dosing. Suitable for water, sauces, chemicals, cosmetics and pharmaceutical liquids.',
-    features: ['Single to 8 head fillers', 'Gear pump with loadcell', 'Gravity and pressure fill', 'CIP capable designs', 'Pharmaceutical grade 316SS', 'Accurate to ±0.5%'],
-    img: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&q=80'
-  },
-  {
-    icon: Beaker, title: 'Pharmaceutical Equipment', category: 'Machines',
-    short: 'GMP compliant pharmaceutical packaging and processing equipment.',
-    desc: 'We provide a wide range of pharmaceutical equipment including tube fillers, tablet counters, capping machines, labellers and vial filling systems. All equipment meets GMP requirements with full IQ/OQ/PQ documentation support.',
-    features: ['Tube fillers and sealers', 'Tablet counting machines', 'Vial filling systems', 'GMP documentation', 'IQ/OQ/PQ support', 'FDA compliant designs'],
-    img: 'https://images.unsplash.com/photo-1559757175-7cb056fba93c?w=800&q=80'
-  },
-  {
     icon: Truck, title: 'Conveyor Systems', category: 'Automation',
     short: 'Custom conveyor design, installation and automation.',
     desc: 'Complete conveyor system solutions from design through commissioning. Belt conveyors, slat conveyors, roller conveyors, overhead conveyors and accumulation systems. PLC controlled with speed monitoring, belt alignment detection and SCADA integration.',
     features: ['Belt and slat conveyors', 'Roller and chain systems', 'Speed and alignment monitoring', 'PLC integration', 'Accumulation and buffering', 'Variable speed control'],
     img: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80'
-  },
-  {
-    icon: Factory, title: 'Industrial Vacuum Pumps', category: 'Supply',
-    short: 'PUMPVAC oil flooded sliding vane vacuum pumps.',
-    desc: 'PUMPVAC vacuum pumps are oil flooded sliding vane vacuum pumps built to the highest rotary vane vacuum technology. Great care is taken to ensure the best quality products are used in their manufacture. Suitable for food packaging, pharmaceutical and industrial applications.',
-    features: ['Oil flooded sliding vane', 'Food grade options', 'Pharmaceutical grade', 'Various capacity ranges', 'Service and repair', 'Spare parts supply'],
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'
   },
   {
     icon: Wrench, title: 'Factory Maintenance', category: 'Support',
@@ -133,7 +84,7 @@ const services = [
   },
 ];
 
-const categories = ['All', 'Automation', 'Electrical', 'Machines', 'Power', 'Electronics', 'Supply', 'Support'];
+const categories = ['All', 'Automation', 'Electrical', 'Power', 'Electronics', 'Supply', 'Support'];
 
 export default function Services() {
   const [active, setActive] = useState('All');
