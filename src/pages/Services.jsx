@@ -160,42 +160,54 @@ export default function Services() {
       {/* Services grid */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filtered.map((s, i) => (
                 <motion.div key={s.title} layout initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ delay: i * 0.04 }}>
                   <div onClick={() => setSelected(selected?.title === s.title ? null : s)}
-                    className="group cursor-pointer rounded-xl bg-card border border-border hover:border-primary/30 transition-all p-5">
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0">
-                        <s.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
+                    className="group cursor-pointer rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-200 overflow-hidden">
+                    {/* Card header */}
+                    <div className="p-6 pb-4">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                          <s.icon className="w-6 h-6 text-primary" />
                         </div>
-                        <span className="text-[10px] font-semibold text-primary/70 uppercase tracking-wider">{s.category}</span>
+                        <div>
+                          <span className="text-[10px] font-bold text-primary/70 uppercase tracking-widest block mb-0.5">{s.category}</span>
+                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">{s.title}</h3>
+                        </div>
                       </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.short}</p>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">{s.short}</p>
+
+                    {/* Expanded content */}
                     <AnimatePresence>
                       {selected?.title === s.title && (
                         <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden">
-                          <p className="text-xs text-muted-foreground leading-relaxed mb-3 border-t border-border pt-3">{s.desc}</p>
-                          <ul className="space-y-1.5 mb-3">
-                            {s.features.map(f => (
-                              <li key={f} className="flex items-center gap-2 text-xs text-foreground">
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />{f}
-                              </li>
-                            ))}
-                          </ul>
+                          <div className="px-6 pb-4 border-t border-border pt-4">
+                            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{s.desc}</p>
+                            <ul className="grid grid-cols-1 gap-2">
+                              {s.features.map(f => (
+                                <li key={f} className="flex items-center gap-2.5 text-sm text-foreground">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />{f}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                    <button className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors">
-                      {selected?.title === s.title ? 'Show less' : 'Learn more'} <ChevronRight className="w-3 h-3" />
-                    </button>
+
+                    {/* Footer */}
+                    <div className="px-6 py-3 border-t border-border bg-secondary/30 flex items-center justify-between">
+                      <button className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary/80 transition-colors">
+                        {selected?.title === s.title ? 'Show less' : 'Learn more'} <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                      <Link to="/quote" onClick={e => e.stopPropagation()} className="text-[10px] font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
+                        Get Quote →
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               ))}
