@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 const contacts = [
-  { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon–Fri, 7:30am–5pm' },
-  { icon: Mail, label: 'Email', value: 'sales@tmeng.co.za', link: 'mailto:sales@tmeng.co.za', sub: 'We reply within 2 hours' },
+  { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
+  { icon: Mail, label: 'Email', value: 'sales@tmeng.co.za', link: 'mailto:sales@tmeng.co.za', sub: 'We will get back to you ASAP' },
   { icon: MapPin, label: 'Address', value: '10 Susan Street, Strijdom Park', link: 'https://maps.google.com/?q=10+Susan+Street+Strijdompark+Randburg', sub: 'Randburg, Johannesburg, SA' },
 ];
 
@@ -57,7 +57,7 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-black text-foreground mb-2">Message Sent Successfully!</h3>
                 <p className="text-sm text-muted-foreground max-w-sm mb-2">
-                  Thank you! Our team will get back to you within 2 hours.
+                  Thank you! Our team will get back to you ASAP.
                 </p>
                 <p className="text-xs text-muted-foreground">
                   Urgent? Call <a href="tel:+27117911562" className="text-primary">011 791 1562</a>
@@ -66,7 +66,7 @@ export default function Contact() {
             ) : (
               <>
             <h2 className="text-xl font-bold text-foreground mb-2">Get in Touch</h2>
-            <p className="text-sm text-muted-foreground mb-6">Fill in your details and requirements — we'll get back to you within 2 hours.</p>
+            <p className="text-sm text-muted-foreground mb-6">Fill in your details and requirements and we'll get back to you ASAP.</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
