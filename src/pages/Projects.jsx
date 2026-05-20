@@ -171,7 +171,7 @@ export default function Projects() {
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Projects</h1>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              500+ completed projects across all major industries. From labelling machines to complete factory automation — our work speaks for itself.
+              Over 2000+ completed jobs across all major industries. From labelling machines to complete factory automation - our work speaks for itself.
             </p>
           </motion.div>
         </div>
