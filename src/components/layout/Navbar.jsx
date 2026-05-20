@@ -63,10 +63,9 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center group">
               <img
-                src="https://media.base44.com/images/public/69fefc1890408637f331f461/207bbefbc_newlogo.jpg"
+                src="https://media.base44.com/images/public/69fefc1890408637f331f461/1749f5854_new_logo-removebg-preview.png"
                 alt="T.M Engineering"
-                className="h-14 w-auto object-contain rounded-sm"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-14 w-auto object-contain"
               />
             </Link>
 
