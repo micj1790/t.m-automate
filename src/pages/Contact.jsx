@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Youtube, MessageCircle, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Youtube, MessageCircle, Send, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useMutation } from '@tanstack/react-query';
 import { Input } from '@/components/ui/input';
@@ -15,35 +15,20 @@ const contacts = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '' });
+  const [success, setSuccess] = useState(false);
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
-      await base44.entities.Lead.create({
-        ...data,
-        source: 'website',
-        type: 'general_enquiry',
-        status: 'new'
-      });
+      await base44.entities.Lead.create({ ...data, source: 'website', type: 'general_enquiry', status: 'new' });
       await base44.functions.invoke('sendEnquiryEmail', {
-        to: 'sales@tmeng.co.za',
         subject: `New Contact Enquiry from ${data.name}`,
-        body: `New contact form submission:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\n\nMessage:\n${data.message}`
+        body: `New contact enquiry received:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\n\nMessage:\n${data.message}`,
+        replyTo: data.email
       });
     },
-    onSuccess: () => {
-      toast.success('Thanks! We will get back to you within 2 hours.');
-      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-    },
-    onError: (error) => {
-      toast.error('Failed to send message. Please try again.');
-    }
+    onSuccess: () => setSuccess(true),
+    onError: () => toast.error('Failed to send message. Please try again.'),
   });
 
   const handleSubmit = (e) => {
@@ -65,6 +50,21 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="p-6 rounded-xl bg-card border border-border mb-8"
           >
+            {success ? (
+              <div className="flex flex-col items-center justify-center py-10 text-center">
+                <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
+                  <CheckCircle className="w-8 h-8 text-green-400" />
+                </div>
+                <h3 className="text-xl font-black text-foreground mb-2">Message Sent Successfully!</h3>
+                <p className="text-sm text-muted-foreground max-w-sm mb-2">
+                  Thank you! Our team will get back to you within 2 hours.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Urgent? Call <a href="tel:+27117911562" className="text-primary">011 791 1562</a>
+                </p>
+              </div>
+            ) : (
+              <>
             <h2 className="text-xl font-bold text-foreground mb-2">Get in Touch</h2>
             <p className="text-sm text-muted-foreground mb-6">Fill in your details and requirements — we'll get back to you within 2 hours.</p>
             
@@ -134,6 +134,8 @@ export default function Contact() {
                 )}
               </Button>
             </form>
+            </>
+            )}
           </motion.div>
 
           {/* Contact Info */}
