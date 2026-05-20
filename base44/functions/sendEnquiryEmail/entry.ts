@@ -5,18 +5,16 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     const { subject, body, replyTo } = await req.json();
 
-    // Get all admin users to notify them
-    const users = await base44.asServiceRole.entities.User.filter({ role: 'admin' });
+    // Send to all admin users (sales@tmeng.co.za must be registered as admin)
+    const admins = await base44.asServiceRole.entities.User.filter({ role: 'admin' });
 
-    if (users && users.length > 0) {
-      for (const user of users) {
-        await base44.asServiceRole.integrations.Core.SendEmail({
-          to: user.email,
-          from_name: 'TM Engineering Website',
-          subject: subject,
-          body: body + (replyTo ? `\n\n---\nReply directly to customer: ${replyTo}` : ''),
-        });
-      }
+    for (const admin of admins) {
+      await base44.asServiceRole.integrations.Core.SendEmail({
+        to: admin.email,
+        from_name: 'TM Engineering Website',
+        subject: subject,
+        body: body + (replyTo ? `\n\n---\nReply directly to customer: ${replyTo}` : ''),
+      });
     }
 
     return Response.json({ success: true });
