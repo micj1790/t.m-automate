@@ -31,7 +31,7 @@ export default function Contact() {
         type: 'general_enquiry',
         status: 'new'
       });
-      await base44.integrations.Core.SendEmail({
+      await base44.functions.invoke('sendEnquiryEmail', {
         to: 'sales@tmeng.co.za',
         subject: `New Contact Enquiry from ${data.name}`,
         body: `New contact form submission:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\n\nMessage:\n${data.message}`

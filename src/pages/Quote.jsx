@@ -25,7 +25,7 @@ export default function Quote() {
   const mutation = useMutation({
     mutationFn: async (data) => {
       await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
-      await base44.integrations.Core.SendEmail({
+      await base44.functions.invoke('sendEnquiryEmail', {
         to: 'sales@tmeng.co.za',
         subject: `New Quote Request from ${data.name}`,
         body: `New quote request received:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\nService: ${data.service_interest}\nIndustry: ${data.industry}\n\nDetails:\n${data.message}`
