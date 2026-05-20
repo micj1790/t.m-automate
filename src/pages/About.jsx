@@ -66,7 +66,7 @@ export default function About() {
                 <p className="text-base text-muted-foreground leading-relaxed italic">
                   "A customer is the most important visitor to our premises. He is not dependent on us; we are dependent on him. He is not an interruption to our business, and he is the purpose of it. He is not an outsider to our business, and he is part of it. We are not doing him a favour by serving him, and he is doing us a favour by giving us the opportunity to do so."
                 </p>
-                <p className="text-sm font-bold text-primary mt-4">— Director, T.M Engineering</p>
+                <p className="text-sm font-bold text-primary mt-4">- Director, T.M Engineering</p>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
