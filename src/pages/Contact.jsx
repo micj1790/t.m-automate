@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Youtube, MessageCircle, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Youtube, Linkedin, MessageCircle, Send, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useMutation } from '@tanstack/react-query';
 import { Input } from '@/components/ui/input';
@@ -163,6 +163,7 @@ export default function Contact() {
               {[
                 { icon: Facebook, url: 'https://www.facebook.com/tmengineeringptyltd/', color: 'text-blue-400', bg: 'bg-blue-400/8 border-blue-400/15' },
                 { icon: Youtube, url: 'https://www.youtube.com/channel/UC4-3DeJMQVVApm9GhNI4TBg', color: 'text-red-400', bg: 'bg-red-400/8 border-red-400/15' },
+                { icon: Linkedin, url: 'https://www.linkedin.com/company/tmeng/', color: 'text-blue-500', bg: 'bg-blue-500/8 border-blue-500/15' },
  
               ].map((s, i) => (
                 <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
