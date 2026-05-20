@@ -65,7 +65,8 @@ export default function Navbar() {
               <img
                 src="https://media.base44.com/images/public/69fefc1890408637f331f461/207bbefbc_newlogo.jpg"
                 alt="T.M Engineering"
-                className="h-14 w-auto object-contain"
+                className="h-14 w-auto object-contain rounded-sm"
+                style={{ mixBlendMode: 'multiply' }}
               />
             </Link>
 
