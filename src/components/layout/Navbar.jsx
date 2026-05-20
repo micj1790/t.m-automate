@@ -63,7 +63,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center group">
               <img
-                src="https://media.base44.com/images/public/69fefc1890408637f331f461/5d822c512_tmlogo.png"
+                src="https://media.base44.com/images/public/69fefc1890408637f331f461/207bbefbc_newlogo.jpg"
                 alt="T.M Engineering"
                 className="h-14 w-auto object-contain"
               />
