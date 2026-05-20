@@ -93,7 +93,6 @@ export default function Navbar() {
                     }`}
                   >
                     {link.label}
-                    {link.sub && <ChevronDown className="w-3 h-3" />}
                   </Link>
                   {link.sub && (
                     <AnimatePresence>
