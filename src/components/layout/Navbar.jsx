@@ -6,14 +6,8 @@ import { Phone, Mail, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', path: '/about' },
-  {
-    label: 'Services', path: '/services',
-    sub: ['PLC & HMI Programming', 'Industrial Automation', 'Control Panels', 'SCADA Systems', 'Power Monitoring', 'Machine Refurbishments']
-  },
-  {
-    label: 'Products', path: '/products',
-    sub: ['Labelling Machines', 'Liquid Fillers', 'Pharmaceutical Equipment', 'Vacuum Pumps', 'Switchgear & VSDs', 'Electrical Wholesale']
-  },
+  { label: 'Services', path: '/services' },
+  { label: 'Products', path: '/products' },
   { label: 'Industries', path: '/industries' },
   { label: 'Projects', path: '/projects' },
   { label: 'Contact', path: '/contact' },
