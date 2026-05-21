@@ -250,9 +250,9 @@ export default function Projects() {
 
           <div className="mb-10">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> All Projects
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Recent Projects
             </span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Recent Projects</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -268,7 +268,6 @@ export default function Projects() {
                     <div className="p-4 flex flex-col flex-1 overflow-hidden">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
                         {p.service_type && <span className="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/15 text-primary text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">{p.service_type}</span>}
-                        {p.year && <span className="text-[10px] text-muted-foreground font-medium shrink-0">{p.year}</span>}
                       </div>
                       <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">{p.title}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{p.description}</p>
