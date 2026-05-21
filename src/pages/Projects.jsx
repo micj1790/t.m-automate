@@ -290,7 +290,7 @@ export default function Projects() {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[11px] font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Our Portfolio
             </span>
-            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Projects</h1>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">Our Work</h1>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               Over 2000+ completed jobs across all major industries. From labelling machines to complete factory automation - our work speaks for itself.
             </p>
@@ -319,7 +319,7 @@ export default function Projects() {
                 onClick={() => setActiveTab(tab)}
                 className={`px-4 py-3 text-xs font-bold uppercase tracking-widest transition-colors border-b-2 ${activeTab === tab ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
               >
-                {tab === 'projects' ? 'Projects' : 'Services'}
+                {tab === 'projects' ? 'Our Work' : 'Services by Brand'}
               </button>
             ))}
           </div>
