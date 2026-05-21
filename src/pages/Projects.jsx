@@ -241,7 +241,8 @@ function ProjectModal({ project, onClose }) {
 }
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState('projects');
+  const urlParams = new URLSearchParams(window.location.search);
+  const [activeTab, setActiveTab] = useState(urlParams.get('tab') === 'services' ? 'services' : 'projects');
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);

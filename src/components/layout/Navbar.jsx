@@ -9,7 +9,12 @@ const navLinks = [
   { label: 'Services', path: '/services' },
   { label: 'Products', path: '/products' },
   { label: 'Industries', path: '/industries' },
-  { label: 'Projects', path: '/projects' },
+  {
+    label: 'Projects', path: '/projects', sub: [
+      { label: 'All Projects', path: '/projects' },
+      { label: 'Services by Brand', path: '/projects?tab=services' },
+    ]
+  },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -87,6 +92,7 @@ export default function Navbar() {
                     }`}
                   >
                     {link.label}
+                    {link.sub && <ChevronDown className="w-3 h-3 opacity-60" />}
                   </Link>
                   {link.sub && (
                     <AnimatePresence>
@@ -96,12 +102,12 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.97 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-56 bg-card/98 backdrop-blur-xl border border-border rounded-xl shadow-2xl shadow-black/40 overflow-hidden"
+                          className="absolute top-full left-0 mt-1 w-52 bg-card/98 backdrop-blur-xl border border-border rounded-xl shadow-2xl shadow-black/40 overflow-hidden"
                         >
                           {link.sub.map(s => (
-                            <Link key={s} to={link.path} className="flex items-center gap-2 px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors group">
+                            <Link key={s.path} to={s.path} className="flex items-center gap-2 px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors group">
                               <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                              {s}
+                              {s.label}
                             </Link>
                           ))}
                         </motion.div>
