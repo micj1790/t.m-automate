@@ -38,15 +38,24 @@ function BrandAccordion({ brand, projects, onSelect }) {
                   <div
                     key={p.id || p.title}
                     onClick={() => onSelect(p)}
-                    className="group flex gap-4 p-3 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer"
+                    className="group p-3 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer"
                   >
-                    {p.image_urls?.[0] && (
-                      <img src={p.image_urls[0]} alt={p.title} className="w-20 h-16 rounded-lg object-cover shrink-0" />
+                    {p.video_url && !p.image_urls?.[0] ? (
+                      <div className="mb-2 rounded-lg overflow-hidden bg-black">
+                        <video src={p.video_url} className="w-full max-h-48 object-contain" controls onClick={e => e.stopPropagation()} />
+                      </div>
+                    ) : p.image_urls?.[0] ? (
+                      <div className="flex gap-4">
+                        <img src={p.image_urls[0]} alt={p.title} className="w-20 h-16 rounded-lg object-cover shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{p.title}</h4>
+                          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{p.description}</p>
+                        </div>
+                      </div>
+                    ) : null}
+                    {(p.video_url && !p.image_urls?.[0]) && (
+                      <p className="text-xs text-muted-foreground mt-1">{p.description}</p>
                     )}
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{p.title}</h4>
-                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{p.description}</p>
-                    </div>
                   </div>
                 ))
               )}
