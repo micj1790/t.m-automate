@@ -42,6 +42,16 @@ function ProjectModal({ project, onClose }) {
   })();
   const allVideos = [project.video_url, ...extraVideos].filter(Boolean);
 
+  // Parse before/after images stored as "before_after:beforeUrl1|beforeUrl2>afterUrl1|afterUrl2"
+  const beforeAfter = (() => {
+    if (!project.case_study?.startsWith('before_after:')) return null;
+    const raw = project.case_study.replace('before_after:', '');
+    const [beforePart, afterPart] = raw.split('>');
+    const before = beforePart?.split('|').filter(Boolean) || [];
+    const after = afterPart?.split('|').filter(Boolean) || [];
+    return (before.length || after.length) ? { before, after } : null;
+  })();
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
       <motion.div
@@ -116,6 +126,45 @@ function ProjectModal({ project, onClose }) {
           </div>
         )}
 
+        {/* Before / After Section */}
+        {beforeAfter && (
+          <div className="px-5 pt-4 pb-2">
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Before &amp; After</p>
+            <div className="grid grid-cols-2 gap-3">
+              {/* Before */}
+              <div>
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-destructive" />
+                  <span className="text-[11px] font-bold text-destructive uppercase tracking-wider">Before</span>
+                </div>
+                <div className="space-y-2">
+                  {beforeAfter.before.length > 0
+                    ? beforeAfter.before.map((url, i) => (
+                        <img key={i} src={url} alt={`Before ${i + 1}`} className="w-full rounded-xl object-cover border border-destructive/20" style={{ maxHeight: 220, objectFit: 'cover' }} />
+                      ))
+                    : <div className="h-32 rounded-xl bg-secondary/50 flex items-center justify-center text-xs text-muted-foreground">No image</div>
+                  }
+                </div>
+              </div>
+              {/* After */}
+              <div>
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-[11px] font-bold text-green-400 uppercase tracking-wider">After</span>
+                </div>
+                <div className="space-y-2">
+                  {beforeAfter.after.length > 0
+                    ? beforeAfter.after.map((url, i) => (
+                        <img key={i} src={url} alt={`After ${i + 1}`} className="w-full rounded-xl object-cover border border-green-500/20" style={{ maxHeight: 220, objectFit: 'cover' }} />
+                      ))
+                    : <div className="h-32 rounded-xl bg-secondary/50 flex items-center justify-center text-xs text-muted-foreground italic">After images coming soon</div>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Details */}
         <div className="p-5">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -125,6 +174,12 @@ function ProjectModal({ project, onClose }) {
           </div>
           <h2 className="text-xl font-black text-foreground mb-3">{project.title}</h2>
           <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{project.description}</p>
+          {project.results && (
+            <div className="mt-4 p-3 rounded-xl bg-green-500/5 border border-green-500/15">
+              <p className="text-[10px] font-bold text-green-400 uppercase tracking-wider mb-1">Results</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{project.results}</p>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
