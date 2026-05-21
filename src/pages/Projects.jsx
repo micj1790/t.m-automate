@@ -6,25 +6,6 @@ import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-
 import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
-const ytVideos = [
-  { id: 'cmfQPh0OZOQ', title: 'Clever Machine', sub: 'High Speed Vertical Sleeving Machine' },
-  { id: 'xJnWPhd8txU', title: 'TM Labelling Machine', sub: 'Wrap-around labeller for bottled water' },
-  { id: 'dCwktKRQ4Ck', title: 'High Speed Labelling', sub: 'High speed labelling system' },
-  { id: 'b7EY71ckx-0', title: 'Liquid Filler Machine', sub: 'Automatic liquid filler' },
-  { id: 'ach8vrJQ-jY', title: 'Automatic Shrink Tunnel', sub: 'Full automatic shrink tunnel' },
-  { id: '7uRvWpIYDdY', title: 'Pick & Place Capper', sub: 'Fully automatic with torque control' },
-];
-
-const fallback = [
-  { title: 'VFFS Sachet Machine Refurbishment', description: 'Full electrical refurbishment. Rewire, new PLC, updated HMI and control panel rebuild.', client: 'Industrial Packaging', industry: 'food_beverage', service_type: 'Machine Refurbishments', location: 'South Africa', year: 2024, status: 'completed', image_urls: ['https://media.base44.com/images/public/69fefc1890408637f331f461/ed17f78a3_ChatGPTImageMay13202605_17_19PM.png', 'https://media.base44.com/images/public/69fefc1890408637f331f461/1ec44c8d1_ChatGPTImageMay13202605_15_47PM.png', 'https://media.base44.com/images/public/69fefc1890408637f331f461/f171cee8a_ChatGPTImageMay13202605_20_46PM.png', 'https://media.base44.com/images/public/69fefc1890408637f331f461/b9d247aa1_ChatGPTImageMay13202605_21_25PM.png'], results: 'Fully operational with modern controls.' },
-  { title: 'Vacuum Sealer Refurbishment', description: 'Replaced legacy relay logic with Siemens S7-1200 PLC and KTP700 HMI.', client: 'SA Food Processing', industry: 'food_beverage', service_type: 'Machine Refurbishments', location: 'Cape Town', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'], results: '50% less downtime, 30% faster production.' },
-  { title: 'MCC Installation — Automotive Plant', description: '16-bucket MCC panel with soft starters, VSDs and full protection coordination.', client: 'Johannesburg Automotive', industry: 'manufacturing', service_type: 'MCC Panels', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'] },
-  { title: 'Conveyor Belt Control System', description: 'PLC-controlled conveyor with speed monitoring, belt alignment detection and SCADA integration.', client: 'Gauteng Mining Corp', industry: 'mining', service_type: 'Conveyor Systems', location: 'Gauteng', year: 2023, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80'], results: 'Real-time monitoring of 12 conveyors from central control room.' },
-  { title: 'PLC Retrofit — Packaging Line', description: 'Migrated legacy relay logic to Allen-Bradley CompactLogix with PanelView Plus HMI.', client: 'National Beverages', industry: 'food_beverage', service_type: 'PLC Programming', location: 'Durban', year: 2023, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'] },
-  { title: 'SCADA — Water Treatment Plant', description: 'Wonderware SCADA for municipal water treatment with remote monitoring and alarm management.', client: 'Municipal Water Authority', industry: 'industrial_processing', service_type: 'SCADA Systems', location: 'Pretoria', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80'], results: '24/7 remote monitoring, 99.9% uptime.' },
-  { title: 'Generator Synchronisation System', description: 'Auto sync and load sharing for three 1MW diesel generators at a data centre.', client: 'DataCentre SA', industry: 'data_centres', service_type: 'Generator Control', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'] },
-];
-
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
 
 const industries = ['All', 'Food & Beverage', 'FMCG', 'Manufacturing', 'Mining', 'Pharmaceutical', 'Data Centres', 'Industrial Processing'];
@@ -197,7 +178,7 @@ export default function Projects() {
     queryFn: () => base44.entities.Project.list('-year', 50),
   });
 
-  const display = (projects.length > 0 ? projects : fallback).filter(p => {
+  const display = projects.filter(p => {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
