@@ -122,7 +122,7 @@ function ProjectModal({ project, onClose }) {
                 </div>
               )}
             </div>
-            <video key={videoIndex} controls className="w-full rounded-xl bg-black" src={allVideos[videoIndex]} />
+            <video key={videoIndex} controls className="w-full rounded-xl bg-black max-h-48" src={allVideos[videoIndex]} />
           </div>
         )}
 
