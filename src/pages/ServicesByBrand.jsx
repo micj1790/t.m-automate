@@ -168,7 +168,7 @@ export default function ServicesByBrand() {
         {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
       </AnimatePresence>
 
-      {/* Hero */}
+      {/* Hero — matches Projects page */}
       <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         <div className="absolute inset-0">
           <img
@@ -201,19 +201,38 @@ export default function ServicesByBrand() {
         </div>
       </section>
 
-      {/* Brand accordions */}
+      {/* Sticky brand tabs — matches Projects sticky tab bar */}
+      <div className="sticky top-16 z-30 bg-background/90 backdrop-blur-md border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-0 overflow-x-auto no-scrollbar">
+            {BRANDS.map(brand => (
+              <a
+                key={brand}
+                href={`#brand-${brand.replace(/\s+/g, '-').toLowerCase()}`}
+                className="px-6 py-4 text-sm font-bold uppercase tracking-widest transition-colors border-b-2 border-transparent text-muted-foreground hover:text-foreground shrink-0"
+              >
+                {brand}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Brand sections */}
       <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Manufacturers
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> By Brand
             </span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Select a Brand</h2>
-            <p className="text-sm text-muted-foreground mt-2">Click a brand to expand and view our work.</p>
+            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Services by Brand</h2>
+            <p className="text-sm text-muted-foreground mt-2">Browse our repair and fault-finding work by manufacturer.</p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-3 max-w-3xl">
             {BRANDS.map(brand => (
-              <BrandAccordion key={brand} brand={brand} projects={projects} onSelect={setSelectedProject} />
+              <div key={brand} id={`brand-${brand.replace(/\s+/g, '-').toLowerCase()}`}>
+                <BrandAccordion brand={brand} projects={projects} onSelect={setSelectedProject} />
+              </div>
             ))}
           </div>
         </div>
