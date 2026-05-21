@@ -7,14 +7,10 @@ import { Phone, Mail, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 const navLinks = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
+  { label: 'Services by Brand', path: '/services-by-brand' },
   { label: 'Products', path: '/products' },
   { label: 'Industries', path: '/industries' },
-  {
-    label: 'Projects', path: '/projects', sub: [
-      { label: 'All Projects', path: '/projects' },
-      { label: 'Services by Brand', path: '/projects?tab=services' },
-    ]
-  },
+  { label: 'Projects', path: '/projects' },
   { label: 'Contact', path: '/contact' },
 ];
 
