@@ -6,7 +6,7 @@ import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-
 import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
-const BRAND_TITLES = ['Siemens', 'Mitsubishi', 'Allen-Bradley', 'Delta'];
+const BRAND_TITLES = ['Siemens', 'Mitsubishi', 'Allen-Bradley'];
 
 function BrandAccordion({ brand, projects, onSelect }) {
   const [open, setOpen] = useState(false);
