@@ -18,7 +18,6 @@ import Projects from '@/pages/Projects';
 import Contact from '@/pages/Contact';
 import Quote from '@/pages/Quote';
 import Catalogue from '@/pages/Catalogue';
-import ServicesByBrand from '@/pages/ServicesByBrand';
 import Parts from '@/pages/Parts';
 import Machines from '@/pages/Machines';
 
@@ -71,7 +70,6 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/quote" element={<Quote />} />
         <Route path="/catalogue" element={<Catalogue />} />
-        <Route path="/services-by-brand" element={<ServicesByBrand />} />
         <Route path="/parts" element={<Parts />} />
         <Route path="/machines" element={<Machines />} />
       </Route>
