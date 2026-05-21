@@ -250,8 +250,6 @@ function ProjectModal({ project, onClose }) {
 }
 
 export default function Projects() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const [activeTab, setActiveTab] = useState(urlParams.get('tab') === 'services' ? 'services' : 'projects');
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -309,45 +307,10 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Tab switcher */}
-      <div className="sticky top-16 z-30 bg-background/90 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-0">
-            {['projects', 'services'].map(tab => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-4 py-3 text-xs font-bold uppercase tracking-widest transition-colors border-b-2 ${activeTab === tab ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
-              >
-                {tab === 'projects' ? 'Our Work' : 'Services by Brand'}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Services tab */}
-      {activeTab === 'services' && (
-        <section className="py-16 md:py-20">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-10">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> By Brand
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Services by Brand</h2>
-              <p className="text-sm text-muted-foreground mt-2">Browse our repair and fault-finding work by manufacturer.</p>
-            </div>
-            <div className="space-y-3">
-              {BRAND_TITLES.map(brand => (
-                <BrandAccordion key={brand} brand={brand} projects={projects.length > 0 ? projects : fallback} onSelect={setSelectedProject} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Projects gallery */}
-      {activeTab === 'projects' && <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-10">
@@ -384,7 +347,7 @@ export default function Projects() {
             <div className="text-center py-20 text-muted-foreground text-sm">No projects match your filter. Try a different category.</div>
           )}
         </div>
-      </section>}
+      </section>
     </div>
   );
 }
