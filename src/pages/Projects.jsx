@@ -6,8 +6,6 @@ import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-
 import ClientsBanner from '@/components/home/ClientsBanner';
 import { Input } from '@/components/ui/input';
 
-const BRAND_TITLES = ['Siemens', 'Mitsubishi', 'Allen-Bradley', 'Delta'];
-
 const ytVideos = [
   { id: 'cmfQPh0OZOQ', title: 'Clever Machine', sub: 'High Speed Vertical Sleeving Machine' },
   { id: 'xJnWPhd8txU', title: 'TM Labelling Machine', sub: 'Wrap-around labeller for bottled water' },
@@ -31,65 +29,6 @@ const fallback = [
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
 
 const industries = ['All', 'Food & Beverage', 'FMCG', 'Manufacturing', 'Mining', 'Pharmaceutical', 'Data Centres', 'Industrial Processing'];
-
-function BrandAccordion({ brand, projects, onSelect }) {
-  const [open, setOpen] = useState(false);
-  const brandProjects = projects.filter(p => p.title === brand);
-
-  return (
-    <div className="border border-border rounded-xl overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-4 bg-card hover:bg-secondary/40 transition-colors text-left"
-      >
-        <span className="text-base font-bold text-foreground">{brand}</span>
-        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="p-4 space-y-3 bg-secondary/10">
-              {brandProjects.length === 0 ? (
-                <p className="text-sm text-muted-foreground italic px-1">No projects yet.</p>
-              ) : (
-                brandProjects.map(p => (
-                  <div
-                    key={p.id || p.title}
-                    onClick={() => onSelect(p)}
-                    className="group p-3 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer"
-                  >
-                    {p.video_url && !p.image_urls?.[0] ? (
-                      <div className="mb-2 rounded-lg overflow-hidden bg-black">
-                        <video src={p.video_url} className="w-full max-h-48 object-contain" controls onClick={e => e.stopPropagation()} />
-                      </div>
-                    ) : p.image_urls?.[0] ? (
-                      <div className="flex gap-4">
-                        <img src={p.image_urls[0]} alt={p.title} className="w-20 h-16 rounded-lg object-cover shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{p.title}</h4>
-                          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{p.description}</p>
-                        </div>
-                      </div>
-                    ) : null}
-                    {(p.video_url && !p.image_urls?.[0]) && (
-                      <p className="text-xs text-muted-foreground mt-1">{p.description}</p>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
 
 function ProjectModal({ project, onClose }) {
   const [imgIndex, setImgIndex] = useState(0);
@@ -308,24 +247,6 @@ export default function Projects() {
       </section>
 
 
-
-      {/* Services by Brand section */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> By Brand
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Machine Repairs &amp; Fault Finding</h2>
-            <p className="text-sm text-muted-foreground mt-2">Browse our repair and fault-finding work by manufacturer.</p>
-          </div>
-          <div className="space-y-3">
-            {BRAND_TITLES.map(brand => (
-              <BrandAccordion key={brand} brand={brand} projects={projects.length > 0 ? projects : fallback} onSelect={setSelectedProject} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Projects gallery */}
       <section className="py-16 md:py-20">
