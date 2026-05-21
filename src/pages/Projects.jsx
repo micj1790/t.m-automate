@@ -245,6 +245,34 @@ export default function Projects() {
         </div>
       </section>
 
+      {/* Brands Section */}
+      <section className="py-12 border-b border-border bg-card/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              Expert Fault-Finding &amp; Repairs
+            </p>
+            <h3 className="text-xl font-black text-foreground mt-2">All Major PLC &amp; VSD Brands</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { name: 'Siemens', logo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80', desc: 'S7-1200/1500, KTP HMI, Micromaster VSDs' },
+              { name: 'Allen-Bradley', logo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80', desc: 'CompactLogix, Studio 5000, Kinetix drives' },
+              { name: 'Mitsubishi', logo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80', desc: 'FX/Q series, GT HMI, VFD drives' },
+              { name: 'Delta', logo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80', desc: 'AS/DVP PLCs, HMI, VFD drives' },
+            ].map((brand, i) => (
+              <div key={i} className="flex flex-col items-center p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-all">
+                <div className="w-24 h-24 rounded-lg bg-secondary/50 flex items-center justify-center mb-3">
+                  <img src={brand.logo} alt={brand.name} className="w-16 h-16 object-contain opacity-60" />
+                </div>
+                <h4 className="text-sm font-bold text-foreground mb-1">{brand.name}</h4>
+                <p className="text-xs text-muted-foreground text-center">{brand.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
 
       {/* Projects gallery */}
