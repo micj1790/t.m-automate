@@ -113,28 +113,18 @@ function ProjectModal({ project, onClose }) {
 
         {/* Videos */}
         {allVideos.length > 0 && (
-          <div className="px-5 pt-4">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                {allVideos.length > 1 ? `Video ${videoIndex + 1} of ${allVideos.length}` : 'Video'}
-              </p>
-              {allVideos.length > 1 && (
-                <div className="flex gap-2">
-                  <button onClick={() => setVideoIndex((videoIndex - 1 + allVideos.length) % allVideos.length)}
-                    className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center hover:bg-border transition-colors">
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                  </button>
-                  <button onClick={() => setVideoIndex((videoIndex + 1) % allVideos.length)}
-                    className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center hover:bg-border transition-colors">
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              )}
-            </div>
-            <video key={videoIndex} controls className="w-full rounded-xl bg-black max-h-48" src={allVideos[videoIndex]} />
-            {captionedVideos?.[videoIndex]?.caption && (
-              <p className="text-xs text-muted-foreground leading-relaxed mt-2">{captionedVideos[videoIndex].caption}</p>
-            )}
+          <div className="px-5 pt-4 space-y-4">
+            {allVideos.map((url, i) => (
+              <div key={i}>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                  {allVideos.length > 1 ? `Video ${i + 1}` : 'Video'}
+                </p>
+                <video controls className="w-full rounded-xl bg-black max-h-48" src={url} />
+                {captionedVideos?.[i]?.caption && (
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-2">{captionedVideos[i].caption}</p>
+                )}
+              </div>
+            ))}
           </div>
         )}
 
