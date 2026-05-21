@@ -35,12 +35,21 @@ function ProjectModal({ project, onClose }) {
   const [videoIndex, setVideoIndex] = useState(0);
   const images = project.image_urls || [];
 
-  // Parse extra videos stored in case_study as "videos:url1|url2|..."
+  // Parse videos_captioned format: "videos_captioned:url~~caption|url~~caption"
+  const captionedVideos = (() => {
+    if (!project.case_study?.startsWith('videos_captioned:')) return null;
+    return project.case_study.replace('videos_captioned:', '').split('|').filter(Boolean).map(part => {
+      const [url, caption] = part.split('~~');
+      return { url, caption: caption || '' };
+    });
+  })();
+
+  // Legacy "videos:" format
   const extraVideos = (() => {
     if (!project.case_study?.startsWith('videos:')) return [];
     return project.case_study.replace('videos:', '').split('|').filter(Boolean);
   })();
-  const allVideos = [project.video_url, ...extraVideos].filter(Boolean);
+  const allVideos = captionedVideos ? captionedVideos.map(v => v.url) : [project.video_url, ...extraVideos].filter(Boolean);
 
   // Parse before/after images stored as "before_after:beforeUrl1|beforeUrl2>afterUrl1|afterUrl2"
   const beforeAfter = (() => {
@@ -123,6 +132,9 @@ function ProjectModal({ project, onClose }) {
               )}
             </div>
             <video key={videoIndex} controls className="w-full rounded-xl bg-black max-h-48" src={allVideos[videoIndex]} />
+            {captionedVideos?.[videoIndex]?.caption && (
+              <p className="text-xs text-muted-foreground leading-relaxed mt-2">{captionedVideos[videoIndex].caption}</p>
+            )}
           </div>
         )}
 
