@@ -15,10 +15,7 @@ const ytVideos = [
   { id: '7uRvWpIYDdY', title: 'Pick & Place Capper', sub: 'Fully automatic with torque control' },
 ];
 
-const fallback = [
-  { title: 'MCC Installation — Automotive Plant', description: '16-bucket MCC panel with soft starters, VSDs and full protection coordination.', client: 'Johannesburg Automotive', industry: 'manufacturing', service_type: 'MCC Panels', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'] },
-  { title: 'Allen-Bradley Fault-Finding', description: 'Allen-Bradley fault-finding and repair interventions. Kinetix 5500 servo drive replacement with Studio 5000 reconfiguration. L35E PLC firmware update and program restore.', client: 'Multiple Clients', industry: 'manufacturing', service_type: 'Machine Repairs & Fault Finding', location: 'South Africa', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'] },
-];
+const fallback = [];
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
 
@@ -192,7 +189,7 @@ export default function Projects() {
     queryFn: () => base44.entities.Project.list('-year', 50),
   });
 
-  const display = (projects.length > 0 ? projects : fallback).filter(p => {
+  const display = projects.filter(p => {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
