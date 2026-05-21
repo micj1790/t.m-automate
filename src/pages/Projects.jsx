@@ -15,7 +15,15 @@ const ytVideos = [
   { id: '7uRvWpIYDdY', title: 'Pick & Place Capper', sub: 'Fully automatic with torque control' },
 ];
 
-
+const fallback = [
+  { title: 'VFFS Spice Filling Machine Refurbishment', description: 'Complete mechanical and electrical refurbishment. New servo drives, PLC upgrade, updated HMI, rewire and control panel rebuild.', client: 'Spice Manufacturer', industry: 'food_beverage', service_type: 'Machine Refurbishments', location: 'Johannesburg', year: 2025, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=800&q=80'], results: 'Machine fully restored to OEM spec with modern controls.' },
+  { title: 'Siemens PLC and HMI Fault-Finding', description: 'Siemens fault-finding and repair interventions. Micromaster VFD replacement on a palletizer using an SEW Eurodrive unit. S7-1200 PLC communication fault with Delta HMI and RTD module diagnostics.', client: 'Multiple Clients', industry: 'manufacturing', service_type: 'Machine Repairs & Fault Finding', location: 'South Africa', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'] },
+  { title: 'MCC Installation — Automotive Plant', description: '16-bucket MCC panel with soft starters, VSDs and full protection coordination.', client: 'Johannesburg Automotive', industry: 'manufacturing', service_type: 'MCC Panels', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'] },
+  { title: 'Conveyor Belt Control System', description: 'PLC-controlled conveyor with speed monitoring, belt alignment detection and SCADA integration.', client: 'Gauteng Mining Corp', industry: 'mining', service_type: 'Conveyor Systems', location: 'Gauteng', year: 2023, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80'], results: 'Real-time monitoring of 12 conveyors from central control room.' },
+  { title: 'Allen-Bradley Fault-Finding', description: 'Allen-Bradley fault-finding and repair interventions. Kinetix 5500 servo drive replacement with Studio 5000 reconfiguration. L35E PLC firmware update and program restore.', client: 'Multiple Clients', industry: 'manufacturing', service_type: 'Machine Repairs & Fault Finding', location: 'South Africa', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'] },
+  { title: 'SCADA — Water Treatment Plant', description: 'Wonderware SCADA for municipal water treatment with remote monitoring and alarm management.', client: 'Municipal Water Authority', industry: 'industrial_processing', service_type: 'SCADA Systems', location: 'Pretoria', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80'], results: '24/7 remote monitoring, 99.9% uptime.' },
+  { title: 'Generator Synchronisation System', description: 'Auto sync and load sharing for three 1MW diesel generators at a data centre.', client: 'DataCentre SA', industry: 'data_centres', service_type: 'Generator Control', location: 'Johannesburg', year: 2024, status: 'completed', image_urls: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80'] },
+];
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
 
@@ -189,7 +197,7 @@ export default function Projects() {
     queryFn: () => base44.entities.Project.list('-year', 50),
   });
 
-  const display = projects.filter(p => {
+  const display = (projects.length > 0 ? projects : fallback).filter(p => {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
