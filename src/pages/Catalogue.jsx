@@ -234,29 +234,44 @@ export default function Catalogue() {
 
           {category === 'sensors' && (
             <div className="mt-10 space-y-10">
+              {/* Brands banner image */}
+              <div className="rounded-2xl overflow-hidden border border-border">
+                <img src="https://media.base44.com/images/public/69fefc1890408637f331f461/2db98f6b4_sensors-banner.jpg" alt="Sensor Brands" className="w-full h-auto object-contain bg-white" />
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                We supply a comprehensive range of industrial sensors for detection, measurement and monitoring applications from leading global brands including Banner, Baumer, IFM Electronic, SICK and Turck.
+              </p>
+
+              {/* Sensor types list */}
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Brands We Supply</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Types We Supply</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   {[
-                    { name: 'IFM Electronic', url: 'https://images.seeklogo.com/logo-png/44/1/ifm-logo-png_seeklogo-449732.png', size: 'max-h-14' },
-                    { name: 'Omron', url: 'https://companieslogo.com/img/orig/6645.T_BIG-0076ac82.png?t=1720244490', size: 'max-h-10' },
-                    { name: 'SICK', url: 'https://media.base44.com/images/public/69fefc1890408637f331f461/8e3805b85_download1.png', size: 'max-h-14' },
-                    { name: 'Pepperl+Fuchs', url: 'https://images.seeklogo.com/logo-png/50/1/pepperlfuchs-logo-png_seeklogo-504361.png', size: 'max-h-12' },
-                    { name: 'Turck', url: 'https://images.seeklogo.com/logo-png/37/1/hans-turck-gmbh-co-kg-logo-png_seeklogo-378113.png', size: 'max-h-14' },
-                    { name: 'Datalogic', url: 'https://companieslogo.com/img/orig/DAL.MI_BIG-72cd6f79.png?t=1728201747', size: 'max-h-8' },
-                    { name: 'Datasensing', url: 'https://images.seeklogo.com/logo-png/46/1/datasensing-logo-png_seeklogo-464703.png', size: 'max-h-14' },
-                    { name: 'Panasonic', url: 'https://companieslogo.com/img/orig/6752.T_BIG-15a74309.png?t=1720244490', size: 'max-h-10' },
-                    { name: 'Siemens', url: 'https://companieslogo.com/img/orig/SIE.DE_BIG-8513f49c.png?t=1720244493', size: 'max-h-10' },
-                  ].map(brand => (
-                    <div key={brand.name} className="flex items-center justify-center p-4 rounded-xl bg-white border border-border h-20">
-                      <img src={brand.url} alt={brand.name} className={`${brand.size} max-w-full w-auto h-auto object-contain`} />
+                    'Miniature Photoelectric Sensors',
+                    'Compact Photoelectric Sensors',
+                    'Midsize Photoelectric Sensors',
+                    'Full-size Photoelectric Sensors',
+                    'Fiber Optic Sensors',
+                    'Ultrasonic Sensors',
+                    'Laser Sensors',
+                    'Temperature Controllers',
+                    'Part-sensing Sensors',
+                    'Measuring Array Sensors',
+                    'Slot Sensors',
+                    'Analog Output Sensors',
+                    'Vehicle Detection Sensors',
+                    'Radar Sensors',
+                    'Temperature Sensors',
+                    'High-pressure Wash Down Rated Sensors',
+                  ].map(type => (
+                    <div key={type} className="flex items-start gap-2 px-3 py-2.5 rounded-lg bg-secondary/40 border border-border text-xs text-foreground font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1" />
+                      {type}
                     </div>
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                We supply a comprehensive range of industrial sensors for detection, measurement and monitoring applications — including proximity, photoelectric, inductive, capacitive, temperature and pressure sensors from leading global brands including IFM, Omron, SICK, Pepperl+Fuchs, Turck, Datalogic, Datasensing, Panasonic and Siemens.
-              </p>
 
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Sensor Products</h3>
