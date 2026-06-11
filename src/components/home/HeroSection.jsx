@@ -75,11 +75,9 @@ export default function HeroSection() {
                 View Projects
               </Button>
             </Link>
-            <a href="tel:+27117911562">
-              <Button size="lg" variant="ghost" className="text-muted-foreground hover:text-foreground font-semibold text-sm px-7 h-12">
-                📞 Call Now
-              </Button>
-            </a>
+            <Button size="lg" variant="ghost" className="text-muted-foreground hover:text-foreground font-semibold text-sm px-7 h-12" asChild>
+              <a href="tel:+27117911562">📞 Call Now</a>
+            </Button>
           </motion.div>
 
 
