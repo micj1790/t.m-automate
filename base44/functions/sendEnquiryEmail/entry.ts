@@ -2,17 +2,20 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
+    const base44 = createClientFromRequest(req);
     const { subject, body, replyTo } = await req.json();
 
-    // The list of recipients
-    const recipients = ['peter@tmeng.co.za', 'sales@tmeng.co.za', 'Trevor@tmeng.co.za'];
+    // Sanitize inputs — strip any HTML/script tags
+    const sanitize = (str) => String(str || '').replace(/<[^>]*>/g, '');
 
-    for (const email of recipients) {
+    const admins = await base44.asServiceRole.entities.User.filter({ role: 'admin' });
+
+    for (const admin of admins) {
       await base44.asServiceRole.integrations.Core.SendEmail({
-        to: email,
+        to: admin.email,
         from_name: 'TM Engineering Website',
-        subject: subject,
-        body: body + (replyTo ? `\n\n---\nReply directly to customer: ${replyTo}` : ''),
+        subject: sanitize(subject),
+        body: sanitize(body) + (replyTo ? `\n\n---\nReply directly to customer: ${sanitize(replyTo)}` : ''),
       });
     }
 
