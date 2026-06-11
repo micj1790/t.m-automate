@@ -2,15 +2,14 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
-    const base44 = createClientFromRequest(req);
     const { subject, body, replyTo } = await req.json();
 
-    // Send to all admin users (sales@tmeng.co.za must be registered as admin)
-    const admins = await base44.asServiceRole.entities.User.filter({ role: 'admin' });
+    // The list of recipients
+    const recipients = ['peter@tmeng.co.za', 'sales@tmeng.co.za', 'Trevor@tmeng.co.za'];
 
-    for (const admin of admins) {
+    for (const email of recipients) {
       await base44.asServiceRole.integrations.Core.SendEmail({
-        to: admin.email,
+        to: email,
         from_name: 'TM Engineering Website',
         subject: subject,
         body: body + (replyTo ? `\n\n---\nReply directly to customer: ${replyTo}` : ''),
