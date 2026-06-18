@@ -52,9 +52,9 @@ export default function Machines() {
                     </span>
                   </div>
                 </Link>
-                <div className="border-t border-border bg-primary p-3 flex items-center justify-between gap-3">
-                  <p className="text-xs font-semibold text-primary-foreground/90">Interested in this machine?</p>
-                  <Link to="/quote" className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-primary font-black text-xs uppercase tracking-wide hover:bg-white/90 transition-all">
+                <div className="border-t border-border bg-accent/10 p-3 flex items-center justify-between gap-3">
+                  <p className="text-xs font-medium text-muted-foreground">Interested in this machine?</p>
+                  <Link to="/quote" className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent/20 text-accent border border-accent/30 font-semibold text-xs hover:bg-accent/30 transition-all">
                     Request a Quote <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
