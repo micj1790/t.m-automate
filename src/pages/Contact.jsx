@@ -23,8 +23,15 @@ export default function Contact() {
       await base44.entities.Lead.create({ ...data, source: 'website', type: 'general_enquiry', status: 'new' });
       await base44.functions.invoke('sendEnquiryEmail', {
         subject: `New Contact Enquiry from ${data.name}`,
-        body: `New contact enquiry received:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\n\nMessage:\n${data.message}`,
-        replyTo: data.email
+        type: 'contact',
+        fields: [
+          { label: 'Name', value: data.name },
+          { label: 'Email', value: data.email },
+          { label: 'Phone', value: data.phone },
+          { label: 'Company', value: data.company },
+        ],
+        message: data.message,
+        replyTo: data.email,
       });
     },
     onSuccess: () => setSuccess(true),

@@ -27,8 +27,17 @@ export default function Quote() {
       await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
       await base44.functions.invoke('sendEnquiryEmail', {
         subject: `New Quote Request from ${data.name}`,
-        body: `New quote request received:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company || 'N/A'}\nService: ${data.service_interest || 'N/A'}\nIndustry: ${data.industry || 'N/A'}\n\nProject Details:\n${data.message}`,
-        replyTo: data.email
+        type: 'quote',
+        fields: [
+          { label: 'Name', value: data.name },
+          { label: 'Email', value: data.email },
+          { label: 'Phone', value: data.phone },
+          { label: 'Company', value: data.company },
+          { label: 'Service Required', value: data.service_interest },
+          { label: 'Industry', value: data.industry },
+        ],
+        message: data.message,
+        replyTo: data.email,
       });
     },
     onSuccess: () => setSuccess(true),
