@@ -40,7 +40,10 @@ export default function Quote() {
         replyTo: data.email,
       });
     },
-    onSuccess: () => setSuccess(true),
+    onSuccess: () => {
+      if (window.gtag) window.gtag('event', 'ads_conversion_Request_quote_1', {});
+      setSuccess(true);
+    },
   });
 
   return (
