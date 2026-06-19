@@ -34,7 +34,10 @@ export default function Contact() {
         replyTo: data.email,
       });
     },
-    onSuccess: () => setSuccess(true),
+    onSuccess: () => {
+      if (window.gtag) window.gtag('event', 'conversion', {'send_to': 'AW-18221078210/7X4cCNiY48AcEMKtvvBD'});
+      setSuccess(true);
+    },
     onError: () => toast.error('Failed to send message. Please try again.'),
   });
 

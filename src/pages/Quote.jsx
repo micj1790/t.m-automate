@@ -41,7 +41,10 @@ export default function Quote() {
       });
     },
     onSuccess: () => {
-      if (window.gtag) window.gtag('event', 'ads_conversion_Request_quote_1', {});
+      if (window.gtag) {
+        window.gtag('event', 'ads_conversion_Request_quote_1', {});
+        window.gtag('event', 'conversion', {'send_to': 'AW-18221078210/7X4cCNiY48AcEMKtvvBD'});
+      }
       setSuccess(true);
     },
   });
