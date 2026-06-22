@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 
-const SITE_KEY = '6LdaRy0tAAAAACR86xAfnWiqVI2WdPalc8C6JQ9-';
+const SITE_KEY = '6LdaRy0tAAAAACR86xAfnWiqVl2WdPaIc8C6JQ9-';
 
 let scriptLoaded = false;
 const ensureScript = () => {
