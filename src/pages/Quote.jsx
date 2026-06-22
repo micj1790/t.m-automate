@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Award, Clock, Shield, Zap } from 'lucide-react';
+import { toast } from 'sonner';
 
 const serviceOptions = [
   'PLC & HMI Programming', 'Industrial Automation', 'Electrical Control Panels', 'MCC Panels',
@@ -19,8 +20,9 @@ const serviceOptions = [
 const industryOptions = ['FMCG', 'Food & Beverage', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Data Centres', 'Industrial Processing', 'Cosmetics', 'Other'];
 
 export default function Quote() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
+  const formStart = useRef(Date.now());
 
   const mutation = useMutation({
     mutationFn: async (data) => {
@@ -102,7 +104,15 @@ export default function Quote() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={e => { e.preventDefault(); mutation.mutate(form); }} className="space-y-4">
+                  <form onSubmit={e => {
+                    e.preventDefault();
+                    if (form.website || Date.now() - formStart.current < 2000) {
+                      toast.error('Submission blocked. Please try again.');
+                      return;
+                    }
+                    const { website, ...data } = form;
+                    mutation.mutate(data);
+                  }} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label className="text-xs">Full Name *</Label>
@@ -138,6 +148,16 @@ export default function Quote() {
                     <div>
                       <Label className="text-xs">Project Details *</Label>
                       <Textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, requirements, timeline..." rows={4} className="mt-1.5 bg-card/50 border-border resize-none" />
+                    </div>
+                    <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
+                      <label>Website (leave blank)</label>
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={form.website}
+                        onChange={e => setForm({...form, website: e.target.value})}
+                      />
                     </div>
                     <Button type="submit" disabled={mutation.isPending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-12 uppercase tracking-wide glow-blue">
                       {mutation.isPending ? 'Submitting...' : 'Request Free Quote'}

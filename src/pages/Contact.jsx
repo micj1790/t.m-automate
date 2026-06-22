@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Facebook, Youtube, Linkedin, MessageCircle, Send, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -15,8 +15,9 @@ const contacts = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
+  const formStart = useRef(Date.now());
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
@@ -43,11 +44,16 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.website || Date.now() - formStart.current < 2000) {
+      toast.error('Submission blocked. Please try again.');
+      return;
+    }
     if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all required fields.');
       return;
     }
-    submitMutation.mutate(formData);
+    const { website, ...data } = formData;
+    submitMutation.mutate(data);
   };
 
   return (
@@ -132,6 +138,16 @@ export default function Contact() {
                 />
               </div>
 
+              <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
+                <label>Website (leave blank)</label>
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                />
+              </div>
               <Button
                 type="submit"
                 disabled={submitMutation.isPending}
