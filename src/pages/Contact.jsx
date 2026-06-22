@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import ReCaptcha from '@/components/ReCaptcha';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
@@ -18,16 +17,11 @@ const contacts = [
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState('');
   const formStart = useRef(Date.now());
-  const recaptchaRef = useRef(null);
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
-      const verifyRes = await base44.functions.invoke('verifyRecaptcha', { token: data.captchaToken });
-      if (!verifyRes.data.success) throw new Error('reCAPTCHA verification failed');
-      const { captchaToken, ...leadData } = data;
-      await base44.entities.Lead.create({ ...leadData, source: 'website', type: 'general_enquiry', status: 'new' });
+      await base44.entities.Lead.create({ ...data, source: 'website', type: 'general_enquiry', status: 'new' });
       await base44.functions.invoke('sendEnquiryEmail', {
         subject: `New Contact Enquiry from ${data.name}`,
         type: 'contact',
@@ -45,11 +39,7 @@ export default function Contact() {
       if (window.gtag) window.gtag('event', 'conversion', {'send_to': 'AW-18221078210/7X4cCNiY48AcEMKtvvBD'});
       setSuccess(true);
     },
-    onError: () => {
-      toast.error('Failed to send message. Please try again.');
-      if (recaptchaRef.current) recaptchaRef.current.reset();
-      setCaptchaToken('');
-    },
+    onError: () => toast.error('Failed to send message. Please try again.'),
   });
 
   const handleSubmit = (e) => {
@@ -62,12 +52,8 @@ export default function Contact() {
       toast.error('Please fill in all required fields.');
       return;
     }
-    if (!captchaToken) {
-      toast.error('Please complete the reCAPTCHA verification.');
-      return;
-    }
     const { website, ...data } = formData;
-    submitMutation.mutate({ ...data, captchaToken });
+    submitMutation.mutate(data);
   };
 
   return (
@@ -151,6 +137,7 @@ export default function Contact() {
                   className="bg-background border-border min-h-[120px]"
                 />
               </div>
+
               <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                 <label>Website (leave blank)</label>
                 <input
@@ -160,9 +147,6 @@ export default function Contact() {
                   value={formData.website}
                   onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                 />
-              </div>
-              <div className="flex justify-center">
-                <ReCaptcha ref={recaptchaRef} onVerify={setCaptchaToken} />
               </div>
               <Button
                 type="submit"

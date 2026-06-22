@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Award, Clock, Shield, Zap } from 'lucide-react';
 import { toast } from 'sonner';
-import ReCaptcha from '@/components/ReCaptcha';
 
 const serviceOptions = [
   'PLC & HMI Programming', 'Industrial Automation', 'Electrical Control Panels', 'MCC Panels',
@@ -23,16 +22,11 @@ const industryOptions = ['FMCG', 'Food & Beverage', 'Pharmaceutical', 'Mining', 
 export default function Quote() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState('');
   const formStart = useRef(Date.now());
-  const recaptchaRef = useRef(null);
 
   const mutation = useMutation({
     mutationFn: async (data) => {
-      const verifyRes = await base44.functions.invoke('verifyRecaptcha', { token: data.captchaToken });
-      if (!verifyRes.data.success) throw new Error('reCAPTCHA verification failed');
-      const { captchaToken, ...leadData } = data;
-      await base44.entities.Lead.create({ ...leadData, source: 'website', status: 'new', type: 'quote_request' });
+      await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
       await base44.functions.invoke('sendEnquiryEmail', {
         subject: `New Quote Request from ${data.name}`,
         type: 'quote',
@@ -54,11 +48,6 @@ export default function Quote() {
         window.gtag('event', 'conversion', {'send_to': 'AW-18221078210/7X4cCNiY48AcEMKtvvBD'});
       }
       setSuccess(true);
-    },
-    onError: () => {
-      toast.error('Failed to submit quote request. Please try again.');
-      if (recaptchaRef.current) recaptchaRef.current.reset();
-      setCaptchaToken('');
     },
   });
 
@@ -121,12 +110,8 @@ export default function Quote() {
                       toast.error('Submission blocked. Please try again.');
                       return;
                     }
-                    if (!captchaToken) {
-                      toast.error('Please complete the reCAPTCHA verification.');
-                      return;
-                    }
                     const { website, ...data } = form;
-                    mutation.mutate({ ...data, captchaToken });
+                    mutation.mutate(data);
                   }} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -173,9 +158,6 @@ export default function Quote() {
                         value={form.website}
                         onChange={e => setForm({...form, website: e.target.value})}
                       />
-                    </div>
-                    <div className="flex justify-center">
-                      <ReCaptcha ref={recaptchaRef} onVerify={setCaptchaToken} />
                     </div>
                     <Button type="submit" disabled={mutation.isPending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-12 uppercase tracking-wide glow-blue">
                       {mutation.isPending ? 'Submitting...' : 'Request Free Quote'}
