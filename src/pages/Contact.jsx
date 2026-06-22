@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import ReCaptcha from '@/components/ReCaptcha';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
@@ -17,22 +18,26 @@ const contacts = [
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState('');
   const formStart = useRef(Date.now());
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
-      await base44.entities.Lead.create({ ...data, source: 'website', type: 'general_enquiry', status: 'new' });
+      const verifyRes = await base44.functions.invoke('verifyRecaptcha', { token: data.recaptchaToken });
+      if (!verifyRes.data?.success) throw new Error('reCAPTCHA verification failed');
+      const { recaptchaToken, website, ...leadData } = data;
+      await base44.entities.Lead.create({ ...leadData, source: 'website', type: 'general_enquiry', status: 'new' });
       await base44.functions.invoke('sendEnquiryEmail', {
-        subject: `New Contact Enquiry from ${data.name}`,
+        subject: `New Contact Enquiry from ${leadData.name}`,
         type: 'contact',
         fields: [
-          { label: 'Name', value: data.name },
-          { label: 'Email', value: data.email },
-          { label: 'Phone', value: data.phone },
-          { label: 'Company', value: data.company },
+          { label: 'Name', value: leadData.name },
+          { label: 'Email', value: leadData.email },
+          { label: 'Phone', value: leadData.phone },
+          { label: 'Company', value: leadData.company },
         ],
-        message: data.message,
-        replyTo: data.email,
+        message: leadData.message,
+        replyTo: leadData.email,
       });
     },
     onSuccess: () => {
@@ -52,8 +57,11 @@ export default function Contact() {
       toast.error('Please fill in all required fields.');
       return;
     }
-    const { website, ...data } = formData;
-    submitMutation.mutate(data);
+    if (!recaptchaToken) {
+      toast.error('Please complete the reCAPTCHA.');
+      return;
+    }
+    submitMutation.mutate({ ...formData, recaptchaToken });
   };
 
   return (
@@ -138,6 +146,9 @@ export default function Contact() {
                 />
               </div>
 
+              <div>
+                <ReCaptcha onChange={setRecaptchaToken} />
+              </div>
               <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                 <label>Website (leave blank)</label>
                 <input
