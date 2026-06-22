@@ -19,8 +19,14 @@ const serviceOptions = [
 const industryOptions = ['FMCG', 'Food & Beverage', 'Pharmaceutical', 'Mining', 'Manufacturing', 'Data Centres', 'Industrial Processing', 'Cosmetics', 'Other'];
 
 export default function Quote() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '', _gotcha: '' });
   const [success, setSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (form._gotcha) { setSuccess(true); return; }
+    mutation.mutate(form);
+  };
 
   const mutation = useMutation({
     mutationFn: async (data) => {
@@ -102,7 +108,11 @@ export default function Quote() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={e => { e.preventDefault(); mutation.mutate(form); }} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <input type="text" name="company_website" tabIndex={-1} autoComplete="off"
+                      value={form._gotcha}
+                      onChange={(e) => setForm({ ...form, _gotcha: e.target.value })}
+                      className="absolute left-[-9999px] top-auto w-1 h-1 opacity-0" aria-hidden="true" />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label className="text-xs">Full Name *</Label>

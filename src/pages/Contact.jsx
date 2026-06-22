@@ -15,7 +15,7 @@ const contacts = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '', _gotcha: '' });
   const [success, setSuccess] = useState(false);
 
   const submitMutation = useMutation({
@@ -43,6 +43,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData._gotcha) { setSuccess(true); return; }
     if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all required fields.');
       return;
@@ -79,6 +80,10 @@ export default function Contact() {
             <p className="text-sm text-muted-foreground mb-6">Fill in your details and requirements and we'll get back to you ASAP.</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
+              <input type="text" name="company_website" tabIndex={-1} autoComplete="off"
+                value={formData._gotcha}
+                onChange={(e) => setFormData({ ...formData, _gotcha: e.target.value })}
+                className="absolute left-[-9999px] top-auto w-1 h-1 opacity-0" aria-hidden="true" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">Name *</label>
