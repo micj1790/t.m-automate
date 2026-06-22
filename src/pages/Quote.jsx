@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Award, Clock, Shield, Zap } from 'lucide-react';
 import { toast } from 'sonner';
-import ReCaptcha from '@/components/ReCaptcha';
 
 const serviceOptions = [
   'PLC & HMI Programming', 'Industrial Automation', 'Electrical Control Panels', 'MCC Panels',
@@ -23,28 +22,24 @@ const industryOptions = ['FMCG', 'Food & Beverage', 'Pharmaceutical', 'Mining', 
 export default function Quote() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState('');
   const formStart = useRef(Date.now());
 
   const mutation = useMutation({
     mutationFn: async (data) => {
-      const verifyRes = await base44.functions.invoke('verifyRecaptcha', { token: data.recaptchaToken });
-      if (!verifyRes.data?.success) throw new Error('reCAPTCHA verification failed');
-      const { recaptchaToken, website, ...leadData } = data;
-      await base44.entities.Lead.create({ ...leadData, source: 'website', status: 'new', type: 'quote_request' });
+      await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
       await base44.functions.invoke('sendEnquiryEmail', {
-        subject: `New Quote Request from ${leadData.name}`,
+        subject: `New Quote Request from ${data.name}`,
         type: 'quote',
         fields: [
-          { label: 'Name', value: leadData.name },
-          { label: 'Email', value: leadData.email },
-          { label: 'Phone', value: leadData.phone },
-          { label: 'Company', value: leadData.company },
-          { label: 'Service Required', value: leadData.service_interest },
-          { label: 'Industry', value: leadData.industry },
+          { label: 'Name', value: data.name },
+          { label: 'Email', value: data.email },
+          { label: 'Phone', value: data.phone },
+          { label: 'Company', value: data.company },
+          { label: 'Service Required', value: data.service_interest },
+          { label: 'Industry', value: data.industry },
         ],
-        message: leadData.message,
-        replyTo: leadData.email,
+        message: data.message,
+        replyTo: data.email,
       });
     },
     onSuccess: () => {
@@ -115,11 +110,8 @@ export default function Quote() {
                       toast.error('Submission blocked. Please try again.');
                       return;
                     }
-                    if (!recaptchaToken) {
-                      toast.error('Please complete the reCAPTCHA.');
-                      return;
-                    }
-                    mutation.mutate({ ...form, recaptchaToken });
+                    const { website, ...data } = form;
+                    mutation.mutate(data);
                   }} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -156,9 +148,6 @@ export default function Quote() {
                     <div>
                       <Label className="text-xs">Project Details *</Label>
                       <Textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, requirements, timeline..." rows={4} className="mt-1.5 bg-card/50 border-border resize-none" />
-                    </div>
-                    <div>
-                      <ReCaptcha onChange={setRecaptchaToken} />
                     </div>
                     <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                       <label>Website (leave blank)</label>
