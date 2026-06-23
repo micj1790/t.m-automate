@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
+import LazyVideo from '@/components/projects/LazyVideo';
 import { Input } from '@/components/ui/input';
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
@@ -99,7 +100,7 @@ function ProjectModal({ project, onClose }) {
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                   {allVideos.length > 1 ? `Video ${i + 1}` : 'Video'}
                 </p>
-                <video controls className="w-full rounded-xl bg-black max-h-48" src={url} />
+                <LazyVideo src={url} poster={images[0]} label={captionedVideos?.[i]?.caption || `Video ${i + 1}`} />
                 {captionedVideos?.[i]?.caption && (
                   <p className="text-xs text-muted-foreground leading-relaxed mt-2">{captionedVideos[i].caption}</p>
                 )}
