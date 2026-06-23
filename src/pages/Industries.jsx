@@ -51,7 +51,7 @@ export default function Industries() {
       <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80"
+            src="https://img.magnific.com/free-photo/male-engineer-analyzed-industry-40-system-smart-manufacturing-plant_482257-126802.jpg?semt=ais_hybrid&w=1600&q=80"
             alt="Industries background"
             className="w-full h-full object-cover object-center"
           />
