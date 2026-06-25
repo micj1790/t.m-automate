@@ -1,6 +1,5 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const refurbs = [
   {
@@ -20,24 +19,8 @@ const refurbs = [
 ];
 
 function BeforeAfterSlider({ before, after }) {
-  const [sliderPos, setSliderPos] = useState(50);
   const [imgIndex, setImgIndex] = useState(0);
-  const containerRef = useRef(null);
-  const dragging = useRef(false);
-
   const hasAfter = after && after.length > 0;
-
-  const handleMove = useCallback((clientX) => {
-    if (!dragging.current || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    setSliderPos((x / rect.width) * 100);
-  }, []);
-
-  const onMouseDown = () => { dragging.current = true; };
-  const onMouseUp = () => { dragging.current = false; };
-  const onMouseMove = (e) => handleMove(e.clientX);
-  const onTouchMove = (e) => handleMove(e.touches[0].clientX);
 
   const beforeImg = before[imgIndex] || before[0];
   const afterImg = hasAfter ? (after[imgIndex] || after[after.length - 1]) : null;
@@ -54,65 +37,32 @@ function BeforeAfterSlider({ before, after }) {
         </div>
       )}
 
-      <div
-        ref={containerRef}
-        className="relative w-full rounded-xl overflow-hidden select-none cursor-col-resize"
-        style={{ aspectRatio: '4/3' }}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-        onMouseMove={onMouseMove}
-        onTouchStart={onMouseDown}
-        onTouchEnd={onMouseUp}
-        onTouchMove={onTouchMove}
-      >
-        {/* Before image (full width base) */}
-        <img src={beforeImg} alt="Before" className="absolute inset-0 w-full h-full object-cover" draggable={false} />
-
-        {/* Before label */}
-        <div className="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[11px] font-bold uppercase tracking-wider">
-          Before
+      {/* Side-by-side before & after */}
+      <div className="grid grid-cols-2 gap-1.5">
+        {/* Before */}
+        <div className="relative rounded-xl overflow-hidden border-2 border-destructive">
+          <img src={beforeImg} alt="Before" className="w-full object-cover" style={{ aspectRatio: '4/3', objectFit: 'cover', filter: 'grayscale(0.6) brightness(0.8)' }} draggable={false} />
+          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-destructive/90 to-transparent px-3 py-2">
+            <span className="text-white text-[11px] font-black uppercase tracking-widest">Before</span>
+          </div>
+          <div className="absolute inset-0 bg-destructive/10 pointer-events-none" />
         </div>
 
-        {hasAfter ? (
-          <>
-            {/* After image clipped */}
-            <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
-              <img src={afterImg} alt="After" className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+        {/* After */}
+        <div className="relative rounded-xl overflow-hidden border-2 border-green-500">
+          {afterImg ? (
+            <img src={afterImg} alt="After" className="w-full object-cover" style={{ aspectRatio: '4/3', objectFit: 'cover' }} draggable={false} />
+          ) : (
+            <div className="w-full flex items-center justify-center text-xs text-muted-foreground italic bg-secondary/50" style={{ aspectRatio: '4/3' }}>
+              After coming soon
             </div>
-
-            {/* After label */}
-            <div className="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-lg bg-green-500/80 text-white text-[11px] font-bold uppercase tracking-wider">
-              After
-            </div>
-
-            {/* Divider line */}
-            <div className="absolute top-0 bottom-0 z-10 flex items-center" style={{ left: `calc(${sliderPos}% - 1px)` }}>
-              <div className="w-0.5 h-full bg-white/80 shadow-lg" />
-              <div className="absolute w-8 h-8 rounded-full bg-white shadow-xl flex items-center justify-center -translate-x-1/2 border-2 border-primary">
-                <div className="flex gap-0.5">
-                  <ChevronLeft className="w-3 h-3 text-primary" />
-                  <ChevronRight className="w-3 h-3 text-primary" />
-                </div>
-              </div>
-            </div>
-          </>
-        ) : (
-          /* No after yet — show "After Coming Soon" overlay */
-          <div className="absolute inset-0 flex items-end justify-end p-3 pointer-events-none">
-            <span className="px-2.5 py-1 rounded-lg bg-primary/80 text-white text-[11px] font-bold uppercase tracking-wider">
-              After Coming Soon
-            </span>
+          )}
+          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-green-600/90 to-transparent px-3 py-2">
+            <span className="text-white text-[11px] font-black uppercase tracking-widest">After</span>
           </div>
-        )}
+          <div className="absolute inset-0 bg-green-500/5 pointer-events-none" />
+        </div>
       </div>
-
-      {!hasAfter && (
-        <p className="text-xs text-muted-foreground text-center italic">Drag the slider to compare once after images are added</p>
-      )}
-      {hasAfter && (
-        <p className="text-xs text-muted-foreground text-center">← Drag to compare before & after →</p>
-      )}
     </div>
   );
 }
