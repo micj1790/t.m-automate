@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import LazyVideo from '@/components/projects/LazyVideo';
+import MachineRefurbishments from '@/components/projects/MachineRefurbishments';
 import { Input } from '@/components/ui/input';
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
@@ -274,6 +275,22 @@ export default function Projects() {
           {display.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-sm">No projects match your filter. Try a different category.</div>
           )}
+        </div>
+      </section>
+
+      {/* Machine Refurbishments — Before & After */}
+      <section className="py-16 md:py-20 border-t border-border bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Before &amp; After
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-3">Machine Refurbishments</h2>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              See the transformation. Complete electrical refurbishments — before and after.
+            </p>
+          </div>
+          <MachineRefurbishments />
         </div>
       </section>
     </div>
