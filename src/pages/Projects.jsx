@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import LazyVideo from '@/components/projects/LazyVideo';
-import MigrationSection from '@/components/projects/MigrationSection';
 import { Input } from '@/components/ui/input';
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
@@ -229,9 +228,6 @@ export default function Projects() {
       </section>
 
 
-
-      {/* Siemens S7-300 to S7-1500 Migration case study */}
-      <MigrationSection />
 
       {/* Projects gallery */}
       <section className="py-16 md:py-20">
