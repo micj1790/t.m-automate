@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import LazyVideo from '@/components/projects/LazyVideo';
 import { Input } from '@/components/ui/input';
@@ -112,38 +112,36 @@ function ProjectModal({ project, onClose }) {
         {/* Before / After Section */}
         {beforeAfter && (
           <div className="px-5 pt-4 pb-2">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Before &amp; After</p>
-            <div className="grid grid-cols-2 gap-3">
-              {/* Before */}
-              <div>
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <span className="w-2 h-2 rounded-full bg-destructive" />
-                  <span className="text-[11px] font-bold text-destructive uppercase tracking-wider">Before</span>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-lg bg-destructive/15 border border-destructive/25 text-destructive text-[11px] font-bold uppercase tracking-wider">Before</span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground" />
+              <span className="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/25 text-green-400 text-[11px] font-bold uppercase tracking-wider">After</span>
+            </div>
+            <div className="space-y-4">
+              {Array.from({ length: Math.max(beforeAfter.before.length, beforeAfter.after.length) }).map((_, i) => (
+                <div key={i} className="grid grid-cols-2 gap-2">
+                  {/* Before */}
+                  <div>
+                    <div className="rounded-xl overflow-hidden border-2 border-destructive/30 bg-destructive/5">
+                      {beforeAfter.before[i]
+                        ? <img src={beforeAfter.before[i]} alt={`Before ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 220, objectFit: 'cover' }} />
+                        : <div className="h-32 flex items-center justify-center text-xs text-muted-foreground">No image</div>
+                      }
+                    </div>
+                    <p className="text-[10px] font-bold text-destructive uppercase tracking-wider text-center mt-1.5">Before</p>
+                  </div>
+                  {/* After */}
+                  <div>
+                    <div className="rounded-xl overflow-hidden border-2 border-green-500/30 bg-green-500/5">
+                      {beforeAfter.after[i]
+                        ? <img src={beforeAfter.after[i]} alt={`After ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 220, objectFit: 'cover' }} />
+                        : <div className="h-32 flex items-center justify-center text-xs text-muted-foreground italic">After coming soon</div>
+                      }
+                    </div>
+                    <p className="text-[10px] font-bold text-green-400 uppercase tracking-wider text-center mt-1.5">After</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  {beforeAfter.before.length > 0
-                    ? beforeAfter.before.map((url, i) => (
-                        <img key={i} src={url} alt={`Before ${i + 1}`} className="w-full rounded-xl object-cover border border-destructive/20" style={{ maxHeight: 220, objectFit: 'cover' }} />
-                      ))
-                    : <div className="h-32 rounded-xl bg-secondary/50 flex items-center justify-center text-xs text-muted-foreground">No image</div>
-                  }
-                </div>
-              </div>
-              {/* After */}
-              <div>
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <span className="w-2 h-2 rounded-full bg-green-500" />
-                  <span className="text-[11px] font-bold text-green-400 uppercase tracking-wider">After</span>
-                </div>
-                <div className="space-y-2">
-                  {beforeAfter.after.length > 0
-                    ? beforeAfter.after.map((url, i) => (
-                        <img key={i} src={url} alt={`After ${i + 1}`} className="w-full rounded-xl object-cover border border-green-500/20" style={{ maxHeight: 220, objectFit: 'cover' }} />
-                      ))
-                    : <div className="h-32 rounded-xl bg-secondary/50 flex items-center justify-center text-xs text-muted-foreground italic">After images coming soon</div>
-                  }
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         )}
