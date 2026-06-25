@@ -275,22 +275,20 @@ export default function Projects() {
           {display.length === 0 && (
             <div className="text-center py-20 text-muted-foreground text-sm">No projects match your filter. Try a different category.</div>
           )}
-        </div>
-      </section>
 
-      {/* VFFS Machine Refurbishment — Before & After */}
-      <section className="py-16 md:py-20 border-t border-border bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Before &amp; After
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight mb-3">VFFS Sachet Refurbishment</h2>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              Complete electrical refurbishment of a high-speed vertical form fill seal sachet machine — see the transformation.
-            </p>
+          {/* VFFS Before & After */}
+          <div className="mt-12 pt-12 border-t border-border">
+            <div className="mb-8 text-center">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-widest mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Before &amp; After
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight mb-2">VFFS Sachet Refurbishment</h3>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                Complete electrical refurbishment — see the transformation.
+              </p>
+            </div>
+            <MachineRefurbishments />
           </div>
-          <MachineRefurbishments />
         </div>
       </section>
     </div>
