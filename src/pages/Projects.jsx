@@ -112,33 +112,39 @@ function ProjectModal({ project, onClose }) {
         {/* Before / After Section */}
         {beforeAfter && (
           <div className="px-5 pt-4 pb-2">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded-lg bg-destructive/15 border border-destructive/25 text-destructive text-[11px] font-bold uppercase tracking-wider">Before</span>
-              <ArrowRight className="w-4 h-4 text-muted-foreground" />
-              <span className="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/25 text-green-400 text-[11px] font-bold uppercase tracking-wider">After</span>
-            </div>
-            <div className="space-y-4">
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 text-center">Before &amp; After Comparison</p>
+            <div className="space-y-5">
               {Array.from({ length: Math.max(beforeAfter.before.length, beforeAfter.after.length) }).map((_, i) => (
-                <div key={i} className="grid grid-cols-2 gap-2">
-                  {/* Before */}
-                  <div>
-                    <div className="rounded-xl overflow-hidden border-2 border-destructive/30 bg-destructive/5">
+                <div key={i} className="relative">
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {/* Before */}
+                    <div className="relative rounded-xl overflow-hidden border-2 border-destructive">
                       {beforeAfter.before[i]
-                        ? <img src={beforeAfter.before[i]} alt={`Before ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 220, objectFit: 'cover' }} />
-                        : <div className="h-32 flex items-center justify-center text-xs text-muted-foreground">No image</div>
+                        ? <img src={beforeAfter.before[i]} alt={`Before ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 260, objectFit: 'cover', filter: 'grayscale(0.6) brightness(0.8)' }} />
+                        : <div className="h-40 flex items-center justify-center text-xs text-muted-foreground bg-secondary/50">No image</div>
                       }
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-destructive/90 to-transparent px-3 py-2">
+                        <span className="text-white text-[11px] font-black uppercase tracking-widest">Before</span>
+                      </div>
+                      <div className="absolute inset-0 bg-destructive/10 pointer-events-none" />
                     </div>
-                    <p className="text-[10px] font-bold text-destructive uppercase tracking-wider text-center mt-1.5">Before</p>
-                  </div>
-                  {/* After */}
-                  <div>
-                    <div className="rounded-xl overflow-hidden border-2 border-green-500/30 bg-green-500/5">
+                    {/* After */}
+                    <div className="relative rounded-xl overflow-hidden border-2 border-green-500">
                       {beforeAfter.after[i]
-                        ? <img src={beforeAfter.after[i]} alt={`After ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 220, objectFit: 'cover' }} />
-                        : <div className="h-32 flex items-center justify-center text-xs text-muted-foreground italic">After coming soon</div>
+                        ? <img src={beforeAfter.after[i]} alt={`After ${i + 1}`} className="w-full object-cover" style={{ maxHeight: 260, objectFit: 'cover' }} />
+                        : <div className="h-40 flex items-center justify-center text-xs text-muted-foreground italic bg-secondary/50">After coming soon</div>
                       }
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-green-600/90 to-transparent px-3 py-2">
+                        <span className="text-white text-[11px] font-black uppercase tracking-widest">After</span>
+                      </div>
+                      <div className="absolute inset-0 bg-green-500/5 pointer-events-none" />
                     </div>
-                    <p className="text-[10px] font-bold text-green-400 uppercase tracking-wider text-center mt-1.5">After</p>
+                  </div>
+                  {/* Center divider arrow */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg border-2 border-background">
+                      <ArrowRight className="w-3.5 h-3.5 text-white" />
+                    </div>
                   </div>
                 </div>
               ))}
