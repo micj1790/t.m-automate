@@ -183,6 +183,10 @@ export default function Projects() {
     const industryMatch = filter === 'All' || (industryLabels[p.industry] === filter || p.industry === filter);
     const searchMatch = !search || p.title?.toLowerCase().includes(search.toLowerCase()) || p.description?.toLowerCase().includes(search.toLowerCase());
     return industryMatch && searchMatch;
+  }).sort((a, b) => {
+    const aDelta = a.title?.toLowerCase().includes('delta') ? 1 : 0;
+    const bDelta = b.title?.toLowerCase().includes('delta') ? 1 : 0;
+    return aDelta - bDelta;
   });
 
   return (
