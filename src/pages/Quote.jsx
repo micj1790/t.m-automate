@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { CheckCircle, Award, Clock, Shield, Zap } from 'lucide-react';
+import { CheckCircle, Award, Clock, Shield, Zap, Upload, X, FileText, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
 const serviceOptions = [
@@ -21,12 +21,41 @@ const industryOptions = ['FMCG', 'Food & Beverage', 'Pharmaceutical', 'Mining', 
 
 export default function Quote() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service_interest: '', industry: '', message: '', website: '' });
+  const [files, setFiles] = useState([]);
+  const [uploading, setUploading] = useState(false);
   const [success, setSuccess] = useState(false);
   const formStart = useRef(Date.now());
+  const fileInputRef = useRef(null);
+
+  const handleFileSelect = (selectedFiles) => {
+    const valid = Array.from(selectedFiles).filter(f => f.size <= 10 * 1024 * 1024);
+    const oversize = Array.from(selectedFiles).filter(f => f.size > 10 * 1024 * 1024);
+    if (oversize.length) toast.error(`${oversize.length} file(s) exceed 10MB limit`);
+    setFiles(prev => [...prev, ...valid]);
+  };
+
+  const removeFile = (idx) => {
+    setFiles(prev => prev.filter((_, i) => i !== idx));
+  };
+
+  const formatSize = (bytes) => {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
 
   const mutation = useMutation({
     mutationFn: async (data) => {
-      await base44.entities.Lead.create({ ...data, source: 'website', status: 'new', type: 'quote_request' });
+      let attachmentUrls = [];
+      if (data.attachments && data.attachments.length > 0) {
+        setUploading(true);
+        for (const file of data.attachments) {
+          const { file_url } = await base44.integrations.Core.UploadFile({ file });
+          attachmentUrls.push(file_url);
+        }
+        setUploading(false);
+      }
+      await base44.entities.Lead.create({ ...data, attachments: attachmentUrls, source: 'website', status: 'new', type: 'quote_request' });
       await base44.functions.invoke('sendEnquiryEmail', {
         subject: `New Quote Request from ${data.name}`,
         type: 'quote',
@@ -37,6 +66,7 @@ export default function Quote() {
           { label: 'Company', value: data.company },
           { label: 'Service Required', value: data.service_interest },
           { label: 'Industry', value: data.industry },
+          ...(attachmentUrls.length > 0 ? [{ label: 'Attachments', value: attachmentUrls.join('\n') }] : []),
         ],
         message: data.message,
         replyTo: data.email,
@@ -47,6 +77,7 @@ export default function Quote() {
         window.gtag('event', 'ads_conversion_Request_quote_1', {});
         window.gtag('event', 'conversion', {'send_to': 'AW-18221078210/7X4cCNiY48AcEMKtvvBD'});
       }
+      setFiles([]);
       setSuccess(true);
     },
   });
@@ -111,7 +142,7 @@ export default function Quote() {
                       return;
                     }
                     const { website, ...data } = form;
-                    mutation.mutate(data);
+                    mutation.mutate({ ...data, attachments: files });
                   }} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -149,6 +180,45 @@ export default function Quote() {
                       <Label className="text-xs">Project Details *</Label>
                       <Textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, requirements, timeline..." rows={4} className="mt-1.5 bg-card/50 border-border resize-none" />
                     </div>
+                    {/* File attachments */}
+                    <div>
+                      <Label className="text-xs">Attachments (Photos, PDFs, Docs)</Label>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        multiple
+                        accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.zip"
+                        className="hidden"
+                        onChange={e => {
+                          handleFileSelect(e.target.files);
+                          e.target.value = '';
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="mt-1.5 w-full h-20 rounded-lg border-2 border-dashed border-border hover:border-primary/40 bg-card/50 flex flex-col items-center justify-center gap-1 transition-colors"
+                      >
+                        <Upload className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-[11px] text-muted-foreground">Click to upload files (max 10MB each)</span>
+                      </button>
+                      {files.length > 0 && (
+                        <div className="mt-2 space-y-1.5">
+                          {files.map((file, idx) => (
+                            <div key={idx} className="flex items-center gap-2 p-2 rounded-lg bg-card/60 border border-border">
+                              {file.type.startsWith('image/')
+                                ? <ImageIcon className="w-3.5 h-3.5 text-primary shrink-0" />
+                                : <FileText className="w-3.5 h-3.5 text-accent shrink-0" />}
+                              <span className="text-xs text-foreground truncate flex-1">{file.name}</span>
+                              <span className="text-[10px] text-muted-foreground shrink-0">{formatSize(file.size)}</span>
+                              <button type="button" onClick={() => removeFile(idx)} className="shrink-0 text-muted-foreground hover:text-destructive transition-colors">
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                     <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                       <label>Website (leave blank)</label>
                       <input
@@ -159,8 +229,8 @@ export default function Quote() {
                         onChange={e => setForm({...form, website: e.target.value})}
                       />
                     </div>
-                    <Button type="submit" disabled={mutation.isPending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-12 uppercase tracking-wide glow-blue">
-                      {mutation.isPending ? 'Submitting...' : 'Request Free Quote'}
+                    <Button type="submit" disabled={mutation.isPending || uploading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-12 uppercase tracking-wide glow-blue">
+                      {uploading ? 'Uploading files...' : mutation.isPending ? 'Submitting...' : 'Request Free Quote'}
                     </Button>
                     <p className="text-center text-xs text-muted-foreground">No commitment required. Free consultation.</p>
                   </form>

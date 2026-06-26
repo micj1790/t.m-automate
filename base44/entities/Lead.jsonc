@@ -81,6 +81,13 @@
         "breakdown"
       ],
       "default": "general_enquiry"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Uploaded file URLs (photos, PDFs, docs)"
     }
   },
   "required": [
