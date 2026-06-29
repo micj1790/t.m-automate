@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Award, Clock, Shield, Zap, Upload, X, FileText, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
+import ReCaptcha from '@/components/ReCaptcha';
 
 const serviceOptions = [
   'PLC & HMI Programming', 'Industrial Automation', 'Electrical Control Panels', 'MCC Panels',
@@ -26,6 +27,7 @@ export default function Quote() {
   const [success, setSuccess] = useState(false);
   const formStart = useRef(Date.now());
   const fileInputRef = useRef(null);
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
 
   const handleFileSelect = (selectedFiles) => {
     const valid = Array.from(selectedFiles).filter(f => f.size <= 10 * 1024 * 1024);
@@ -135,10 +137,24 @@ export default function Quote() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={e => {
+                  <form onSubmit={async e => {
                     e.preventDefault();
                     if (form.website || Date.now() - formStart.current < 2000) {
                       toast.error('Submission blocked. Please try again.');
+                      return;
+                    }
+                    if (!recaptchaToken) {
+                      toast.error('Please complete the reCAPTCHA verification.');
+                      return;
+                    }
+                    try {
+                      const verifyRes = await base44.functions.invoke('recaptcha', { token: recaptchaToken });
+                      if (!verifyRes.data?.success) {
+                        toast.error('reCAPTCHA verification failed. Please try again.');
+                        return;
+                      }
+                    } catch {
+                      toast.error('Verification failed. Please try again.');
                       return;
                     }
                     const { website, ...data } = form;
@@ -219,6 +235,7 @@ export default function Quote() {
                         </div>
                       )}
                     </div>
+                    <ReCaptcha onVerify={setRecaptchaToken} />
                     <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                       <label>Website (leave blank)</label>
                       <input

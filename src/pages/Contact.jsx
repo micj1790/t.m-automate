@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import ReCaptcha from '@/components/ReCaptcha';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
@@ -18,6 +19,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', message: '', website: '' });
   const [success, setSuccess] = useState(false);
   const formStart = useRef(Date.now());
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
@@ -42,7 +44,7 @@ export default function Contact() {
     onError: () => toast.error('Failed to send message. Please try again.'),
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.website || Date.now() - formStart.current < 2000) {
       toast.error('Submission blocked. Please try again.');
@@ -50,6 +52,20 @@ export default function Contact() {
     }
     if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all required fields.');
+      return;
+    }
+    if (!recaptchaToken) {
+      toast.error('Please complete the reCAPTCHA verification.');
+      return;
+    }
+    try {
+      const verifyRes = await base44.functions.invoke('recaptcha', { token: recaptchaToken });
+      if (!verifyRes.data?.success) {
+        toast.error('reCAPTCHA verification failed. Please try again.');
+        return;
+      }
+    } catch {
+      toast.error('Verification failed. Please try again.');
       return;
     }
     const { website, ...data } = formData;
@@ -138,6 +154,7 @@ export default function Contact() {
                 />
               </div>
 
+              <ReCaptcha onVerify={setRecaptchaToken} />
               <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                 <label>Website (leave blank)</label>
                 <input
