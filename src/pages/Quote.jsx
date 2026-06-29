@@ -28,6 +28,7 @@ export default function Quote() {
   const formStart = useRef(Date.now());
   const fileInputRef = useRef(null);
   const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [recaptchaError, setRecaptchaError] = useState(false);
 
   const handleFileSelect = (selectedFiles) => {
     const valid = Array.from(selectedFiles).filter(f => f.size <= 10 * 1024 * 1024);
@@ -144,7 +145,7 @@ export default function Quote() {
                       return;
                     }
                     if (!recaptchaToken) {
-                      toast.error('Please complete the reCAPTCHA verification.');
+                      setRecaptchaError(true);
                       return;
                     }
                     try {
@@ -235,7 +236,10 @@ export default function Quote() {
                         </div>
                       )}
                     </div>
-                    <ReCaptcha onVerify={setRecaptchaToken} />
+                    <ReCaptcha onVerify={(token) => { setRecaptchaToken(token); setRecaptchaError(false); }} />
+                    {recaptchaError && !recaptchaToken && (
+                      <p className="text-xs text-destructive font-semibold">Please complete the reCAPTCHA verification above.</p>
+                    )}
                     <div className="absolute -left-[9999px] top-auto" aria-hidden="true">
                       <label>Website (leave blank)</label>
                       <input
