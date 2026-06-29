@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Zap, Radio, Settings, ToggleLeft, Cpu, Box, Thermometer, Gauge, Wrench, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
+import SEO from '@/components/SEO';
 
 const partsCategories = [
   { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars.' },
@@ -21,6 +22,7 @@ const partsCategories = [
 export default function Parts() {
   return (
     <div className="pt-16">
+      <SEO title="Industrial Automation Parts | Switchgear, Sensors, Drives, PLCs | T.M Engineering" description="Browse industrial automation parts from T.M Engineering — switchgear, sensors, gear motors, AC/DC drives, PLCs & HMIs, temperature controllers, valves, regulators and cylinders from top global brands." />
       <BrandsBanner />
 
       <section className="relative py-20 md:py-28 overflow-hidden">

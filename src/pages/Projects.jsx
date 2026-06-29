@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Search, X, ChevronLeft, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 import ClientsBanner from '@/components/home/ClientsBanner';
 import LazyVideo from '@/components/projects/LazyVideo';
+import SEO from '@/components/SEO';
 import { Input } from '@/components/ui/input';
 
 const industryLabels = { food_beverage: 'Food & Beverage', fmcg: 'FMCG', manufacturing: 'Manufacturing', mining: 'Mining', pharmaceutical: 'Pharmaceutical', data_centres: 'Data Centres', industrial_processing: 'Industrial Processing' };
@@ -195,6 +196,7 @@ export default function Projects() {
 
   return (
     <div className="pt-16">
+      <SEO title="Projects | Industrial Automation Case Studies | T.M Engineering" description="T.M Engineering designs and manufactures custom industrial automation solutions. View our portfolio of PLC programming, control panels, machine refurbishments and SCADA projects across South Africa." />
       <AnimatePresence>
         {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
       </AnimatePresence>

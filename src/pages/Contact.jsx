@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import ReCaptcha from '@/components/ReCaptcha';
+import SEO from '@/components/SEO';
 
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
@@ -75,6 +76,7 @@ export default function Contact() {
 
   return (
     <div className="pt-16">
+      <SEO title="Contact Us | T.M Engineering | Industrial Automation Johannesburg" description="Contact T.M Engineering for industrial automation, PLC programming, control panels and machine manufacturing. Call 011 791 1562 or email sales@tmeng.co.za. Based in Randburg, Johannesburg." />
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Get in Touch Form */}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calendar, X } from 'lucide-react';
 import CTASection from '@/components/home/CTASection';
 import ReactMarkdown from 'react-markdown';
+import SEO from '@/components/SEO';
 
 const fallbackPosts = [
   {
@@ -403,6 +404,7 @@ export default function Blog() {
 
   return (
     <div className="pt-16">
+      <SEO title="Blog & Insights | Industrial Automation Articles | T.M Engineering" description="Read T.M Engineering's blog for industry insights on industrial automation, PLC programming, SCADA, preventive maintenance and case studies from South Africa's automation specialists." />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80" alt="Blog" className="w-full h-full object-cover" />

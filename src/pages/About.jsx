@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Clock, Target, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
+import SEO from '@/components/SEO';
 
 const values = [
   { icon: Target, title: 'Highest Quality', desc: 'Providing the highest quality electrical products at the best possible price.' },
@@ -26,6 +27,7 @@ const milestones = [
 export default function About() {
   return (
     <div className="pt-16">
+      <SEO title="About Us | T.M Engineering — 39 Years of Automation Excellence" description="Founded in 1986, T.M Engineering is a South African industrial automation and electrical engineering company with 39 years of experience. Specialists in PLC programming, control panels, SCADA integration and machine manufacturing." />
       {/* Hero */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0">

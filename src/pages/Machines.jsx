@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Tag, Package, Beaker, Droplets, Flame, Wind, ArrowRight, MessageSquare } from 'lucide-react';
 import BrandsBanner from '@/components/home/BrandsBanner';
+import SEO from '@/components/SEO';
 
 const machinesCategories = [
   { icon: Tag, label: 'Labelling Machines', key: 'labelling_machines', desc: 'Automatic labelling equipment designed and manufactured since 1994. Wrap-around, top/bottom, sleeve and overhead labellers.' },
@@ -18,6 +19,7 @@ export default function Machines() {
     <div className="pt-16">
       <BrandsBanner />
 
+      <SEO title="Manufactured Machines | Labelling, Filling, Capping | T.M Engineering" description="T.M Engineering designs and manufactures labelling machines, liquid fillers, heat tunnels, bottle capping, VFFS and boxing machines for FMCG and industrial applications. Made in South Africa since 1994." />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

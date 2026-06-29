@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '@/components/shared/SectionHeader';
 import ClientsBanner from '@/components/home/ClientsBanner';
+import SEO from '@/components/SEO';
 
 const industries = [
   {
@@ -47,6 +48,7 @@ const industries = [
 export default function Industries() {
   return (
     <div className="pt-16">
+      <SEO title="Industries We Serve | FMCG, Mining, Pharmaceutical | T.M Engineering" description="T.M Engineering serves FMCG, Food & Beverage, Pharmaceutical, Mining, Manufacturing and Cosmetics industries with tailored automation solutions. 39 years of industry expertise across South Africa." />
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         <div className="absolute inset-0">

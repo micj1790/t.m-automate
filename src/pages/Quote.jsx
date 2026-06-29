@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CheckCircle, Award, Clock, Shield, Zap, Upload, X, FileText, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import ReCaptcha from '@/components/ReCaptcha';
+import SEO from '@/components/SEO';
 
 const serviceOptions = [
   'PLC & HMI Programming', 'Industrial Automation', 'Electrical Control Panels', 'MCC Panels',
@@ -87,6 +88,7 @@ export default function Quote() {
 
   return (
     <div className="pt-16">
+      <SEO title="Request a Free Quote | T.M Engineering | Industrial Automation" description="Request a free quotation for PLC programming, control panels, MCC panels, labelling machines, liquid fillers and industrial automation services from T.M Engineering. Fast response, 39 years experience." />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80" alt="Quote" className="w-full h-full object-cover" />

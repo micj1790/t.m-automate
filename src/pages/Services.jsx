@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Cpu, Zap, Settings, Monitor, Activity, Shield, Wrench, Box, Radio, Truck, Cable, ChevronRight, ChevronDown, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
+import SEO from '@/components/SEO';
 
 const services = [
   {
@@ -100,6 +101,7 @@ export default function Services() {
 
   return (
     <div className="pt-16">
+      <SEO title="PLC & HMI System Integrators | Industrial Automation Services | T.M Engineering" description="T.M Engineering are extreme specialists in PLC & HMI system integration. We program, supply and commission Siemens, Allen-Bradley, Schneider, Mitsubishi and all major brands. 24/7 support across South Africa." />
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 64px)', maxHeight: '700px', minHeight: '400px' }}>
         <div className="absolute inset-0">

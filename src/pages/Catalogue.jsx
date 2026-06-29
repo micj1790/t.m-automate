@@ -8,6 +8,7 @@ import LabellingVideos from '@/components/products/LabellingVideos';
 import LiquidFillerVideos from '@/components/products/LiquidFillerVideos';
 import HeatTunnelVideos from '@/components/products/HeatTunnelVideos';
 import LiddingCapperVideos from '@/components/products/LiddingCapperVideos';
+import SEO from '@/components/SEO';
 import BoxingVFFSVideos from '@/components/products/BoxingVFFSVideos';
 
 
@@ -159,6 +160,7 @@ export default function Catalogue() {
 
   return (
     <div className="pt-16">
+      <SEO title={`${meta.label} | Industrial Automation Catalogue | T.M Engineering`} description={meta.desc} />
       {/* Header */}
       <section className="py-14 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />

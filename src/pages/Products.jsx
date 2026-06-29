@@ -5,6 +5,7 @@ import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Setti
 import CTASection from '@/components/home/CTASection';
 import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
+import SEO from '@/components/SEO';
 
 const partsCategories = [
   { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars for industrial power distribution.' },
@@ -113,6 +114,7 @@ export default function Products() {
 
   return (
     <div className="pt-16">
+      <SEO title="Products | Industrial Automation Parts & Machines | T.M Engineering" description="Browse T.M Engineering's range of industrial automation parts (switchgear, sensors, drives, PLCs, valves) and manufactured machines (labelling, filling, capping, heat tunnels)." />
       {/* Two Columns: Parts + Machines */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
