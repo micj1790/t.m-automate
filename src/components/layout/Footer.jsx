@@ -141,7 +141,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} T.M Engineering (Pty) Ltd. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">
-            Industrial Automation · PLC Programming · MCC Panels · Johannesburg, South Africa
+            Industrial Automation · PLC Programming · Control Panels · Johannesburg, South Africa
           </p>
         </div>
       </div>
