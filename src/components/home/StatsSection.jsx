@@ -21,7 +21,7 @@ function Counter({ target, suffix, duration = 2000 }) {
 
 const stats = [
   { value: 39, suffix: '+', label: 'Years Experience' },
-  { value: 1000, suffix: '+', label: 'Clients Served' },
+  { value: 2000, suffix: '+', label: 'Clients Served' },
   { value: 24, suffix: '/7', label: 'Support' },
 ];
 
