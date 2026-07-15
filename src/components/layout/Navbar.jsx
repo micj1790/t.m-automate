@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', path: '/about' },
@@ -43,7 +43,10 @@ export default function Navbar() {
         <div className={`border-b border-white/5 transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden opacity-0' : 'h-9 opacity-100'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
             <div className="flex items-center gap-5 text-[11px] text-muted-foreground">
-              <span className="flex items-center gap-1.5">📍 10 Susan Street, Strijdom Park, Randburg</span>
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3 h-3 text-primary" />
+                10 Susan Street, Strijdom Park, Randburg
+              </span>
               <span className="hidden sm:flex items-center gap-1.5 border-l border-white/10 pl-5">
                 <Phone className="w-3 h-3 text-primary" />
                 <a href="tel:+27117911562" className="hover:text-primary transition-colors">011 791 1562</a>
