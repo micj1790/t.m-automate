@@ -13,7 +13,8 @@ import SEO from '@/components/SEO';
 const contacts = [
   { icon: Phone, label: 'Phone', value: '011 791 1562', link: 'tel:+27117911562', sub: 'Mon - Fri, 7:30am - 5pm' },
   { icon: Mail, label: 'Email', value: 'sales@tmeng.co.za', link: 'mailto:sales@tmeng.co.za', sub: 'We will get back to you ASAP' },
-  { icon: MapPin, label: 'Address', value: '10 Susan Street, Strijdom Park', link: 'https://maps.google.com/?q=10+Susan+Street+Strijdompark+Randburg', sub: 'Randburg, Johannesburg, SA' },
+  { icon: MapPin, label: 'Johannesburg Office', value: '10 Susan Street, Strijdom Park', link: 'https://maps.google.com/?q=10+Susan+Street+Strijdompark+Randburg', sub: 'Randburg, Johannesburg, SA' },
+  { icon: MapPin, label: 'Rustenburg Office', value: 'Plot 106, Modderfontein', link: 'https://maps.google.com/?q=Plot+106+Modderfontein+Rustenburg+0300', sub: 'Rustenburg, 0300, SA' },
 ];
 
 export default function Contact() {
@@ -76,7 +77,7 @@ export default function Contact() {
 
   return (
     <div className="pt-16">
-      <SEO title="Contact Us | T.M Engineering | Industrial Automation Johannesburg" description="Contact T.M Engineering for industrial automation, PLC programming, control panels and machine manufacturing. Call 011 791 1562 or email sales@tmeng.co.za. Based in Randburg, Johannesburg." />
+      <SEO title="Contact Us | T.M Engineering | Industrial Automation Johannesburg & Rustenburg" description="Contact T.M Engineering for industrial automation, PLC programming, control panels and machine manufacturing. Offices in Randburg, Johannesburg and Rustenburg. Call 011 791 1562 or email sales@tmeng.co.za." />
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Get in Touch Form */}
@@ -223,12 +224,26 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map */}
-          <div className="rounded-xl overflow-hidden border border-border h-64 mt-8">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.5!2d27.97685!3d-26.08466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9574ff3aae611d%3A0xd62a7ab768cb0970!2s10%20Susan%20St%2C%20Strydompark%2C%20Randburg%2C%202169!5e0!3m2!1sen!2sza!4v1620000000000!5m2!1sen!2sza"
-              width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="T.M Engineering location"
-            />
+          {/* Maps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <div>
+              <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-2">Johannesburg Office</p>
+              <div className="rounded-xl overflow-hidden border border-border h-64">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.5!2d27.97685!3d-26.08466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9574ff3aae611d%3A0xd62a7ab768cb0970!2s10%20Susan%20St%2C%20Strydompark%2C%20Randburg%2C%202169!5e0!3m2!1sen!2sza!4v1620000000000!5m2!1sen!2sza"
+                  width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="T.M Engineering Johannesburg"
+                />
+              </div>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-2">Rustenburg Office</p>
+              <div className="rounded-xl overflow-hidden border border-border h-64">
+                <iframe
+                  src="https://www.google.com/maps?q=Plot+106+Modderfontein+Rustenburg+0300&output=embed"
+                  width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="T.M Engineering Rustenburg"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

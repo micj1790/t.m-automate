@@ -67,6 +67,10 @@ export default function Footer() {
               <MapPin className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
               10 Susan Street, Strijdom Park, Randburg, JHB
             </a>
+            <a href="https://maps.google.com/?q=Plot+106+Modderfontein+Rustenburg+0300" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-foreground transition-colors">
+              <MapPin className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+              Plot 106, Modderfontein, Rustenburg, 0300
+            </a>
             <a href="tel:+27117911562" className="flex items-center gap-2 hover:text-foreground transition-colors">
               <Phone className="w-3.5 h-3.5 text-primary" /> 011 791 1562
             </a>
