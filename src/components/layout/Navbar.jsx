@@ -5,12 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 import { services as allServices } from '@/data/services';
-import { productCategories as allProducts } from '@/data/products';
 
 const navLinks = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services', sub: allServices.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
-  { label: 'Products', path: '/products', sub: allProducts.map(p => ({ label: p.label, path: `/products/${p.slug}` })) },
+  { label: 'Products', path: '/products' },
   { label: 'Industries', path: '/industries' },
   { label: 'Our Work', path: '/projects' },
   { label: 'Contact', path: '/contact' },

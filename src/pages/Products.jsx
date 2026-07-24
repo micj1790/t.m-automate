@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Beaker, Box, Radio, ArrowRight } from 'lucide-react';
+import { Tag, Package, Beaker, Factory, Radio, Box, ArrowRight, Play, Zap, Settings, Thermometer, Gauge, Droplets, Flame, Wrench, Cpu } from 'lucide-react';
+import CTASection from '@/components/home/CTASection';
+import SectionHeader from '@/components/shared/SectionHeader';
 import BrandsBanner from '@/components/home/BrandsBanner';
 import SEO from '@/components/SEO';
-import { productCategories } from '@/data/products';
 
-const partsCategories = productCategories.filter(p => p.section === 'parts');
-const machinesCategories = productCategories.filter(p => p.section === 'machines');
+const partsCategories = [
+  { icon: Zap, label: 'Switchgear', key: 'switchgear', desc: 'Circuit breakers, isolators, contactors & busbars for industrial power distribution.' },
+  { icon: Radio, label: 'Sensors', key: 'sensors', desc: 'Proximity, photoelectric, temperature & pressure sensors for automation.' },
+  { icon: Settings, label: 'Gear Motors & Gearboxes', key: 'gear_motors', desc: 'Heavy-duty gear motors & gearboxes for conveyor systems.' },
+  { icon: Cpu, label: 'AC & DC Drives', key: 'ac_dc_drives', desc: 'Variable speed drives from ABB, Siemens, Danfoss & more.' },
+  { icon: Box, label: 'PLCs & HMIs', key: 'plcs_hmis', desc: 'Programmable logic controllers & operator interfaces.' },
+  { icon: Thermometer, label: 'Temperature Controllers', key: 'temperature_controllers', desc: 'PID & on/off temperature controllers for process control.' },
+  { icon: Gauge, label: 'Pneumatics', key: 'valves', desc: 'Valves, regulators, cylinders & air treatment units for pneumatic systems.' },
+];
+
+const machinesCategories = [
+  { icon: Tag, label: 'Labelling Machines', key: 'labelling_machines', desc: 'Automatic labelling equipment designed since 1994.' },
+  { icon: Droplets, label: 'Liquid & Powder Fillers', key: 'liquid_fillers', desc: 'Fillers for liquids, powders and all viscosities.' },
+  { icon: Flame, label: 'Heat Tunnels', key: 'heat_tunnels', desc: 'Shrink sleeve & heat tunnel systems.' },
+  { icon: Package, label: 'Bottle Capping & Lidding Machines', key: 'bottle_capping', desc: 'Inline & rotary cappers, tray lidding and sealing machines for all container types.' },
+  { icon: Box, label: 'Boxing Machines', key: 'boxing_machines', desc: 'Automatic boxing and carton erecting machines for end-of-line packaging.' },
+];
 
 const products = [
   {
@@ -131,14 +147,14 @@ export default function Products() {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {partsCategories.map((cat, i) => (
-                  <Link key={cat.slug} to={`/products/${cat.slug}`}
+                  <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
                     className="group flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-primary/5 transition-all h-full">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                       <cat.icon className="w-4 h-4 text-primary" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">{cat.label}</h3>
-                      <p className="text-[10px] text-muted-foreground leading-relaxed">{cat.short}</p>
+                      <p className="text-[10px] text-muted-foreground leading-relaxed">{cat.desc}</p>
                     </div>
                   </Link>
                 ))}
@@ -161,14 +177,14 @@ export default function Products() {
               </p>
               <div className="grid grid-cols-1 gap-3">
                 {machinesCategories.map((cat, i) => (
-                  <Link key={cat.slug} to={`/products/${cat.slug}`}
+                  <Link key={cat.key} to={`/catalogue?category=${cat.key}`}
                     className="group flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent/50 hover:bg-accent/5 transition-all h-full">
                     <div className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
                       <cat.icon className="w-5 h-5 text-accent" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors mb-0.5">{cat.label}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{cat.short}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{cat.desc}</p>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-accent transition-colors shrink-0 mt-0.5" />
                   </Link>

@@ -14,7 +14,6 @@ import About from '@/pages/About';
 import Services from '@/pages/Services';
 import ServiceDetail from '@/pages/ServiceDetail';
 import Products from '@/pages/Products';
-import ProductDetail from '@/pages/ProductDetail';
 import Industries from '@/pages/Industries';
 import Projects from '@/pages/Projects';
 import Contact from '@/pages/Contact';
@@ -68,7 +67,6 @@ const AuthenticatedApp = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
