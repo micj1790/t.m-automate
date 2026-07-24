@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
+import { services as allServices } from '@/data/services';
+
 const navLinks = [
   { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
+  { label: 'Services', path: '/services', sub: allServices.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
   { label: 'Products', path: '/products' },
   { label: 'Industries', path: '/industries' },
   { label: 'Our Work', path: '/projects' },
@@ -149,10 +151,21 @@ export default function Navbar() {
           >
             <div className="p-6 space-y-1 overflow-y-auto h-full">
               {navLinks.map(link => (
-                <Link key={link.path} to={link.path} className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
-                  {link.label}
-                  <ArrowRight className="w-3.5 h-3.5 opacity-40" />
-                </Link>
+                <div key={link.path}>
+                  <Link to={link.path} className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
+                    {link.label}
+                    {!link.sub && <ArrowRight className="w-3.5 h-3.5 opacity-40" />}
+                  </Link>
+                  {link.sub && (
+                    <div className="ml-4 mt-1 mb-2 space-y-0.5 border-l border-border pl-3">
+                      {link.sub.map(s => (
+                        <Link key={s.path} to={s.path} className="block px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all">
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="pt-4 space-y-3">
                 <a href="tel:+27117911562" className="flex items-center gap-2 px-4 py-3 rounded-xl bg-secondary text-sm font-medium text-foreground">

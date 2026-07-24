@@ -12,6 +12,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Services from '@/pages/Services';
+import ServiceDetail from '@/pages/ServiceDetail';
 import Products from '@/pages/Products';
 import Industries from '@/pages/Industries';
 import Projects from '@/pages/Projects';
@@ -64,6 +65,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/products" element={<Products />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/projects" element={<Projects />} />
