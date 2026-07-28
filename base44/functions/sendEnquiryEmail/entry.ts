@@ -11,7 +11,7 @@ function buildHtml({ type, fields, message, replyTo }) {
     .filter(f => f.value)
     .map(f => `
       <tr>
-        <td style="padding:8px 12px;background:#f1f5f9;color:#64748b;font-size:12px;font-weight:600;white-space:nowrap;border-bottom:1px solid #e2e8f0;width:140px">${sanitize(f.label)}</td>
+        <td style="padding:8px 12px;background:#f1f5f9;color:#64748b;font-size:12px;font-weight:600;white-space:nowrap;border-bottom:1px solid #e2e8f0;width:140px">${f.label}</td>
         <td style="padding:8px 12px;color:#0f172a;font-size:14px;border-bottom:1px solid #e2e8f0">${sanitize(f.value)}</td>
       </tr>`)
     .join('');
